@@ -1,805 +1,623 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Dragon Hub | Official Trading Channel</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dragon Hub | Official Trading Channel</title>
+
+    <meta
+        name="description"
+        content="Dragon Hub - Trading updates, market insights and educational information."
+    >
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
 
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cinzel:wght@700;800&display=swap"
-    rel="stylesheet"
-  >
+    <style>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+        * {
+            box-sizing: border-box;
+        }
 
-    html,
-    body {
-      width: 100%;
-      min-height: 100%;
-    }
+        body {
+            background-color: #0b0f19;
 
-    body {
-      min-height: 100vh;
-      overflow-x: hidden;
+            background-image:
+                radial-gradient(
+                    circle at 50% 20%,
+                    #1a1f35 0%,
+                    #0b0f19 70%
+                );
 
-      font-family: "Inter", sans-serif;
-      color: #ffffff;
+            min-height: 100vh;
 
-      background:
-        radial-gradient(
-          circle at 50% 20%,
-          rgba(69, 66, 170, 0.18),
-          transparent 30%
-        ),
-        radial-gradient(
-          circle at 80% 85%,
-          rgba(76, 42, 140, 0.15),
-          transparent 30%
-        ),
-        #080d1c;
-    }
+            font-family: "Inter", sans-serif;
 
-    /* Background glow */
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
+            overflow-x: hidden;
+        }
 
-      pointer-events: none;
+        .neon-glow {
+            box-shadow:
+                0 0 25px rgba(59, 130, 246, 0.6),
+                0 0 50px rgba(147, 51, 234, 0.4);
+        }
 
-      background:
-        radial-gradient(
-          circle at 50% 50%,
-          rgba(67, 113, 255, 0.05),
-          transparent 45%
-        );
-    }
+        .neon-button {
+            background:
+                linear-gradient(
+                    135deg,
+                    #00c6ff 0%,
+                    #0072ff 100%
+                );
 
-    .page {
-      min-height: 100vh;
+            box-shadow:
+                0 0 20px rgba(0, 198, 255, 0.7),
+                inset 0 0 10px rgba(255, 255, 255, 0.4);
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
+            transition: all 0.3s ease;
+        }
 
-      padding: 35px 14px;
-    }
+        .neon-button:hover {
+            box-shadow:
+                0 0 35px rgba(0, 198, 255, 0.9),
+                0 0 60px rgba(0, 114, 255, 0.7);
 
-    /* MAIN CONTAINER */
-    .main-box {
-      position: relative;
+            transform: translateY(-2px);
+        }
 
-      width: 100%;
-      max-width: 635px;
+        .neon-button:active {
+            transform: scale(0.98);
+        }
 
-      padding: 42px 28px 36px;
+        .avatar-ring {
+            background:
+                conic-gradient(
+                    from 0deg,
+                    #3b82f6,
+                    #9333ea,
+                    #06b6d4,
+                    #3b82f6
+                );
 
-      border-radius: 38px;
+            animation:
+                spin 4s linear infinite;
+        }
 
-      background:
-        linear-gradient(
-          145deg,
-          rgba(20, 31, 61, 0.96),
-          rgba(13, 18, 39, 0.98)
-        );
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
 
-      border: 1px solid rgba(101, 135, 207, 0.20);
+            100% {
+                transform: rotate(360deg);
+            }
+        }
 
-      box-shadow:
-        0 0 35px rgba(62, 93, 255, 0.18),
-        0 0 85px rgba(91, 55, 181, 0.14),
-        inset 0 1px 0 rgba(255,255,255,0.035);
+        .profile-image {
+            width: 100%;
+            height: 100%;
 
-      overflow: hidden;
-    }
+            object-fit: cover;
+            object-position: center;
 
-    /* Bottom purple glow */
-    .main-box::after {
-      content: "";
+            border-radius: 9999px;
+        }
 
-      position: absolute;
+    </style>
 
-      width: 380px;
-      height: 180px;
-
-      left: 50%;
-      bottom: -140px;
-
-      transform: translateX(-50%);
-
-      background: rgba(99, 54, 180, 0.30);
-
-      filter: blur(75px);
-
-      pointer-events: none;
-    }
-
-    .content {
-      position: relative;
-      z-index: 2;
-
-      text-align: center;
-    }
-
-    /* TOP CIRCLE */
-    .icon-ring {
-      position: relative;
-
-      width: 196px;
-      height: 196px;
-
-      margin: 0 auto 34px;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      border-radius: 50%;
-
-      background:
-        conic-gradient(
-          from 210deg,
-          #8446ff,
-          #3d9dff,
-          #00c9d8,
-          #8446ff
-        );
-
-      box-shadow:
-        0 0 25px rgba(93, 91, 255, 0.35),
-        0 0 55px rgba(54, 166, 255, 0.15);
-    }
-
-    .icon-ring::before {
-      content: "";
-
-      position: absolute;
-      inset: 8px;
-
-      border-radius: 50%;
-
-      background:
-        radial-gradient(
-          circle,
-          #18223b 0%,
-          #111a30 70%
-        );
-
-      border: 1px solid rgba(132, 160, 211, 0.28);
-    }
-
-    .icon-inner {
-      position: relative;
-      z-index: 2;
-
-      width: 130px;
-      height: 130px;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      border-radius: 50%;
-
-      color: #65a5ff;
-
-      font-size: 62px;
-
-      border: 2px solid rgba(101, 164, 255, 0.75);
-
-      box-shadow:
-        0 0 20px rgba(68, 143, 255, 0.16);
-    }
-
-    .verified {
-      position: absolute;
-
-      z-index: 5;
-
-      right: 17px;
-      bottom: 17px;
-
-      width: 39px;
-      height: 39px;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      border-radius: 50%;
-
-      background: #18c58b;
-
-      color: white;
-
-      font-size: 20px;
-      font-weight: 800;
-
-      border: 3px solid #16233b;
-
-      box-shadow:
-        0 0 18px rgba(24, 197, 139, 0.30);
-    }
-
-    /* BADGE */
-    .badge {
-      display: inline-flex;
-
-      align-items: center;
-      justify-content: center;
-
-      min-height: 51px;
-
-      padding: 0 25px;
-
-      border-radius: 30px;
-
-      background:
-        linear-gradient(
-          90deg,
-          rgba(44, 75, 174, 0.28),
-          rgba(48, 71, 154, 0.20)
-        );
-
-      border:
-        1px solid rgba(71, 119, 226, 0.38);
-
-      color: #9dbfff;
-
-      font-size: 16px;
-
-      letter-spacing: 0.8px;
-
-      box-shadow:
-        0 0 25px rgba(63, 112, 255, 0.08);
-    }
-
-    .badge-dot {
-      width: 12px;
-      height: 12px;
-
-      margin-right: 10px;
-
-      border-radius: 50%;
-
-      background: #31d69b;
-
-      box-shadow:
-        0 0 12px rgba(49, 214, 155, 0.45);
-    }
-
-    /* TITLE */
-    .title {
-      margin-top: 31px;
-
-      font-family: "Cinzel", serif;
-
-      font-size: clamp(36px, 8vw, 55px);
-
-      line-height: 1.12;
-
-      font-weight: 800;
-
-      letter-spacing: 1px;
-
-      background:
-        linear-gradient(
-          100deg,
-          #73a7ff,
-          #ffffff 45%,
-          #bca7ff
-        );
-
-      -webkit-background-clip: text;
-      background-clip: text;
-
-      color: transparent;
-
-      text-shadow:
-        0 0 30px rgba(95, 137, 255, 0.12);
-    }
-
-    .title-sub {
-      margin-top: 6px;
-
-      font-size: 15px;
-
-      font-weight: 700;
-
-      color: #9e8cff;
-
-      letter-spacing: 2px;
-    }
-
-    /* DESCRIPTION */
-    .description {
-      max-width: 510px;
-
-      margin: 27px auto 0;
-
-      font-size: 17px;
-
-      line-height: 1.65;
-
-      color: rgba(222, 229, 241, 0.78);
-    }
-
-    .description .highlight {
-      color: #43d9a1;
-    }
-
-    /* INFO ROW */
-    .info-row {
-      width: 100%;
-
-      max-width: 540px;
-
-      min-height: 67px;
-
-      margin: 31px auto 0;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      border-radius: 20px;
-
-      background:
-        rgba(14, 23, 45, 0.72);
-
-      border:
-        1px solid rgba(93, 119, 171, 0.17);
-
-      box-shadow:
-        inset 0 1px 0 rgba(255,255,255,0.025);
-    }
-
-    .info-item {
-      flex: 1;
-
-      font-size: 16px;
-
-      color: rgba(224, 231, 242, 0.70);
-    }
-
-    .info-item strong {
-      color: #ffffff;
-
-      font-size: 17px;
-    }
-
-    .info-dot {
-      display: inline-block;
-
-      width: 12px;
-      height: 12px;
-
-      margin-right: 8px;
-
-      border-radius: 50%;
-
-      vertical-align: -1px;
-
-      background: #35d99d;
-
-      box-shadow:
-        0 0 12px rgba(53, 217, 157, 0.35);
-    }
-
-    .info-dot.blue {
-      background: #65a8ff;
-
-      box-shadow:
-        0 0 12px rgba(101, 168, 255, 0.35);
-    }
-
-    .separator {
-      width: 1px;
-      height: 28px;
-
-      background:
-        rgba(146, 164, 198, 0.24);
-    }
-
-    /* CTA */
-    .join-btn {
-      position: relative;
-
-      width: 100%;
-      max-width: 540px;
-
-      min-height: 82px;
-
-      margin: 39px auto 0;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      gap: 15px;
-
-      border-radius: 23px;
-
-      text-decoration: none;
-
-      background:
-        linear-gradient(
-          105deg,
-          #18c8ef 0%,
-          #159de9 45%,
-          #326af1 100%
-        );
-
-      border:
-        1px solid rgba(102, 218, 255, 0.35);
-
-      color: #ffffff;
-
-      font-size: 22px;
-
-      font-weight: 800;
-
-      box-shadow:
-        0 12px 30px rgba(27, 160, 238, 0.27),
-        0 0 38px rgba(39, 156, 255, 0.20);
-
-      transition:
-        transform 0.2s ease,
-        filter 0.2s ease,
-        box-shadow 0.2s ease;
-    }
-
-    .join-btn:hover {
-      transform: translateY(-2px);
-
-      filter: brightness(1.07);
-
-      box-shadow:
-        0 17px 38px rgba(27, 160, 238, 0.35),
-        0 0 48px rgba(39, 156, 255, 0.27);
-    }
-
-    .join-btn:active {
-      transform: scale(0.985);
-    }
-
-    .telegram {
-      width: 34px;
-      height: 34px;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      border-radius: 50%;
-
-      background: rgba(255,255,255,0.95);
-
-      color: #169ce9;
-
-      font-size: 17px;
-
-      font-weight: 900;
-    }
-
-    /* SMALL TEXT */
-    .small-text {
-      margin: 27px auto 0;
-
-      color: rgba(191, 201, 220, 0.53);
-
-      font-size: 14px;
-
-      line-height: 1.6;
-    }
-
-    /* DISCLAIMER */
-    .disclaimer {
-      max-width: 530px;
-
-      margin: 29px auto 0;
-
-      padding-top: 22px;
-
-      border-top:
-        1px dashed rgba(126, 145, 184, 0.18);
-
-      color: rgba(180, 192, 215, 0.48);
-
-      font-size: 12px;
-
-      line-height: 1.65;
-    }
-
-    /* FOOTER */
-    .footer {
-      margin-top: 24px;
-
-      color: rgba(164, 176, 201, 0.35);
-
-      font-size: 11px;
-    }
-
-    /* MOBILE */
-    @media (max-width: 600px) {
-
-      .page {
-        padding: 30px 12px;
-      }
-
-      .main-box {
-        padding: 43px 20px 34px;
-
-        border-radius: 35px;
-      }
-
-      .icon-ring {
-        width: 185px;
-        height: 185px;
-
-        margin-bottom: 31px;
-      }
-
-      .icon-inner {
-        width: 122px;
-        height: 122px;
-
-        font-size: 57px;
-      }
-
-      .verified {
-        right: 14px;
-        bottom: 14px;
-
-        width: 38px;
-        height: 38px;
-      }
-
-      .badge {
-        min-height: 48px;
-
-        padding: 0 16px;
-
-        font-size: 13px;
-      }
-
-      .title {
-        font-size: 38px;
-      }
-
-      .description {
-        font-size: 15px;
-      }
-
-      .info-row {
-        min-height: 63px;
-
-        border-radius: 18px;
-      }
-
-      .info-item {
-        font-size: 13px;
-      }
-
-      .info-item strong {
-        font-size: 15px;
-      }
-
-      .join-btn {
-        min-height: 76px;
-
-        font-size: 19px;
-
-        border-radius: 21px;
-      }
-
-      .small-text {
-        font-size: 13px;
-      }
-
-      .disclaimer {
-        font-size: 11px;
-      }
-    }
-
-    @media (max-width: 390px) {
-
-      .main-box {
-        padding-left: 16px;
-        padding-right: 16px;
-      }
-
-      .icon-ring {
-        width: 170px;
-        height: 170px;
-      }
-
-      .icon-inner {
-        width: 112px;
-        height: 112px;
-
-        font-size: 52px;
-      }
-
-      .title {
-        font-size: 34px;
-      }
-
-      .badge {
-        font-size: 12px;
-      }
-
-      .info-item {
-        font-size: 12px;
-      }
-
-      .info-item strong {
-        font-size: 14px;
-      }
-
-      .join-btn {
-        font-size: 18px;
-      }
-    }
-  </style>
 </head>
 
-<body>
 
-  <main class="page">
+<body class="flex items-center justify-center p-4">
 
-    <section class="main-box">
 
-      <div class="content">
+    <!-- MAIN CARD -->
 
-        <!-- TOP ICON -->
-        <div class="icon-ring">
+    <div
+        class="
+        w-full
+        max-w-md
+        bg-[#13182b]/95
+        border
+        border-slate-800/80
+        rounded-3xl
+        p-6
+        md:p-8
+        text-center
+        neon-glow
+        backdrop-blur-md
+        relative
+        overflow-hidden
+        my-auto
+        "
+    >
 
-          <div class="icon-inner">
-            $
-          </div>
 
-          <div class="verified">
-            ✓
-          </div>
+        <!-- AMBIENT GLOW -->
+
+        <div
+            class="
+            absolute
+            -top-24
+            -left-24
+            w-48
+            h-48
+            bg-blue-500/20
+            rounded-full
+            blur-3xl
+            pointer-events-none
+            "
+        ></div>
+
+
+        <div
+            class="
+            absolute
+            -bottom-24
+            -right-24
+            w-48
+            h-48
+            bg-purple-500/20
+            rounded-full
+            blur-3xl
+            pointer-events-none
+            "
+        ></div>
+
+
+        <div class="relative z-10">
+
+
+            <!-- PROFILE IMAGE -->
+
+            <div
+                class="
+                relative
+                w-28
+                h-28
+                mx-auto
+                mb-5
+                "
+            >
+
+                <!-- Animated Ring -->
+
+                <div
+                    class="
+                    absolute
+                    inset-0
+                    avatar-ring
+                    rounded-full
+                    p-[3px]
+                    "
+                >
+
+                    <div
+                        class="
+                        w-full
+                        h-full
+                        bg-[#13182b]
+                        rounded-full
+                        "
+                    ></div>
+
+                </div>
+
+
+                <!-- ACTUAL IMAGE -->
+
+                <div
+                    class="
+                    absolute
+                    inset-2
+                    bg-gradient-to-tr
+                    from-slate-900
+                    to-slate-800
+                    rounded-full
+                    overflow-hidden
+                    border
+                    border-slate-700
+                    shadow-inner
+                    "
+                >
+
+                    <img
+                        src="IMG_20260829_214824_735.jpg"
+                        alt="Dragon Hub"
+                        class="profile-image"
+                    >
+
+                </div>
+
+
+                <!-- VERIFIED BADGE -->
+
+                <div
+                    class="
+                    absolute
+                    bottom-1
+                    right-1
+                    bg-emerald-500
+                    text-white
+                    rounded-full
+                    p-1
+                    border-2
+                    border-[#13182b]
+                    "
+                >
+
+                    <svg
+                        class="w-3 h-3"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="3"
+                        viewBox="0 0 24 24"
+                    >
+
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M5 13l4 4L19 7"
+                        ></path>
+
+                    </svg>
+
+                </div>
+
+            </div>
+
+
+            <!-- BADGE -->
+
+            <div
+                class="
+                inline-block
+                bg-gradient-to-r
+                from-blue-900/40
+                via-purple-900/40
+                to-blue-900/40
+                border
+                border-blue-500/30
+                px-4
+                py-1.5
+                rounded-full
+                mb-4
+                "
+            >
+
+                <span
+                    class="
+                    text-xs
+                    font-semibold
+                    tracking-wider
+                    text-blue-300
+                    uppercase
+                    flex
+                    items-center
+                    gap-1.5
+                    "
+                >
+
+                    <span
+                        class="
+                        w-2
+                        h-2
+                        rounded-full
+                        bg-emerald-400
+                        animate-pulse
+                        "
+                    ></span>
+
+                    OFFICIAL TRADING CHANNEL
+
+                </span>
+
+            </div>
+
+
+            <!-- TITLE -->
+
+            <h1
+                class="
+                text-3xl
+                md:text-4xl
+                font-black
+                tracking-wide
+                uppercase
+                bg-gradient-to-r
+                from-blue-400
+                via-indigo-300
+                to-purple-400
+                bg-clip-text
+                text-transparent
+                mb-3
+                "
+            >
+
+                ⚡ DRAGON HUB
+
+            </h1>
+
+
+            <!-- BRAND LINE -->
+
+            <div
+                class="
+                text-xs
+                font-bold
+                tracking-[3px]
+                text-purple-300
+                mb-3
+                "
+            >
+
+                TRADING • INSIGHTS • EDUCATION
+
+            </div>
+
+
+            <!-- SUBTITLE -->
+
+            <p
+                class="
+                text-xs
+                md:text-sm
+                text-slate-300
+                font-medium
+                mb-6
+                leading-relaxed
+                "
+            >
+
+                <span
+                    class="
+                    text-emerald-400
+                    font-semibold
+                    "
+                >
+                    Market Updates
+                </span>
+
+                &bull;
+
+                Trading Insights
+
+                &bull;
+
+                Educational Content
+
+            </p>
+
+
+            <!-- INFO ROW -->
+
+            <div
+                class="
+                flex
+                justify-center
+                items-center
+                gap-6
+                mb-8
+                text-xs
+                font-medium
+                text-slate-300
+                bg-slate-900/60
+                py-2.5
+                px-4
+                rounded-xl
+                border
+                border-slate-800
+                "
+            >
+
+                <div
+                    class="
+                    flex
+                    items-center
+                    gap-1.5
+                    "
+                >
+
+                    <span
+                        class="
+                        w-2
+                        h-2
+                        rounded-full
+                        bg-emerald-400
+                        "
+                    ></span>
+
+                    <strong class="text-white">
+                        FREE
+                    </strong>
+
+                    Insights
+
+                </div>
+
+
+                <div
+                    class="
+                    w-px
+                    h-4
+                    bg-slate-700
+                    "
+                ></div>
+
+
+                <div
+                    class="
+                    flex
+                    items-center
+                    gap-1.5
+                    "
+                >
+
+                    <span
+                        class="
+                        w-2
+                        h-2
+                        rounded-full
+                        bg-blue-400
+                        "
+                    ></span>
+
+                    <strong class="text-white">
+                        100%
+                    </strong>
+
+                    Educational
+
+                </div>
+
+            </div>
+
+
+            <!-- JOIN CHANNEL -->
+
+            <a
+                href="https://t.me/+rcU1nqNlF6tjYTI9"
+                onclick="trackSubscribe()"
+                target="_blank"
+                rel="noopener noreferrer"
+
+                class="
+                neon-button
+                text-white
+                font-bold
+                text-base
+                py-4
+                px-6
+                rounded-2xl
+                flex
+                items-center
+                justify-center
+                gap-3
+                w-full
+                mb-6
+                group
+                "
+            >
+
+                <!-- TELEGRAM ICON -->
+
+                <svg
+                    class="
+                    w-6
+                    h-6
+                    fill-white
+                    group-hover:scale-110
+                    transition-transform
+                    "
+                    viewBox="0 0 24 24"
+                >
+
+                    <path
+                        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-1.99 1.27-5.62 3.73-.53.36-1.01.54-1.44.53-.47-.01-1.38-.26-2.06-.48-.83-.27-1.49-.42-1.43-.88.03-.24.37-.49 1.02-.75 3.98-1.73 6.64-2.87 7.98-3.44 3.8-1.59 4.59-1.87 5.1-1.88.11 0 .37.03.54.17.14.12.18.28.2.45-.02.07-.02.13-.04.23z"
+                    />
+
+                </svg>
+
+
+                <span>
+                    JOIN CHANNEL NOW
+                </span>
+
+            </a>
+
+
+            <!-- SMALL TEXT -->
+
+            <p
+                class="
+                text-[10px]
+                text-slate-500
+                leading-normal
+                px-2
+                "
+            >
+
+                Stay informed with market updates,
+                trading insights and educational information.
+
+            </p>
+
+
+            <!-- DISCLAIMER -->
+
+            <p
+                class="
+                text-[10px]
+                text-slate-600
+                leading-normal
+                px-2
+                mt-4
+                "
+            >
+
+                This channel provides general educational
+                and informational content only. It is not
+                financial advice. Trading involves risk and
+                no profits or outcomes are guaranteed.
+
+            </p>
+
+
+            <!-- FOOTER -->
+
+            <p
+                class="
+                text-[10px]
+                text-slate-600
+                mt-3
+                "
+            >
+
+                &copy; 2026 Dragon Hub. All rights reserved.
+
+            </p>
 
         </div>
 
-
-        <!-- BADGE -->
-        <div class="badge">
-          <span class="badge-dot"></span>
-          TRADING UPDATES &amp; INSIGHTS
-        </div>
+    </div>
 
 
-        <!-- TITLE -->
-        <h1 class="title">
-          DRAGON HUB
-        </h1>
+    <!-- =========================
+         SUBSCRIBE FUNCTION
+         =========================
+         
+         Pixel code is NOT included.
+         Add your Pixel later if required.
+    -->
 
-        <div class="title-sub">
-          OFFICIAL
-        </div>
+    <script>
 
+        function trackSubscribe() {
 
-        <!-- DESCRIPTION -->
-        <p class="description">
-          <span class="highlight">Market Updates</span>
-          • Trading Insights • Educational Content
-          • Growing Community
-        </p>
+            /*
+             * Meta Pixel intentionally not included.
+             * This function is kept ready for later tracking.
+             */
 
-
-        <!-- INFO -->
-        <div class="info-row">
-
-          <div class="info-item">
-            <span class="info-dot"></span>
-            <strong>FREE</strong>
-            &nbsp;Content
-          </div>
-
-          <div class="separator"></div>
-
-          <div class="info-item">
-            <span class="info-dot blue"></span>
-            <strong>100%</strong>
-            &nbsp;Educational
-          </div>
-
-        </div>
-
-
-        <!-- CTA -->
-        <a
-          href="https://t.me/+rcU1nqNlF6tjYTI9"
-          class="join-btn"
-          id="joinChannel"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-
-          <span class="telegram">
-            ➤
-          </span>
-
-          JOIN CHANNEL NOW
-
-        </a>
-
-
-        <!-- SUPPORTING TEXT -->
-        <p class="small-text">
-          Stay informed with market updates, trading insights
-          and educational information.
-        </p>
-
-
-        <!-- DISCLAIMER -->
-        <p class="disclaimer">
-          Disclaimer: This channel provides trading-related
-          information and educational content for general
-          informational purposes only. It does not constitute
-          financial advice. Trading involves risk and no
-          outcomes or profits are guaranteed. Please conduct
-          your own research and make independent decisions.
-        </p>
-
-
-        <!-- FOOTER -->
-        <div class="footer">
-          © 2026 Dragon Hub. All rights reserved.
-        </div>
-
-      </div>
-
-    </section>
-
-  </main>
-
-
-  <!-- =========================================
-       SUBSCRIBE TRACKING
-       ========================================= -->
-
-  <script>
-
-    document
-      .getElementById("joinChannel")
-      .addEventListener("click", function () {
-
-        /*
-          Subscribe event ONLY.
-          Lead event is NOT used.
-
-          Meta Pixel base code can be added
-          separately in the <head>.
-        */
-
-        if (typeof fbq === "function") {
-
-          fbq(
-            "track",
-            "Subscribe"
-          );
+            console.log("Subscribe clicked");
 
         }
 
-        console.log("Subscribe event fired");
-
-      });
-
-  </script>
+    </script>
 
 </body>
-</html>
+              </html>
