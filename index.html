@@ -1,886 +1,775 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Official Channel</title>
+<title>Official Channel</title>
 
-  <meta name="description"
-        content="Join the official community for the latest updates and exclusive content.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<style>
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet">
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-  <style>
+:root{
+    --bg:#030405;
+    --white:#f4f7fb;
+    --muted:#7e8794;
+    --blue:#4fc9ff;
+    --blue2:#2777ff;
+    --violet:#7568ff;
+}
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+html{
+    scroll-behavior:smooth;
+}
 
-    :root {
-      --black: #020305;
-      --panel: rgba(12,16,23,.70);
-      --line: rgba(255,255,255,.08);
+body{
+    background:var(--bg);
+    color:var(--white);
+    font-family:"DM Sans",sans-serif;
+    overflow-x:hidden;
+}
 
-      --white: #f7fbff;
-      --gray: #8994a5;
+/* =================================
+   BACKGROUND
+================================= */
 
-      --cyan: #55dcff;
-      --blue: #328cff;
-      --violet: #756cff;
-    }
+body:before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
 
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      min-height: 100vh;
-      background: #020305;
-      color: var(--white);
-      font-family: "Inter", sans-serif;
-      overflow-x: hidden;
-    }
-
-    /* =========================
-       BACKGROUND
-    ========================= */
-
-    .background {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      overflow: hidden;
-      z-index: 0;
-    }
-
-    .orb {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(90px);
-      opacity: .18;
-    }
-
-    .orb.one {
-      width: 350px;
-      height: 350px;
-      background: #168dff;
-      top: -180px;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-
-    .orb.two {
-      width: 250px;
-      height: 250px;
-      background: #6b5cff;
-      right: -130px;
-      top: 38%;
-    }
-
-    .orb.three {
-      width: 230px;
-      height: 230px;
-      background: #00d9ff;
-      left: -130px;
-      bottom: 10%;
-    }
-
-    .grid {
-      position: absolute;
-      inset: 0;
-
-      background-image:
-        linear-gradient(
-          rgba(255,255,255,.018) 1px,
-          transparent 1px
+    background:
+        radial-gradient(
+            circle at 50% 15%,
+            rgba(39,119,255,.14),
+            transparent 30%
         ),
+        radial-gradient(
+            circle at 10% 85%,
+            rgba(117,104,255,.08),
+            transparent 25%
+        );
+
+    z-index:-3;
+}
+
+.noise{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    opacity:.025;
+    z-index:10;
+
+    background-image:
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
+}
+
+/* =================================
+   PAGE
+================================= */
+
+.container{
+    width:min(100%,620px);
+    margin:auto;
+    padding:16px;
+}
+
+/* =================================
+   FLOATING NAV
+================================= */
+
+.nav{
+    height:54px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 6px 0 15px;
+
+    background:rgba(12,14,18,.72);
+
+    border:1px solid rgba(255,255,255,.07);
+
+    border-radius:100px;
+
+    backdrop-filter:blur(25px);
+
+    box-shadow:
+        0 15px 50px rgba(0,0,0,.35);
+
+    position:relative;
+    z-index:5;
+}
+
+.nav-brand{
+    display:flex;
+    align-items:center;
+    gap:9px;
+
+    font-size:10px;
+    font-weight:700;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+}
+
+.nav-mark{
+    width:8px;
+    height:8px;
+
+    border-radius:50%;
+
+    background:var(--blue);
+
+    box-shadow:
+        0 0 15px var(--blue);
+}
+
+.nav-right{
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.nav-live{
+    font-size:9px;
+    color:#737d8b;
+}
+
+.nav-dot{
+    width:5px;
+    height:5px;
+    border-radius:50%;
+    background:#55e7a0;
+    box-shadow:0 0 9px #55e7a0;
+}
+
+/* =================================
+   HERO
+================================= */
+
+.hero{
+    min-height:calc(100vh - 100px);
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+
+    padding:
+        55px
+        4px
+        30px;
+
+    position:relative;
+}
+
+/* giant background number */
+
+.hero-number{
+    position:absolute;
+
+    top:80px;
+    right:-25px;
+
+    font-family:"Space Grotesk",sans-serif;
+
+    font-size:190px;
+    font-weight:700;
+
+    line-height:1;
+
+    color:rgba(255,255,255,.018);
+
+    user-select:none;
+    pointer-events:none;
+}
+
+/* eyebrow */
+
+.eyebrow{
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    margin-bottom:24px;
+
+    color:#8793a2;
+
+    font-size:10px;
+    font-weight:600;
+
+    letter-spacing:2px;
+    text-transform:uppercase;
+}
+
+.eyebrow-line{
+    width:30px;
+    height:1px;
+
+    background:
         linear-gradient(
-          90deg,
-          rgba(255,255,255,.018) 1px,
-          transparent 1px
+            90deg,
+            var(--blue),
+            transparent
+        );
+}
+
+/* =================================
+   TITLE
+================================= */
+
+.title{
+    font-family:"Space Grotesk",sans-serif;
+
+    font-size:
+        clamp(
+            48px,
+            14vw,
+            82px
         );
 
-      background-size: 55px 55px;
+    line-height:.91;
 
-      mask-image:
+    letter-spacing:-4px;
+
+    font-weight:600;
+
+    position:relative;
+    z-index:2;
+}
+
+.title-line{
+    display:block;
+}
+
+.title-muted{
+    color:#6e7784;
+}
+
+.title-gradient{
+    background:
         linear-gradient(
-          to bottom,
-          black,
-          transparent 75%
-        );
-    }
-
-
-    /* =========================
-       PAGE
-    ========================= */
-
-    .page {
-      position: relative;
-      z-index: 2;
-
-      width: 100%;
-      max-width: 620px;
-
-      margin: auto;
-
-      padding:
-        18px
-        16px
-        50px;
-    }
-
-
-    /* =========================
-       TOP NAV
-    ========================= */
-
-    .nav {
-      height: 52px;
-
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-
-      margin-bottom: 40px;
-    }
-
-    .mini-brand {
-      display: flex;
-      align-items: center;
-      gap: 9px;
-
-      font-size: 10px;
-      font-weight: 700;
-
-      letter-spacing: 1.7px;
-      text-transform: uppercase;
-
-      color: #b7c3d3;
-    }
-
-    .brand-light {
-      width: 7px;
-      height: 7px;
-
-      border-radius: 50%;
-
-      background: var(--cyan);
-
-      box-shadow:
-        0 0 12px var(--cyan),
-        0 0 25px rgba(85,220,255,.35);
-    }
-
-    .online {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-
-      padding: 8px 11px;
-
-      border-radius: 50px;
-
-      background: rgba(255,255,255,.035);
-      border: 1px solid var(--line);
-
-      font-size: 9px;
-      color: #8490a0;
-    }
-
-    .online-dot {
-      width: 5px;
-      height: 5px;
-
-      border-radius: 50%;
-
-      background: #5ef1ae;
-
-      box-shadow: 0 0 10px #5ef1ae;
-    }
-
-
-    /* =========================
-       HERO
-    ========================= */
-
-    .hero {
-      text-align: center;
-    }
-
-
-    /* LOGO */
-
-    .logo-area {
-      position: relative;
-
-      width: 142px;
-      height: 142px;
-
-      margin:
-        0 auto
-        27px;
-
-      display: grid;
-      place-items: center;
-    }
-
-    .logo-ring {
-      position: absolute;
-      inset: 0;
-
-      border-radius: 50%;
-
-      background:
-        conic-gradient(
-          from 180deg,
-          transparent,
-          rgba(85,220,255,.8),
-          transparent 35%,
-          rgba(117,108,255,.7),
-          transparent 70%
+            100deg,
+            #fff 10%,
+            #9eeaff 48%,
+            #628dff 90%
         );
 
-      animation: rotate 8s linear infinite;
+    -webkit-background-clip:text;
+    background-clip:text;
 
-      filter:
-        drop-shadow(
-          0 0 20px
-          rgba(85,220,255,.22)
+    color:transparent;
+}
+
+/* =================================
+   INTRO
+================================= */
+
+.intro{
+    max-width:390px;
+
+    margin-top:30px;
+    margin-left:2px;
+
+    color:#858f9d;
+
+    font-size:13px;
+
+    line-height:1.8;
+}
+
+/* =================================
+   LOGO FLOAT
+================================= */
+
+.logo-float{
+    position:absolute;
+
+    right:10px;
+    top:46%;
+
+    transform:translateY(-50%);
+
+    width:112px;
+    height:112px;
+
+    border-radius:50%;
+
+    padding:4px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(92,218,255,.9),
+            rgba(70,113,255,.25),
+            rgba(117,104,255,.7)
         );
+
+    box-shadow:
+        0 0 50px rgba(48,164,255,.15);
+}
+
+.logo-float:before{
+    content:"";
+
+    position:absolute;
+    inset:-14px;
+
+    border-radius:50%;
+
+    border:1px solid rgba(82,201,255,.12);
+
+    animation:pulse 3s ease-in-out infinite;
+}
+
+.logo{
+    width:100%;
+    height:100%;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    background:#090c11;
+
+    border:4px solid #05070a;
+
+    position:relative;
+    z-index:2;
+}
+
+@keyframes pulse{
+
+    0%,100%{
+        transform:scale(.95);
+        opacity:.4;
     }
 
-    .logo-ring::after {
-      content: "";
-
-      position: absolute;
-
-      inset: 2px;
-
-      border-radius: 50%;
-
-      background: #03060a;
+    50%{
+        transform:scale(1.05);
+        opacity:1;
     }
+}
 
-    .logo {
-      position: relative;
-      z-index: 2;
+/* =================================
+   SCROLL INDICATOR
+================================= */
 
-      width: 116px;
-      height: 116px;
+.scroll{
+    display:flex;
+    align-items:center;
+    gap:12px;
 
-      border-radius: 50%;
+    margin-top:55px;
 
-      object-fit: cover;
+    color:#4e5865;
 
-      border:
-        4px solid
+    font-size:8px;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+}
+
+.scroll-line{
+    width:38px;
+    height:1px;
+
+    background:#313944;
+}
+
+/* =================================
+   SECOND SECTION
+================================= */
+
+.info{
+    padding:
+        15px 2px
+        120px;
+}
+
+.info-label{
+    color:#697483;
+
+    font-size:9px;
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    margin-bottom:18px;
+}
+
+.info-title{
+    font-family:"Space Grotesk",sans-serif;
+
+    font-size:27px;
+
+    line-height:1.15;
+
+    letter-spacing:-1px;
+
+    max-width:390px;
+}
+
+.info-title span{
+    color:#6d7886;
+}
+
+/* =================================
+   MINIMAL ITEMS
+================================= */
+
+.items{
+    margin-top:40px;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.07);
+}
+
+.item{
+    min-height:76px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    border-bottom:
+        1px solid
         rgba(255,255,255,.07);
 
-      box-shadow:
-        0 15px 50px rgba(0,0,0,.65),
-        0 0 45px rgba(51,179,255,.14);
+    transition:.25s ease;
+}
 
-      background: #080c12;
-    }
+.item:hover{
+    padding-left:8px;
+}
 
-    @keyframes rotate {
-      to {
-        transform: rotate(360deg);
-      }
-    }
+.item-left{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
 
+.item-number{
+    color:#39414d;
 
-    /* VERIFIED */
+    font-family:"Space Grotesk",sans-serif;
 
-    .verified {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
+    font-size:10px;
+}
 
-      padding:
-        7px
-        12px;
+.item-name{
+    font-size:12px;
+    font-weight:600;
 
-      border-radius: 50px;
+    color:#dce3eb;
+}
 
-      background:
-        rgba(85,220,255,.055);
+.item-desc{
+    font-size:9px;
+    color:#626d7c;
 
-      border:
+    margin-top:3px;
+}
+
+.item-arrow{
+    width:28px;
+    height:28px;
+
+    border-radius:50%;
+
+    display:grid;
+    place-items:center;
+
+    color:#78ddff;
+
+    border:
         1px solid
-        rgba(85,220,255,.15);
+        rgba(85,211,255,.12);
 
-      color: #8fe8ff;
+    background:
+        rgba(85,211,255,.035);
+}
 
-      font-size: 9px;
-      font-weight: 700;
+/* =================================
+   CTA SECTION
+================================= */
 
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
+.cta-section{
+    position:relative;
 
-      margin-bottom: 17px;
-    }
+    margin:
+        0 0
+        20px;
 
-    .check {
-      width: 13px;
-      height: 13px;
+    padding:25px;
 
-      display: grid;
-      place-items: center;
+    min-height:250px;
 
-      border-radius: 50%;
+    border-radius:30px;
 
-      background:
+    overflow:hidden;
+
+    background:
+        radial-gradient(
+            circle at 85% 20%,
+            rgba(67,172,255,.18),
+            transparent 32%
+        ),
         linear-gradient(
-          135deg,
-          var(--cyan),
-          var(--blue)
+            145deg,
+            #0d121a,
+            #07090d
         );
 
-      color: #031018;
-
-      font-size: 8px;
-    }
-
-
-    /* HEADING */
-
-    h1 {
-      font-size:
-        clamp(
-          39px,
-          11vw,
-          62px
-        );
-
-      line-height: .98;
-
-      letter-spacing: -3px;
-
-      font-weight: 800;
-
-      margin-bottom: 19px;
-    }
-
-    h1 .normal {
-      display: block;
-      color: #f4f7fb;
-    }
-
-    h1 .gradient {
-      display: block;
-
-      background:
-        linear-gradient(
-          100deg,
-          #ffffff 10%,
-          #9cecff 50%,
-          #6d9dff 90%
-        );
-
-      -webkit-background-clip: text;
-      background-clip: text;
-
-      color: transparent;
-    }
-
-
-    .description {
-      max-width: 450px;
-
-      margin:
-        0 auto;
-
-      color: var(--gray);
-
-      font-size: 13px;
-
-      line-height: 1.8;
-    }
-
-
-    /* =========================
-       MEMBERS
-    ========================= */
-
-    .member-strip {
-
-      margin-top: 30px;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-    }
-
-    .faces {
-      display: flex;
-      padding-left: 8px;
-    }
-
-    .face {
-      width: 28px;
-      height: 28px;
-
-      border-radius: 50%;
-
-      margin-left: -8px;
-
-      border:
-        2px solid
-        #05080c;
-
-      background:
-        linear-gradient(
-          135deg,
-          #273342,
-          #101722
-        );
-    }
-
-    .members-text {
-      text-align: left;
-    }
-
-    .members-text strong {
-      display: block;
-
-      font-size: 11px;
-
-      color: #d9e2ec;
-    }
-
-    .members-text span {
-      font-size: 9px;
-      color: #687485;
-    }
-
-
-    /* =========================
-       MAIN PANEL
-    ========================= */
-
-    .panel {
-
-      margin-top: 35px;
-
-      padding: 20px;
-
-      border-radius: 27px;
-
-      background:
-        linear-gradient(
-          145deg,
-          rgba(18,24,34,.82),
-          rgba(7,10,15,.74)
-        );
-
-      border:
+    border:
         1px solid
-        rgba(255,255,255,.075);
+        rgba(255,255,255,.08);
 
-      box-shadow:
-        0 30px 90px
-        rgba(0,0,0,.48),
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+}
+
+/* glowing circle */
+
+.cta-section:after{
+    content:"";
+
+    position:absolute;
+
+    width:180px;
+    height:180px;
+
+    right:-75px;
+    top:-75px;
+
+    border-radius:50%;
+
+    border:1px solid
+        rgba(87,207,255,.16);
+
+    box-shadow:
+        0 0 70px
+        rgba(55,170,255,.08);
+}
+
+.cta-small{
+    color:#657080;
+
+    font-size:9px;
+
+    letter-spacing:1.8px;
+
+    text-transform:uppercase;
+}
+
+.cta-title{
+    position:relative;
+    z-index:2;
+
+    font-family:"Space Grotesk",sans-serif;
+
+    font-size:32px;
+
+    line-height:1.05;
+
+    letter-spacing:-1.5px;
+}
+
+.cta-title span{
+    color:#6d7887;
+}
+
+.cta-button{
+    position:relative;
+    z-index:3;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    width:100%;
+
+    min-height:58px;
+
+    padding:
+        0 9px
+        0 20px;
+
+    border-radius:16px;
+
+    text-decoration:none;
+
+    color:#031018;
+
+    font-size:12px;
+    font-weight:800;
+
+    background:
+        linear-gradient(
+            100deg,
+            #7beaff,
+            #3dbfff 50%,
+            #7288ff
+        );
+
+    box-shadow:
+        0 15px 35px
+        rgba(54,177,255,.17),
 
         inset 0 1px 0
-        rgba(255,255,255,.035);
+        rgba(255,255,255,.6);
 
-      backdrop-filter:
-        blur(24px);
+    transition:.2s ease;
+}
+
+.cta-button:hover{
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 20px 50px
+        rgba(54,177,255,.28);
+}
+
+.cta-arrow{
+    width:40px;
+    height:40px;
+
+    border-radius:12px;
+
+    display:grid;
+    place-items:center;
+
+    background:
+        rgba(0,0,0,.13);
+
+    font-size:18px;
+}
+
+/* =================================
+   FOOTER
+================================= */
+
+footer{
+    text-align:center;
+
+    padding:5px 0 25px;
+
+    color:#343c47;
+
+    font-size:8px;
+
+    letter-spacing:1.4px;
+
+    text-transform:uppercase;
+}
+
+/* =================================
+   MOBILE
+================================= */
+
+@media(max-width:500px){
+
+    .hero{
+        min-height:
+            calc(100vh - 90px);
+
+        padding-top:65px;
     }
 
-
-    /* =========================
-       TOP CARD
-    ========================= */
-
-    .panel-top {
-
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-
-      margin-bottom: 17px;
+    .hero-number{
+        font-size:150px;
+        right:-15px;
+        top:110px;
     }
 
-    .panel-title {
+    .logo-float{
+        width:86px;
+        height:86px;
 
-      font-size: 12px;
-
-      font-weight: 700;
-
-      color: #e5ebf2;
+        right:5px;
+        top:38%;
     }
 
-    .secure {
+    .title{
+        font-size:
+            clamp(
+                45px,
+                14vw,
+                70px
+            );
 
-      display: flex;
-      align-items: center;
-      gap: 6px;
+        letter-spacing:-3.5px;
 
-      color: #697688;
-
-      font-size: 8px;
-
-      letter-spacing: 1px;
-
-      text-transform: uppercase;
+        max-width:95%;
     }
 
-    .lock {
-
-      font-size: 11px;
-      color: #73dfff;
+    .intro{
+        max-width:300px;
     }
 
+}
 
-    /* =========================
-       FEATURES
-    ========================= */
+@media(max-width:370px){
 
-    .feature {
-
-      display: flex;
-      align-items: center;
-
-      gap: 13px;
-
-      padding: 14px;
-
-      margin-bottom: 9px;
-
-      border-radius: 17px;
-
-      background:
-        rgba(255,255,255,.025);
-
-      border:
-        1px solid
-        rgba(255,255,255,.045);
-
-      transition:
-        .25s ease;
+    .title{
+        font-size:43px;
     }
 
-    .feature:last-child {
-      margin-bottom: 0;
+    .logo-float{
+        width:76px;
+        height:76px;
     }
 
-    .feature:hover {
-      transform: translateY(-2px);
-
-      background:
-        rgba(85,220,255,.035);
-
-      border-color:
-        rgba(85,220,255,.13);
+    .cta-title{
+        font-size:28px;
     }
 
-    .icon {
+}
 
-      width: 41px;
-      height: 41px;
-
-      flex-shrink: 0;
-
-      display: grid;
-      place-items: center;
-
-      border-radius: 13px;
-
-      background:
-        linear-gradient(
-          145deg,
-          rgba(85,220,255,.10),
-          rgba(117,108,255,.055)
-        );
-
-      border:
-        1px solid
-        rgba(85,220,255,.12);
-
-      color: #7ce6ff;
-
-      font-size: 15px;
-
-      box-shadow:
-        inset 0 1px 0
-        rgba(255,255,255,.04);
-    }
-
-    .feature-content strong {
-
-      display: block;
-
-      font-size: 11px;
-
-      font-weight: 700;
-
-      color: #e3eaf2;
-
-      margin-bottom: 4px;
-    }
-
-    .feature-content span {
-
-      display: block;
-
-      color: #657181;
-
-      font-size: 9px;
-
-      line-height: 1.45;
-    }
-
-
-    /* =========================
-       CTA
-    ========================= */
-
-    .cta-area {
-      margin-top: 17px;
-    }
-
-    .cta {
-
-      position: relative;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      width: 100%;
-      min-height: 65px;
-
-      border-radius: 17px;
-
-      text-decoration: none;
-
-      overflow: hidden;
-
-      background:
-        linear-gradient(
-          105deg,
-          #70e8ff 0%,
-          #36baff 48%,
-          #7081ff 100%
-        );
-
-      color: #031019;
-
-      font-size: 14px;
-
-      font-weight: 800;
-
-      letter-spacing: -.1px;
-
-      box-shadow:
-        0 15px 40px
-        rgba(40,175,255,.20),
-
-        inset 0 1px 0
-        rgba(255,255,255,.55);
-
-      transition:
-        transform .2s ease,
-        box-shadow .2s ease;
-    }
-
-    .cta:hover {
-
-      transform:
-        translateY(-3px);
-
-      box-shadow:
-        0 20px 55px
-        rgba(40,175,255,.32),
-
-        inset 0 1px 0
-        rgba(255,255,255,.65);
-    }
-
-    .cta-shine {
-
-      position: absolute;
-
-      width: 80px;
-      height: 140%;
-
-      top: -20%;
-
-      left: -130px;
-
-      background:
-        rgba(255,255,255,.30);
-
-      transform:
-        rotate(20deg);
-
-      filter:
-        blur(8px);
-
-      animation:
-        shine 4s infinite;
-    }
-
-    @keyframes shine {
-
-      0% {
-        left: -130px;
-      }
-
-      55%,
-      100% {
-        left: 120%;
-      }
-    }
-
-    .cta-content {
-
-      position: relative;
-      z-index: 2;
-
-      display: flex;
-      align-items: center;
-
-      gap: 11px;
-    }
-
-    .arrow {
-
-      width: 25px;
-      height: 25px;
-
-      display: grid;
-      place-items: center;
-
-      border-radius: 50%;
-
-      background:
-        rgba(0,0,0,.10);
-
-      font-size: 14px;
-    }
-
-    .small-note {
-
-      text-align: center;
-
-      margin-top: 10px;
-
-      color: #4f5a69;
-
-      font-size: 8px;
-
-      letter-spacing: .5px;
-    }
-
-
-    /* =========================
-       FOOTER
-    ========================= */
-
-    footer {
-
-      text-align: center;
-
-      margin-top: 25px;
-
-      color: #343e4b;
-
-      font-size: 8px;
-
-      letter-spacing: 1.3px;
-
-      text-transform: uppercase;
-    }
-
-
-    /* =========================
-       RESPONSIVE
-    ========================= */
-
-    @media (max-width: 390px) {
-
-      .page {
-        padding-left: 13px;
-        padding-right: 13px;
-      }
-
-      h1 {
-        font-size: 37px;
-        letter-spacing: -2.5px;
-      }
-
-      .logo-area {
-        width: 125px;
-        height: 125px;
-      }
-
-      .logo {
-        width: 103px;
-        height: 103px;
-      }
-
-      .panel {
-        padding: 16px;
-      }
-
-    }
-
-  </style>
+</style>
 </head>
 
 
 <body>
 
-
-  <!-- BACKGROUND -->
-
-  <div class="background">
-
-    <div class="orb one"></div>
-    <div class="orb two"></div>
-    <div class="orb three"></div>
-
-    <div class="grid"></div>
-
-  </div>
+<div class="noise"></div>
 
 
+<div class="container">
 
-  <main class="page">
 
-
-    <!-- NAV -->
+    <!-- FLOATING NAV -->
 
     <nav class="nav">
 
-      <div class="mini-brand">
+        <div class="nav-brand">
 
-        <span class="brand-light"></span>
+            <span class="nav-mark"></span>
 
-        Official Channel
+            Official Channel
 
-      </div>
+        </div>
 
+        <div class="nav-right">
 
-      <div class="online">
+            <span class="nav-dot"></span>
 
-        <span class="online-dot"></span>
+            <span class="nav-live">
+                Online
+            </span>
 
-        Online
-
-      </div>
+        </div>
 
     </nav>
 
@@ -890,225 +779,229 @@
 
     <section class="hero">
 
-
-      <!-- LOGO -->
-
-      <div class="logo-area">
-
-        <div class="logo-ring"></div>
-
-        <!-- PUT YOUR LOGO HERE -->
-
-        <img
-          src="logo.png"
-          alt="Official Logo"
-          class="logo"
-        >
-
-      </div>
+        <div class="hero-number">
+            01
+        </div>
 
 
+        <div class="eyebrow">
 
-      <!-- VERIFIED -->
+            <span class="eyebrow-line"></span>
 
-      <div class="verified">
-
-        <span class="check">✓</span>
-
-        Official Community
-
-      </div>
-
-
-
-      <!-- TITLE -->
-
-      <h1>
-
-        <span class="normal">
-          Your Next
-        </span>
-
-        <span class="gradient">
-          Update Starts Here.
-        </span>
-
-      </h1>
-
-
-
-      <p class="description">
-
-        Stay connected with the official community.
-        Get the latest updates, announcements and
-        exclusive content — all in one place.
-
-      </p>
-
-
-
-      <!-- MEMBERS -->
-
-      <div class="member-strip">
-
-        <div class="faces">
-
-          <div class="face"></div>
-          <div class="face"></div>
-          <div class="face"></div>
-          <div class="face"></div>
+            Welcome to the community
 
         </div>
 
 
-        <div class="members-text">
+        <h1 class="title">
 
-          <strong>5,000+ members</strong>
+            <span class="title-line">
+                Stay
+            </span>
 
-          <span>Already part of the community</span>
+            <span class="title-line title-muted">
+                Connected.
+            </span>
+
+            <span class="title-line title-gradient">
+                Stay Ahead.
+            </span>
+
+        </h1>
+
+
+        <p class="intro">
+
+            One official place for the latest updates,
+            announcements and community information.
+            Simple. Direct. Always connected.
+
+        </p>
+
+
+        <!-- FLOATING LOGO -->
+
+        <div class="logo-float">
+
+            <!-- Replace logo.png with your logo -->
+
+            <img
+                src="logo.png"
+                class="logo"
+                alt="Official Logo"
+            >
 
         </div>
 
-      </div>
+
+        <div class="scroll">
+
+            <span class="scroll-line"></span>
+
+            Explore below
+
+        </div>
 
     </section>
 
 
 
-    <!-- MAIN PANEL -->
+    <!-- INFO -->
 
-    <section class="panel">
+    <section class="info">
 
-
-      <div class="panel-top">
-
-        <div class="panel-title">
-          Inside the Community
+        <div class="info-label">
+            Inside the channel
         </div>
 
-        <div class="secure">
 
-          <span class="lock">✦</span>
+        <h2 class="info-title">
 
-          Official Access
-
-        </div>
-
-      </div>
-
-
-
-      <!-- FEATURE 1 -->
-
-      <div class="feature">
-
-        <div class="icon">
-          ✦
-        </div>
-
-        <div class="feature-content">
-
-          <strong>
-            Latest Updates
-          </strong>
-
-          <span>
-            Important announcements and new information,
-            delivered directly to the community.
-          </span>
-
-        </div>
-
-      </div>
-
-
-
-      <!-- FEATURE 2 -->
-
-      <div class="feature">
-
-        <div class="icon">
-          ◈
-        </div>
-
-        <div class="feature-content">
-
-          <strong>
-            Exclusive Content
-          </strong>
-
-          <span>
-            Discover community content and updates
-            available in one convenient place.
-          </span>
-
-        </div>
-
-      </div>
-
-
-
-      <!-- FEATURE 3 -->
-
-      <div class="feature">
-
-        <div class="icon">
-          ◎
-        </div>
-
-        <div class="feature-content">
-
-          <strong>
-            Stay Connected
-          </strong>
-
-          <span>
-            Join the official channel and never miss
-            an important update.
-          </span>
-
-        </div>
-
-      </div>
-
-
-
-      <!-- CTA -->
-
-      <div class="cta-area">
-
-        <!-- REPLACE WITH YOUR ACTUAL TELEGRAM LINK -->
-
-        <a
-          href="https://t.me/YOUR_CHANNEL"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="cta"
-          id="joinButton"
-        >
-
-          <span class="cta-shine"></span>
-
-          <span class="cta-content">
-
-            Join Official Channel
-
-            <span class="arrow">
-              →
+            Everything important,
+            <span>
+                in one place.
             </span>
 
-          </span>
-
-        </a>
+        </h2>
 
 
-        <div class="small-note">
+        <div class="items">
 
-          Secure access • Official community
+
+            <div class="item">
+
+                <div class="item-left">
+
+                    <div class="item-number">
+                        01
+                    </div>
+
+                    <div>
+
+                        <div class="item-name">
+                            Latest Updates
+                        </div>
+
+                        <div class="item-desc">
+                            Stay informed with new announcements
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="item-arrow">
+                    →
+                </div>
+
+            </div>
+
+
+
+            <div class="item">
+
+                <div class="item-left">
+
+                    <div class="item-number">
+                        02
+                    </div>
+
+                    <div>
+
+                        <div class="item-name">
+                            Exclusive Content
+                        </div>
+
+                        <div class="item-desc">
+                            Discover new community content
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="item-arrow">
+                    →
+                </div>
+
+            </div>
+
+
+
+            <div class="item">
+
+                <div class="item-left">
+
+                    <div class="item-number">
+                        03
+                    </div>
+
+                    <div>
+
+                        <div class="item-name">
+                            Direct Connection
+                        </div>
+
+                        <div class="item-desc">
+                            Everything delivered in one place
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="item-arrow">
+                    →
+                </div>
+
+            </div>
+
 
         </div>
 
-      </div>
+    </section>
+
+
+
+    <!-- CTA -->
+
+    <section class="cta-section">
+
+        <div class="cta-small">
+            Official access
+        </div>
+
+
+        <h2 class="cta-title">
+
+            Ready to
+            <span>join?</span>
+
+        </h2>
+
+
+        <!-- CHANGE LINK HERE -->
+
+        <a
+            href="https://t.me/YOUR_CHANNEL"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="cta-button"
+            id="joinButton"
+        >
+
+            <span>
+                JOIN OFFICIAL CHANNEL
+            </span>
+
+            <span class="cta-arrow">
+                →
+            </span>
+
+        </a>
 
     </section>
 
@@ -1116,42 +1009,41 @@
 
     <footer>
 
-      Official Community · All Rights Reserved
+        Official Community · All Rights Reserved
 
     </footer>
 
 
-  </main>
+</div>
 
 
 
-  <!-- BUTTON TRACKING -->
+<script>
 
-  <script>
+const button =
+    document.getElementById("joinButton");
 
-    const joinButton =
-      document.getElementById("joinButton");
+button.addEventListener(
+    "click",
+    function(){
 
-    joinButton.addEventListener("click", function () {
+        console.log(
+            "Official channel CTA clicked"
+        );
 
-      console.log(
-        "Official Channel CTA clicked"
-      );
+        /*
+        Meta Pixel later add cheyyali ante:
 
-      /*
-        Meta Pixel ni later add cheyyali ante
-        ikkada event add cheyyachu.
+        fbq('track','Lead');
 
-        Example:
+        ikkada add cheyyachu.
+        */
 
-        fbq('track', 'Lead');
+    }
+);
 
-      */
-
-    });
-
-  </script>
+</script>
 
 
 </body>
-            </html>
+  </html>
