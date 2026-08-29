@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Dragon Hub | Official Channel</title>
+  <title>Dragon Hub | Trading Insights</title>
 
   <meta
     name="description"
-    content="Dragon Hub - Updates, insights and community information."
+    content="Dragon Hub provides trading updates, market insights and educational information."
   >
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -160,7 +160,6 @@
 
     h1 {
       font-size: 38px;
-
       line-height: 1.15;
 
       font-weight: 800;
@@ -213,7 +212,7 @@
 
     /* JOIN BUTTON */
 
-    .subscribe-btn {
+    .join-btn {
       width: 100%;
       max-width: 335px;
 
@@ -259,7 +258,7 @@
       cursor: pointer;
     }
 
-    .subscribe-btn:hover {
+    .join-btn:hover {
       transform: translateY(-2px);
 
       filter: brightness(1.06);
@@ -269,7 +268,7 @@
         0 0 35px rgba(30,211,104,0.18);
     }
 
-    .subscribe-btn:active {
+    .join-btn:active {
       transform: scale(0.98);
     }
 
@@ -373,7 +372,7 @@
         font-size: 22px;
       }
 
-      .subscribe-btn {
+      .join-btn {
         max-width: 320px;
 
         min-height: 76px;
@@ -387,7 +386,6 @@
 
       .disclaimer {
         font-size: 14px;
-
         line-height: 1.65;
       }
     }
@@ -412,9 +410,8 @@
         font-size: 16px;
       }
 
-      .subscribe-btn {
+      .join-btn {
         min-height: 70px;
-
         font-size: 19px;
       }
     }
@@ -429,7 +426,7 @@
 
       <!-- TOP BADGE -->
       <div class="badge">
-        🏏 Dragon Hub Updates &amp; Insights
+        📈 Trading Updates &amp; Insights
       </div>
 
       <!-- LOGO -->
@@ -444,19 +441,19 @@
 
       <!-- DESCRIPTION -->
       <p class="description">
-        Honest updates • Useful insights • Community driven
+        Market insights • Trading education • Community driven
       </p>
 
       <!-- COUNTDOWN -->
       <div class="countdown">
-        FREE JOINING ENDS IN
+        JOINING WINDOW ENDS IN
         <span id="timer">46s</span>
       </div>
 
       <!-- JOIN CHANNEL -->
       <a
         href="https://t.me/+rcU1nqNlF6tjYTI9"
-        class="subscribe-btn"
+        class="join-btn"
         id="subscribeButton"
         target="_blank"
         rel="noopener noreferrer"
@@ -470,17 +467,18 @@
 
       <!-- SUPPORTING TEXT -->
       <p class="small-text">
-        Stay informed with transparent updates and insights
+        Stay informed with market updates and educational insights
       </p>
 
       <div class="divider"></div>
 
       <!-- DISCLAIMER -->
       <p class="disclaimer">
-        Disclaimer: This channel shares updates, analysis,
-        and general information for community members.
-        No outcomes are guaranteed. Please verify information
-        independently and act responsibly.
+        Disclaimer: This channel provides trading-related information,
+        market commentary and educational content for general informational
+        purposes only. It is not financial advice. No profits or outcomes
+        are guaranteed. Please do your own research and make independent
+        decisions.
       </p>
 
     </section>
@@ -489,7 +487,8 @@
 
 
   <!-- ==========================================
-       META SUBSCRIBE TRACKING
+       SUBSCRIBE TRACKING
+       Lead event is NOT used.
        ========================================== -->
 
   <script>
@@ -521,8 +520,11 @@
       .addEventListener("click", function () {
 
         /*
-          Only Subscribe event.
-          Lead event is NOT used.
+          Meta Pixel base code should be
+          added separately.
+
+          Only Subscribe event is fired.
+          No Lead event.
         */
 
         if (typeof fbq === "function") {
