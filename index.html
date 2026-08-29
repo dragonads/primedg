@@ -4,13 +4,21 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Official Channel</title>
+<title>Official Community</title>
+
+<meta name="description"
+content="Join the official community for the latest updates and exclusive content.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
+
+/* =====================================================
+   RESET
+===================================================== */
 
 *{
     margin:0;
@@ -18,413 +26,378 @@
     box-sizing:border-box;
 }
 
-:root{
-    --bg:#030405;
-    --white:#f7f9fc;
-    --muted:#747d89;
-    --blue:#56d8ff;
-    --blue2:#397cff;
-    --purple:#786bff;
-}
-
 html{
     scroll-behavior:smooth;
 }
 
 body{
-    min-height:100vh;
     background:#030405;
-    color:var(--white);
+    color:#f5f8fc;
     font-family:"Inter",sans-serif;
     overflow-x:hidden;
 }
 
-/* =========================================
-   CINEMATIC BACKGROUND
-========================================= */
+:root{
+    --bg:#030405;
+    --bg2:#070a0f;
 
-.background{
+    --white:#f5f8fc;
+    --muted:#7d8795;
+    --dim:#4f5967;
+
+    --cyan:#59ddff;
+    --blue:#378cff;
+    --violet:#786cff;
+
+    --line:rgba(255,255,255,.075);
+}
+
+
+/* =====================================================
+   BACKGROUND
+===================================================== */
+
+body::before{
+    content:"";
     position:fixed;
     inset:0;
-    overflow:hidden;
-    pointer-events:none;
-    z-index:0;
-}
-
-.light{
-    position:absolute;
-    border-radius:50%;
-    filter:blur(100px);
-}
-
-.light-1{
-    width:360px;
-    height:360px;
-    background:rgba(40,160,255,.13);
-    top:-210px;
-    left:50%;
-    transform:translateX(-50%);
-}
-
-.light-2{
-    width:250px;
-    height:250px;
-    background:rgba(106,83,255,.08);
-    right:-150px;
-    top:42%;
-}
-
-.light-3{
-    width:220px;
-    height:220px;
-    background:rgba(0,211,255,.06);
-    left:-150px;
-    bottom:8%;
-}
-
-.vignette{
-    position:absolute;
-    inset:0;
+    z-index:-5;
 
     background:
         radial-gradient(
-            ellipse at center,
-            transparent 15%,
-            rgba(0,0,0,.72) 100%
+            circle at 50% 0%,
+            rgba(44,157,255,.16),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 100% 45%,
+            rgba(100,82,255,.08),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 0% 80%,
+            rgba(0,208,255,.06),
+            transparent 25%
         );
 }
 
-.grain{
+body::after{
+    content:"";
     position:fixed;
     inset:0;
-    z-index:20;
+    z-index:-4;
     pointer-events:none;
-    opacity:.025;
 
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background:
+        linear-gradient(
+            rgba(255,255,255,.012) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.012) 1px,
+            transparent 1px
+        );
+
+    background-size:50px 50px;
+
+    mask-image:
+        linear-gradient(
+            to bottom,
+            black,
+            transparent 90%
+        );
 }
 
-/* =========================================
-   WRAPPER
-========================================= */
 
-.wrapper{
+/* =====================================================
+   CONTAINER
+===================================================== */
+
+.container{
     width:min(100%,620px);
     margin:auto;
-    padding:18px 17px 30px;
-    position:relative;
-    z-index:2;
+    padding:0 16px;
 }
 
-/* =========================================
-   MINIMAL HEADER
-========================================= */
 
-.header{
-    height:54px;
+/* =====================================================
+   HEADER
+===================================================== */
+
+header{
+    height:76px;
 
     display:flex;
     align-items:center;
     justify-content:space-between;
 
     position:relative;
-    z-index:5;
+    z-index:20;
 }
 
-.wordmark{
+.logo-name{
     display:flex;
     align-items:center;
     gap:9px;
 
-    font-size:9px;
+    font-size:10px;
     font-weight:700;
-    letter-spacing:2px;
+
+    letter-spacing:1.8px;
     text-transform:uppercase;
-    color:#9da6b2;
+
+    color:#c0c8d3;
 }
 
-.wordmark-dot{
-    width:6px;
-    height:6px;
+.logo-dot{
+    width:7px;
+    height:7px;
+
     border-radius:50%;
 
-    background:var(--blue);
+    background:var(--cyan);
 
     box-shadow:
-        0 0 12px var(--blue);
+        0 0 14px var(--cyan);
 }
 
-.header-tag{
+.header-button{
+    padding:8px 13px;
+
+    border:1px solid var(--line);
+
+    border-radius:100px;
+
+    color:#768291;
+
     font-size:8px;
-    letter-spacing:1.2px;
-    color:#4d5663;
+
+    text-decoration:none;
+
     text-transform:uppercase;
+
+    letter-spacing:1px;
+
+    background:
+        rgba(255,255,255,.025);
+
+    backdrop-filter:blur(15px);
 }
 
-/* =========================================
+
+/* =====================================================
    HERO
-========================================= */
+===================================================== */
 
 .hero{
-    min-height:calc(100vh - 72px);
+    position:relative;
+
+    min-height:760px;
 
     display:flex;
     flex-direction:column;
+    align-items:center;
     justify-content:center;
 
-    position:relative;
+    text-align:center;
 
-    padding:
-        35px 0
-        45px;
+    padding:60px 0 70px;
 }
 
-/* giant decorative circle */
-
-.hero-circle{
+.hero-glow{
     position:absolute;
 
-    width:440px;
-    height:440px;
+    width:380px;
+    height:380px;
 
     left:50%;
-    top:50%;
+    top:45%;
 
-    transform:
-        translate(-50%,-48%);
-
-    border-radius:50%;
-
-    border:
-        1px solid
-        rgba(90,202,255,.055);
-
-    box-shadow:
-        0 0 120px
-        rgba(50,140,255,.035);
-
-    pointer-events:none;
-}
-
-.hero-circle:before{
-    content:"";
-
-    position:absolute;
-
-    inset:35px;
-
-    border-radius:50%;
-
-    border:
-        1px solid
-        rgba(255,255,255,.025);
-}
-
-.hero-circle:after{
-    content:"";
-
-    position:absolute;
-
-    width:4px;
-    height:4px;
-
-    top:18%;
-    right:8%;
-
-    border-radius:50%;
-
-    background:var(--blue);
-
-    box-shadow:
-        0 0 15px var(--blue);
-}
-
-/* =========================================
-   LOGO
-========================================= */
-
-.logo-stage{
-    position:relative;
-
-    width:150px;
-    height:150px;
-
-    margin:
-        0 auto
-        34px;
-
-    display:grid;
-    place-items:center;
-
-    z-index:3;
-}
-
-.logo-halo{
-    position:absolute;
-
-    width:150px;
-    height:150px;
+    transform:translate(-50%,-50%);
 
     border-radius:50%;
 
     background:
         radial-gradient(
             circle,
-            rgba(64,193,255,.14),
-            transparent 65%
+            rgba(47,177,255,.12),
+            transparent 68%
         );
 
-    animation:
-        breathe 4s ease-in-out infinite;
+    pointer-events:none;
 }
 
-.logo-orbit{
-    position:absolute;
 
-    inset:-8px;
+/* =====================================================
+   LOGO
+===================================================== */
+
+.logo-box{
+    position:relative;
+
+    width:142px;
+    height:142px;
+
+    display:grid;
+    place-items:center;
+
+    margin-bottom:32px;
+}
+
+.logo-ring{
+    position:absolute;
+    inset:0;
 
     border-radius:50%;
 
-    border:
-        1px solid
-        rgba(91,205,255,.16);
+    background:
+        conic-gradient(
+            from 20deg,
+            transparent 0deg,
+            rgba(87,218,255,.9) 70deg,
+            transparent 125deg,
+            rgba(113,105,255,.75) 220deg,
+            transparent 290deg
+        );
 
-    border-left-color:transparent;
-    border-bottom-color:transparent;
+    animation:spin 9s linear infinite;
 
-    transform:rotate(-25deg);
-
-    animation:
-        orbit 9s linear infinite;
+    filter:
+        drop-shadow(
+            0 0 18px
+            rgba(76,202,255,.18)
+        );
 }
 
-.logo-orbit:after{
+.logo-ring::after{
     content:"";
 
     position:absolute;
 
-    width:5px;
-    height:5px;
+    inset:2px;
 
     border-radius:50%;
 
-    background:#8be9ff;
-
-    box-shadow:
-        0 0 13px #8be9ff;
-
-    right:16px;
-    top:12px;
+    background:#030507;
 }
 
 .logo{
-    width:116px;
-    height:116px;
+    position:relative;
+
+    z-index:3;
+
+    width:112px;
+    height:112px;
 
     border-radius:50%;
 
     object-fit:cover;
 
-    position:relative;
-    z-index:2;
-
     background:#080b10;
 
     border:
         4px solid
-        rgba(255,255,255,.07);
+        #06080c;
 
     box-shadow:
         0 25px 80px rgba(0,0,0,.65),
-        0 0 55px rgba(55,180,255,.12);
+        0 0 50px rgba(65,190,255,.14);
 }
 
-@keyframes breathe{
-    0%,100%{
-        transform:scale(.94);
-        opacity:.7;
-    }
-
-    50%{
-        transform:scale(1.08);
-        opacity:1;
-    }
-}
-
-@keyframes orbit{
+@keyframes spin{
     to{
-        transform:rotate(335deg);
+        transform:rotate(360deg);
     }
 }
 
-/* =========================================
-   EYEBROW
-========================================= */
 
-.eyebrow{
-    text-align:center;
+/* =====================================================
+   BADGE
+===================================================== */
+
+.badge{
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+
+    padding:8px 13px;
+
+    border-radius:100px;
+
+    border:
+        1px solid
+        rgba(87,218,255,.14);
+
+    background:
+        rgba(87,218,255,.035);
+
+    color:#8de7ff;
 
     font-size:8px;
     font-weight:700;
 
-    letter-spacing:3px;
+    letter-spacing:1.7px;
 
     text-transform:uppercase;
 
-    color:#66717f;
-
-    margin-bottom:19px;
+    margin-bottom:20px;
 }
 
-.eyebrow span{
-    color:#8be8ff;
+.badge i{
+    width:5px;
+    height:5px;
+
+    border-radius:50%;
+
+    background:var(--cyan);
+
+    box-shadow:
+        0 0 10px var(--cyan);
 }
 
-/* =========================================
-   MASSIVE TYPOGRAPHY
-========================================= */
 
-h1{
+/* =====================================================
+   HERO TITLE
+===================================================== */
+
+.hero h1{
     position:relative;
-    z-index:4;
+    z-index:2;
 
-    font-family:"Manrope",sans-serif;
-
-    text-align:center;
+    font-family:"Space Grotesk",sans-serif;
 
     font-size:
         clamp(
-            47px,
-            14vw,
-            76px
+            45px,
+            13vw,
+            72px
         );
 
-    line-height:.91;
+    line-height:.94;
 
-    letter-spacing:-4.2px;
+    letter-spacing:-3.7px;
 
-    font-weight:800;
+    font-weight:700;
+
+    max-width:570px;
 }
 
-.line{
+.hero h1 .line{
     display:block;
 }
 
-.line-one{
-    color:#f7f9fc;
+.hero h1 .muted{
+    color:#626c79;
 }
 
-.line-two{
-    color:#636c78;
-}
-
-.line-three{
+.hero h1 .gradient{
     background:
         linear-gradient(
             100deg,
-            #ffffff 5%,
-            #a9edff 45%,
-            #5b8cff 95%
+            #ffffff 10%,
+            #9eeaff 45%,
+            #678eff 90%
         );
 
     -webkit-background-clip:text;
@@ -433,100 +406,939 @@ h1{
     color:transparent;
 }
 
-/* =========================================
-   DESCRIPTION
-========================================= */
 
-.description{
-    max-width:365px;
+/* =====================================================
+   HERO TEXT
+===================================================== */
 
-    margin:
-        25px auto
-        0;
+.hero-text{
+    max-width:410px;
 
-    text-align:center;
+    margin-top:24px;
 
-    color:#727c89;
+    color:var(--muted);
 
     font-size:12px;
 
     line-height:1.85;
 }
 
-/* =========================================
-   MICRO INFORMATION
-========================================= */
 
-.micro{
+/* =====================================================
+   HERO CTA
+===================================================== */
+
+.hero-cta{
+    width:min(100%,390px);
+
+    margin-top:31px;
+
     display:flex;
     align-items:center;
     justify-content:center;
 
-    gap:18px;
+    min-height:62px;
 
-    margin-top:28px;
+    border-radius:17px;
+
+    text-decoration:none;
+
+    color:#031018;
+
+    font-size:12px;
+    font-weight:800;
+
+    background:
+        linear-gradient(
+            105deg,
+            #7deaff,
+            #3fc1ff 48%,
+            #7184ff
+        );
+
+    box-shadow:
+        0 18px 55px
+        rgba(45,174,255,.22),
+
+        inset 0 1px 0
+        rgba(255,255,255,.6);
+
+    transition:.25s ease;
 }
 
-.micro-item{
+.hero-cta:hover{
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 24px 70px
+        rgba(45,174,255,.32);
+}
+
+
+/* =====================================================
+   HERO META
+===================================================== */
+
+.hero-meta{
     display:flex;
     align-items:center;
-    gap:6px;
+    justify-content:center;
+
+    gap:15px;
+
+    margin-top:17px;
+
+    color:#4e5866;
 
     font-size:8px;
 
-    color:#596371;
-
-    letter-spacing:.6px;
+    letter-spacing:.5px;
 }
 
-.micro-line{
+.meta-divider{
     width:1px;
     height:12px;
 
-    background:
-        rgba(255,255,255,.09);
+    background:#252c35;
 }
 
-.green{
+.live{
+    display:flex;
+    align-items:center;
+    gap:5px;
+}
+
+.live-dot{
     width:5px;
     height:5px;
 
     border-radius:50%;
 
-    background:#5be4a4;
+    background:#5de6a8;
 
     box-shadow:
-        0 0 9px #5be4a4;
+        0 0 9px #5de6a8;
 }
 
-/* =========================================
-   FLOATING CTA
-========================================= */
 
-.cta-zone{
+/* =====================================================
+   SECTION COMMON
+===================================================== */
+
+section{
     position:relative;
-
-    margin-top:28px;
-
-    z-index:8;
 }
 
-.cta{
+.section{
+    padding:100px 0;
+}
+
+.section-label{
+    font-size:8px;
+
+    color:#667180;
+
+    letter-spacing:2.4px;
+
+    text-transform:uppercase;
+
+    margin-bottom:17px;
+}
+
+.section-title{
+    font-family:"Space Grotesk",sans-serif;
+
+    font-size:
+        clamp(
+            29px,
+            8vw,
+            42px
+        );
+
+    line-height:1.05;
+
+    letter-spacing:-1.8px;
+
+    font-weight:600;
+}
+
+.section-title span{
+    color:#626c79;
+}
+
+
+/* =====================================================
+   COMMUNITY INTRO
+===================================================== */
+
+.community-intro{
+    padding-top:50px;
+}
+
+.community-copy{
+    color:#737d8a;
+
+    font-size:12px;
+
+    line-height:1.85;
+
+    max-width:450px;
+
+    margin-top:22px;
+}
+
+
+/* =====================================================
+   BIG VISUAL
+===================================================== */
+
+.visual{
+    margin-top:42px;
+
+    height:360px;
+
+    border-radius:30px;
+
     position:relative;
 
-    width:100%;
-    min-height:66px;
+    overflow:hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 45%,
+            rgba(56,190,255,.15),
+            transparent 30%
+        ),
+        linear-gradient(
+            145deg,
+            #0a1018,
+            #040609
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,.07);
+
+    box-shadow:
+        0 35px 90px
+        rgba(0,0,0,.38);
+}
+
+.visual-grid{
+    position:absolute;
+    inset:0;
+
+    background-image:
+        linear-gradient(
+            rgba(255,255,255,.025) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.025) 1px,
+            transparent 1px
+        );
+
+    background-size:38px 38px;
+
+    transform:
+        perspective(400px)
+        rotateX(55deg)
+        scale(1.6);
+
+    transform-origin:center bottom;
+
+    opacity:.45;
+}
+
+.visual-orb{
+    position:absolute;
+
+    width:180px;
+    height:180px;
+
+    left:50%;
+    top:43%;
+
+    transform:translate(-50%,-50%);
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            rgba(175,245,255,.9),
+            rgba(46,160,255,.22) 28%,
+            rgba(55,90,255,.05) 55%,
+            transparent 70%
+        );
+
+    box-shadow:
+        0 0 100px
+        rgba(55,190,255,.17);
+}
+
+.visual-orbit{
+    position:absolute;
+
+    width:270px;
+    height:90px;
+
+    left:50%;
+    top:43%;
+
+    transform:
+        translate(-50%,-50%)
+        rotate(-20deg);
+
+    border-radius:50%;
+
+    border:
+        1px solid
+        rgba(91,215,255,.22);
+}
+
+.visual-orbit.two{
+    transform:
+        translate(-50%,-50%)
+        rotate(35deg);
+
+    border-color:
+        rgba(116,102,255,.16);
+}
+
+.visual-text{
+    position:absolute;
+
+    bottom:22px;
+    left:23px;
+
+    font-family:"Space Grotesk",sans-serif;
+
+    font-size:9px;
+
+    color:#687585;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+}
+
+
+/* =====================================================
+   FEATURE LIST
+===================================================== */
+
+.features{
+    margin-top:45px;
+}
+
+.feature{
+    display:grid;
+
+    grid-template-columns:
+        42px
+        1fr;
+
+    gap:14px;
+
+    padding:
+        22px 0;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.07);
+}
+
+.feature:last-child{
+    border-bottom:
+        1px solid
+        rgba(255,255,255,.07);
+}
+
+.feature-number{
+    font-family:"Space Grotesk",sans-serif;
+
+    font-size:9px;
+
+    color:#3e4753;
+
+    padding-top:2px;
+}
+
+.feature h3{
+    font-size:13px;
+
+    color:#e2e8ef;
+
+    font-weight:700;
+
+    margin-bottom:6px;
+}
+
+.feature p{
+    font-size:10px;
+
+    color:#687382;
+
+    line-height:1.65;
+
+    max-width:390px;
+}
+
+
+/* =====================================================
+   HOW IT WORKS
+===================================================== */
+
+.steps-section{
+    padding-top:75px;
+}
+
+.steps{
+    margin-top:40px;
+
+    display:grid;
+
+    gap:12px;
+}
+
+.step{
+    position:relative;
+
+    min-height:135px;
+
+    padding:20px;
+
+    border-radius:22px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(16,22,31,.82),
+            rgba(7,10,15,.72)
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,.065);
+
+    overflow:hidden;
+}
+
+.step::after{
+    content:"";
+
+    position:absolute;
+
+    width:110px;
+    height:110px;
+
+    right:-55px;
+    top:-55px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(70,194,255,.10),
+            transparent 65%
+        );
+}
+
+.step-num{
+    color:#63dfff;
+
+    font-family:"Space Grotesk",sans-serif;
+
+    font-size:9px;
+
+    letter-spacing:1.5px;
+
+    margin-bottom:25px;
+}
+
+.step h3{
+    font-size:14px;
+
+    color:#e4ebf3;
+
+    margin-bottom:6px;
+}
+
+.step p{
+    color:#687483;
+
+    font-size:9px;
+
+    line-height:1.65;
+
+    max-width:410px;
+}
+
+
+/* =====================================================
+   SOCIAL PROOF
+===================================================== */
+
+.proof{
+    padding:100px 0 85px;
+
+    text-align:center;
+}
+
+.proof-number{
+    font-family:"Space Grotesk",sans-serif;
+
+    font-size:
+        clamp(
+            55px,
+            18vw,
+            90px
+        );
+
+    line-height:1;
+
+    letter-spacing:-5px;
+
+    background:
+        linear-gradient(
+            100deg,
+            #ffffff,
+            #65dfff,
+            #7287ff
+        );
+
+    -webkit-background-clip:text;
+    background-clip:text;
+
+    color:transparent;
+}
+
+.proof-label{
+    color:#66717e;
+
+    font-size:9px;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    margin-top:10px;
+}
+
+.proof-copy{
+    max-width:380px;
+
+    margin:18px auto 0;
+
+    color:#707b89;
+
+    font-size:11px;
+
+    line-height:1.75;
+}
+
+
+/* =====================================================
+   FINAL CTA
+===================================================== */
+
+.final{
+    margin-bottom:22px;
+
+    min-height:390px;
+
+    padding:27px;
+
+    border-radius:30px;
+
+    position:relative;
+
+    overflow:hidden;
 
     display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+
+    background:
+        radial-gradient(
+            circle at 90% 10%,
+            rgba(60,180,255,.16),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 20% 100%,
+            rgba(104,87,255,.08),
+            transparent 30%
+        ),
+        linear-gradient(
+            145deg,
+            #0d131b,
+            #05070a
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
+
+    box-shadow:
+        0 30px 90px
+        rgba(0,0,0,.42);
+}
+
+.final::before{
+    content:"";
+
+    position:absolute;
+
+    width:300px;
+    height:300px;
+
+    right:-180px;
+    bottom:-190px;
+
+    border-radius:50%;
+
+    border:
+        1px solid
+        rgba(80,205,255,.12);
+}
+
+.final-label{
+    color:#65717f;
+
+    font-size:8px;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+}
+
+.final h2{
+    position:relative;
+    z-index:2;
+
+    font-family:"Space Grotesk",sans-serif;
+
+    font-size:
+        clamp(
+            35px,
+            11vw,
+            52px
+        );
+
+    line-height:.98;
+
+    letter-spacing:-2.5px;
+}
+
+.final h2 span{
+    color:#687382;
+}
+
+.final-button{
+    position:relative;
+    z-index:5;
+
+    width:100%;
+
+    min-height:61px;
+
+    display:flex;
+
     align-items:center;
     justify-content:space-between;
 
     padding:
         0 10px
-        0 22px;
+        0 19px;
 
-    border-radius:18px;
+    border-radius:16px;
 
     text-decoration:none;
 
-    color:#041018
+    color:#031018;
+
+    background:
+        linear-gradient(
+            105deg,
+            #7deaff,
+            #42c1ff 48%,
+            #7184ff
+        );
+
+    font-size:11px;
+
+    font-weight:800;
+
+    box-shadow:
+        0 15px 45px
+        rgba(44,173,255,.20),
+
+        inset 0 1px 0
+        rgba(255,255,255,.6);
+
+    transition:.25s ease;
+}
+
+.final-button:hover{
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 22px 60px
+        rgba(44,173,255,.30);
+}
+
+.final-arrow{
+    width:41px;
+    height:41px;
+
+    display:grid;
+    place-items:center;
+
+    border-radius:13px;
+
+    background:
+        rgba(0,0,0,.12);
+
+    font-size:17px;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer{
+    padding:
+        12px 0
+        30px;
+
+    text-align:center;
+
+    color:#343d49;
+
+    font-size:7px;
+
+    letter-spacing:1.7px;
+
+    text-transform:uppercase;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:430px){
+
+    .container{
+        padding-left:14px;
+        padding-right:14px;
+    }
+
+    header{
+        height:68px;
+    }
+
+    .hero{
+        min-height:720px;
+        padding-top:40px;
+    }
+
+    .hero h1{
+        font-size:46px;
+        letter-spacing:-3.4px;
+    }
+
+    .hero-text{
+        max-width:315px;
+    }
+
+    .logo-box{
+        width:125px;
+        height:125px;
+    }
+
+    .logo-ring{
+        width:125px;
+        height:125px;
+    }
+
+    .logo{
+        width:99px;
+        height:99px;
+    }
+
+    .visual{
+        height:300px;
+    }
+
+    .section{
+        padding:80px 0;
+    }
+
+}
+
+@media(max-width:360px){
+
+    .hero h1{
+        font-size:42px;
+        letter-spacing:-3px;
+    }
+
+    .hero{
+        min-height:690px;
+    }
+
+    .final{
+        padding:23px;
+    }
+
+    .final h2{
+        font-size:34px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+    <!-- ================= HEADER ================= -->
+
+    <header>
+
+        <div class="logo-name">
+
+            <span class="logo-dot"></span>
+
+            Official Channel
+
+        </div>
+
+        <a
+            href="#join"
+            class="header-button"
+        >
+            Join
+        </a>
+
+    </header>
+
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+
+        <div class="hero-glow"></div>
+
+
+        <!-- LOGO -->
+
+        <div class="logo-box">
+
+            <div class="logo-ring"></div>
+
+            <!-- CHANGE TO YOUR LOGO -->
+
+            <img
+                src="logo.png"
+                alt="Official Logo"
+                class="logo"
+            >
+
+        </div>
+
+
+        <div class="badge">
+
+            <i></i>
+
+            Official Community
+
+        </div>
+
+
+        <h1>
+
+            <span class="line">
+                CONNECT.
+            </span>
+
+            <span class="line muted">
+                DISCOVER.
+            </span>
+
+            <span class="line gradient">
+                MOVE FORWARD.
+            </span>
+
+        </h1>
+
+
+        <p class="hero-text">
+
+            Welcome to the official community.
+            Stay connected with the latest updates,
+            announcements and content — all in one place.
+
+        </p>
+
+
+        <!-- CHANGE TELEGRAM LINK -->
+
+        <a
+            href="https://t.me/YOUR_CHANNEL"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hero-cta"
+            id="heroJoin"
+        >
+
+            ENTER OFFICIAL CHANNEL
+
+        </a>
+
+
+        <div class="hero-meta">
+
+            <span class="live">
+
+                <i class="live-dot"></i>
+
+                Active now
+
+            </span>
+
+            <span class="meta-divider"></span>
+
+            <span>
+                5K+ community
+            </span>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= INTRO ================= -->
+
+    <section class="section community-intro">
+
+        <div class="section-label">
+            The community
+        </div>
+
+
+        <
