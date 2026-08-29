@@ -4,18 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Dragon Hub | Trading Insights</title>
-
-  <meta
-    name="description"
-    content="Dragon Hub — trading updates, market insights and educational content."
-  >
+  <title>Dragon Hub | Official Trading Channel</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cinzel:wght@700;800&display=swap"
     rel="stylesheet"
   >
 
@@ -26,7 +21,9 @@
       box-sizing: border-box;
     }
 
-    html {
+    html,
+    body {
+      width: 100%;
       min-height: 100%;
     }
 
@@ -39,279 +36,426 @@
 
       background:
         radial-gradient(
-          circle at 50% 35%,
-          rgba(0, 255, 170, 0.10),
+          circle at 50% 20%,
+          rgba(69, 66, 170, 0.18),
           transparent 30%
         ),
         radial-gradient(
-          circle at 80% 80%,
-          rgba(0, 140, 255, 0.08),
-          transparent 32%
+          circle at 80% 85%,
+          rgba(76, 42, 140, 0.15),
+          transparent 30%
         ),
-        linear-gradient(
-          145deg,
-          #03080b 0%,
-          #061515 50%,
-          #02070a 100%
-        );
+        #080d1c;
     }
 
-    /* Subtle grid */
+    /* Background glow */
     body::before {
       content: "";
       position: fixed;
       inset: 0;
+
       pointer-events: none;
 
       background:
-        linear-gradient(
-          rgba(255,255,255,0.018) 1px,
-          transparent 1px
-        ),
-        linear-gradient(
-          90deg,
-          rgba(255,255,255,0.018) 1px,
-          transparent 1px
+        radial-gradient(
+          circle at 50% 50%,
+          rgba(67, 113, 255, 0.05),
+          transparent 45%
         );
-
-      background-size: 55px 55px;
-
-      mask-image: linear-gradient(
-        to bottom,
-        rgba(0,0,0,0.8),
-        transparent 85%
-      );
-
-      -webkit-mask-image: linear-gradient(
-        to bottom,
-        rgba(0,0,0,0.8),
-        transparent 85%
-      );
-    }
-
-    /* Ambient glow */
-    .ambient {
-      position: fixed;
-      width: 280px;
-      height: 280px;
-
-      border-radius: 50%;
-
-      background: #00d995;
-
-      filter: blur(130px);
-
-      opacity: 0.08;
-
-      top: 25%;
-      left: 50%;
-
-      transform: translate(-50%, -50%);
-
-      pointer-events: none;
     }
 
     .page {
-      position: relative;
-      z-index: 2;
-
       min-height: 100vh;
 
       display: flex;
       align-items: center;
       justify-content: center;
 
-      padding: 35px 20px;
+      padding: 35px 14px;
+    }
+
+    /* MAIN CONTAINER */
+    .main-box {
+      position: relative;
+
+      width: 100%;
+      max-width: 635px;
+
+      padding: 42px 28px 36px;
+
+      border-radius: 38px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(20, 31, 61, 0.96),
+          rgba(13, 18, 39, 0.98)
+        );
+
+      border: 1px solid rgba(101, 135, 207, 0.20);
+
+      box-shadow:
+        0 0 35px rgba(62, 93, 255, 0.18),
+        0 0 85px rgba(91, 55, 181, 0.14),
+        inset 0 1px 0 rgba(255,255,255,0.035);
+
+      overflow: hidden;
+    }
+
+    /* Bottom purple glow */
+    .main-box::after {
+      content: "";
+
+      position: absolute;
+
+      width: 380px;
+      height: 180px;
+
+      left: 50%;
+      bottom: -140px;
+
+      transform: translateX(-50%);
+
+      background: rgba(99, 54, 180, 0.30);
+
+      filter: blur(75px);
+
+      pointer-events: none;
     }
 
     .content {
-      width: 100%;
-      max-width: 540px;
+      position: relative;
+      z-index: 2;
 
       text-align: center;
     }
 
-    /* Small official label */
-    .label {
-      display: inline-block;
-
-      padding: 8px 16px;
-
-      border-radius: 50px;
-
-      border: 1px solid rgba(76, 235, 166, 0.18);
-
-      background: rgba(35, 185, 115, 0.07);
-
-      color: #8de5bb;
-
-      font-size: 11px;
-      font-weight: 700;
-
-      letter-spacing: 1.4px;
-
-      text-transform: uppercase;
-
-      box-shadow:
-        0 0 25px rgba(0, 230, 150, 0.05);
-    }
-
-    /* Medium Logo */
-    .logo-wrap {
-      width: 128px;
-      height: 128px;
-
-      margin: 28px auto 23px;
-
+    /* TOP CIRCLE */
+    .icon-ring {
       position: relative;
-    }
 
-    .logo-wrap::before {
-      content: "";
+      width: 196px;
+      height: 196px;
 
-      position: absolute;
-      inset: -8px;
+      margin: 0 auto 34px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
       border-radius: 50%;
 
       background:
         conic-gradient(
-          from 180deg,
-          transparent,
-          rgba(0, 255, 170, 0.65),
-          transparent,
-          rgba(0, 160, 255, 0.45),
-          transparent
+          from 210deg,
+          #8446ff,
+          #3d9dff,
+          #00c9d8,
+          #8446ff
         );
 
-      filter: blur(7px);
-
-      opacity: 0.55;
-
-      animation: rotateGlow 7s linear infinite;
+      box-shadow:
+        0 0 25px rgba(93, 91, 255, 0.35),
+        0 0 55px rgba(54, 166, 255, 0.15);
     }
 
-    .logo {
-      position: relative;
-      z-index: 2;
+    .icon-ring::before {
+      content: "";
 
-      width: 128px;
-      height: 128px;
-
-      display: block;
-
-      object-fit: cover;
+      position: absolute;
+      inset: 8px;
 
       border-radius: 50%;
 
-      border: 2px solid rgba(255,255,255,0.12);
+      background:
+        radial-gradient(
+          circle,
+          #18223b 0%,
+          #111a30 70%
+        );
 
-      box-shadow:
-        0 15px 45px rgba(0,0,0,0.45),
-        0 0 35px rgba(0,220,150,0.12);
+      border: 1px solid rgba(132, 160, 211, 0.28);
     }
 
-    /* Brand */
-    h1 {
-      font-size: clamp(34px, 9vw, 48px);
+    .icon-inner {
+      position: relative;
+      z-index: 2;
 
-      line-height: 1;
+      width: 130px;
+      height: 130px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 50%;
+
+      color: #65a5ff;
+
+      font-size: 62px;
+
+      border: 2px solid rgba(101, 164, 255, 0.75);
+
+      box-shadow:
+        0 0 20px rgba(68, 143, 255, 0.16);
+    }
+
+    .verified {
+      position: absolute;
+
+      z-index: 5;
+
+      right: 17px;
+      bottom: 17px;
+
+      width: 39px;
+      height: 39px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 50%;
+
+      background: #18c58b;
+
+      color: white;
+
+      font-size: 20px;
+      font-weight: 800;
+
+      border: 3px solid #16233b;
+
+      box-shadow:
+        0 0 18px rgba(24, 197, 139, 0.30);
+    }
+
+    /* BADGE */
+    .badge {
+      display: inline-flex;
+
+      align-items: center;
+      justify-content: center;
+
+      min-height: 51px;
+
+      padding: 0 25px;
+
+      border-radius: 30px;
+
+      background:
+        linear-gradient(
+          90deg,
+          rgba(44, 75, 174, 0.28),
+          rgba(48, 71, 154, 0.20)
+        );
+
+      border:
+        1px solid rgba(71, 119, 226, 0.38);
+
+      color: #9dbfff;
+
+      font-size: 16px;
+
+      letter-spacing: 0.8px;
+
+      box-shadow:
+        0 0 25px rgba(63, 112, 255, 0.08);
+    }
+
+    .badge-dot {
+      width: 12px;
+      height: 12px;
+
+      margin-right: 10px;
+
+      border-radius: 50%;
+
+      background: #31d69b;
+
+      box-shadow:
+        0 0 12px rgba(49, 214, 155, 0.45);
+    }
+
+    /* TITLE */
+    .title {
+      margin-top: 31px;
+
+      font-family: "Cinzel", serif;
+
+      font-size: clamp(36px, 8vw, 55px);
+
+      line-height: 1.12;
 
       font-weight: 800;
 
-      letter-spacing: -1.8px;
-
-      margin-bottom: 16px;
+      letter-spacing: 1px;
 
       background:
         linear-gradient(
           100deg,
-          #ffffff 10%,
-          #baf8df 50%,
-          #ffffff 90%
+          #73a7ff,
+          #ffffff 45%,
+          #bca7ff
         );
 
       -webkit-background-clip: text;
       background-clip: text;
 
       color: transparent;
+
+      text-shadow:
+        0 0 30px rgba(95, 137, 255, 0.12);
     }
 
-    .subtitle {
-      max-width: 440px;
+    .title-sub {
+      margin-top: 6px;
 
-      margin: auto;
+      font-size: 15px;
 
-      color: rgba(221, 232, 229, 0.70);
+      font-weight: 700;
 
-      font-size: 16px;
+      color: #9e8cff;
+
+      letter-spacing: 2px;
+    }
+
+    /* DESCRIPTION */
+    .description {
+      max-width: 510px;
+
+      margin: 27px auto 0;
+
+      font-size: 17px;
 
       line-height: 1.65;
 
-      font-weight: 400;
+      color: rgba(222, 229, 241, 0.78);
     }
 
-    .line {
-      width: 55px;
-      height: 2px;
-
-      margin: 27px auto;
-
-      background:
-        linear-gradient(
-          90deg,
-          transparent,
-          #25df91,
-          transparent
-        );
-
-      box-shadow:
-        0 0 15px rgba(30,225,145,0.45);
+    .description .highlight {
+      color: #43d9a1;
     }
 
-    /* Join button */
-    .join-btn {
+    /* INFO ROW */
+    .info-row {
       width: 100%;
-      max-width: 340px;
 
-      min-height: 64px;
+      max-width: 540px;
 
-      margin: 5px auto 0;
+      min-height: 67px;
+
+      margin: 31px auto 0;
 
       display: flex;
-
       align-items: center;
       justify-content: center;
 
-      gap: 12px;
-
-      border-radius: 18px;
+      border-radius: 20px;
 
       background:
-        linear-gradient(
-          135deg,
-          #19c96a,
-          #23df7c
-        );
+        rgba(14, 23, 45, 0.72);
 
-      border: 1px solid rgba(120,255,190,0.25);
+      border:
+        1px solid rgba(93, 119, 171, 0.17);
 
-      color: #031b0e;
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.025);
+    }
+
+    .info-item {
+      flex: 1;
+
+      font-size: 16px;
+
+      color: rgba(224, 231, 242, 0.70);
+    }
+
+    .info-item strong {
+      color: #ffffff;
+
+      font-size: 17px;
+    }
+
+    .info-dot {
+      display: inline-block;
+
+      width: 12px;
+      height: 12px;
+
+      margin-right: 8px;
+
+      border-radius: 50%;
+
+      vertical-align: -1px;
+
+      background: #35d99d;
+
+      box-shadow:
+        0 0 12px rgba(53, 217, 157, 0.35);
+    }
+
+    .info-dot.blue {
+      background: #65a8ff;
+
+      box-shadow:
+        0 0 12px rgba(101, 168, 255, 0.35);
+    }
+
+    .separator {
+      width: 1px;
+      height: 28px;
+
+      background:
+        rgba(146, 164, 198, 0.24);
+    }
+
+    /* CTA */
+    .join-btn {
+      position: relative;
+
+      width: 100%;
+      max-width: 540px;
+
+      min-height: 82px;
+
+      margin: 39px auto 0;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      gap: 15px;
+
+      border-radius: 23px;
 
       text-decoration: none;
 
-      font-size: 17px;
+      background:
+        linear-gradient(
+          105deg,
+          #18c8ef 0%,
+          #159de9 45%,
+          #326af1 100%
+        );
+
+      border:
+        1px solid rgba(102, 218, 255, 0.35);
+
+      color: #ffffff;
+
+      font-size: 22px;
 
       font-weight: 800;
 
       box-shadow:
-        0 14px 38px rgba(20,210,110,0.20),
-        0 0 30px rgba(20,220,120,0.08);
+        0 12px 30px rgba(27, 160, 238, 0.27),
+        0 0 38px rgba(39, 156, 255, 0.20);
 
       transition:
-        transform .2s ease,
-        filter .2s ease,
-        box-shadow .2s ease;
+        transform 0.2s ease,
+        filter 0.2s ease,
+        box-shadow 0.2s ease;
     }
 
     .join-btn:hover {
@@ -320,17 +464,17 @@
       filter: brightness(1.07);
 
       box-shadow:
-        0 18px 45px rgba(20,210,110,0.30),
-        0 0 35px rgba(20,220,120,0.14);
+        0 17px 38px rgba(27, 160, 238, 0.35),
+        0 0 48px rgba(39, 156, 255, 0.27);
     }
 
     .join-btn:active {
-      transform: scale(0.98);
+      transform: scale(0.985);
     }
 
-    .telegram-icon {
-      width: 25px;
-      height: 25px;
+    .telegram {
+      width: 34px;
+      height: 34px;
 
       display: flex;
       align-items: center;
@@ -338,81 +482,172 @@
 
       border-radius: 50%;
 
-      background: rgba(0,0,0,0.10);
+      background: rgba(255,255,255,0.95);
 
-      font-size: 13px;
+      color: #169ce9;
+
+      font-size: 17px;
+
+      font-weight: 900;
     }
 
-    .under-text {
-      margin-top: 16px;
+    /* SMALL TEXT */
+    .small-text {
+      margin: 27px auto 0;
 
-      color: rgba(205,218,214,0.48);
+      color: rgba(191, 201, 220, 0.53);
 
-      font-size: 11px;
+      font-size: 14px;
 
-      line-height: 1.5;
+      line-height: 1.6;
     }
 
-    /* Bottom disclaimer */
+    /* DISCLAIMER */
     .disclaimer {
-      max-width: 480px;
+      max-width: 530px;
 
-      margin: 42px auto 0;
+      margin: 29px auto 0;
 
-      padding-top: 19px;
+      padding-top: 22px;
 
       border-top:
-        1px solid rgba(255,255,255,0.07);
+        1px dashed rgba(126, 145, 184, 0.18);
 
-      color: rgba(205,216,214,0.45);
+      color: rgba(180, 192, 215, 0.48);
 
-      font-size: 10px;
+      font-size: 12px;
 
       line-height: 1.65;
     }
 
-    @keyframes rotateGlow {
-      from {
-        transform: rotate(0deg);
-      }
+    /* FOOTER */
+    .footer {
+      margin-top: 24px;
 
-      to {
-        transform: rotate(360deg);
-      }
+      color: rgba(164, 176, 201, 0.35);
+
+      font-size: 11px;
     }
 
-    @media (max-width: 480px) {
+    /* MOBILE */
+    @media (max-width: 600px) {
 
       .page {
-        padding: 28px 18px;
+        padding: 30px 12px;
       }
 
-      .logo-wrap,
-      .logo {
-        width: 118px;
-        height: 118px;
+      .main-box {
+        padding: 43px 20px 34px;
+
+        border-radius: 35px;
       }
 
-      .logo-wrap {
-        margin-top: 25px;
-        margin-bottom: 21px;
+      .icon-ring {
+        width: 185px;
+        height: 185px;
+
+        margin-bottom: 31px;
       }
 
-      h1 {
-        font-size: 36px;
+      .icon-inner {
+        width: 122px;
+        height: 122px;
+
+        font-size: 57px;
       }
 
-      .subtitle {
+      .verified {
+        right: 14px;
+        bottom: 14px;
+
+        width: 38px;
+        height: 38px;
+      }
+
+      .badge {
+        min-height: 48px;
+
+        padding: 0 16px;
+
+        font-size: 13px;
+      }
+
+      .title {
+        font-size: 38px;
+      }
+
+      .description {
+        font-size: 15px;
+      }
+
+      .info-row {
+        min-height: 63px;
+
+        border-radius: 18px;
+      }
+
+      .info-item {
+        font-size: 13px;
+      }
+
+      .info-item strong {
         font-size: 15px;
       }
 
       .join-btn {
-        min-height: 62px;
-        max-width: 330px;
+        min-height: 76px;
+
+        font-size: 19px;
+
+        border-radius: 21px;
+      }
+
+      .small-text {
+        font-size: 13px;
       }
 
       .disclaimer {
-        margin-top: 35px;
+        font-size: 11px;
+      }
+    }
+
+    @media (max-width: 390px) {
+
+      .main-box {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+
+      .icon-ring {
+        width: 170px;
+        height: 170px;
+      }
+
+      .icon-inner {
+        width: 112px;
+        height: 112px;
+
+        font-size: 52px;
+      }
+
+      .title {
+        font-size: 34px;
+      }
+
+      .badge {
+        font-size: 12px;
+      }
+
+      .info-item {
+        font-size: 12px;
+      }
+
+      .info-item strong {
+        font-size: 14px;
+      }
+
+      .join-btn {
+        font-size: 18px;
       }
     }
   </style>
@@ -420,66 +655,121 @@
 
 <body>
 
-  <div class="ambient"></div>
-
   <main class="page">
 
-    <div class="content">
+    <section class="main-box">
 
-      <!-- Official Label -->
-      <div class="label">
-        Official Trading Channel
-      </div>
+      <div class="content">
 
-      <!-- Medium Logo -->
-      <div class="logo-wrap">
-        <img
-          class="logo"
-          src="IMG_20260829_214824_735.jpg"
-          alt="Dragon Hub"
+        <!-- TOP ICON -->
+        <div class="icon-ring">
+
+          <div class="icon-inner">
+            $
+          </div>
+
+          <div class="verified">
+            ✓
+          </div>
+
+        </div>
+
+
+        <!-- BADGE -->
+        <div class="badge">
+          <span class="badge-dot"></span>
+          TRADING UPDATES &amp; INSIGHTS
+        </div>
+
+
+        <!-- TITLE -->
+        <h1 class="title">
+          DRAGON HUB
+        </h1>
+
+        <div class="title-sub">
+          OFFICIAL
+        </div>
+
+
+        <!-- DESCRIPTION -->
+        <p class="description">
+          <span class="highlight">Market Updates</span>
+          • Trading Insights • Educational Content
+          • Growing Community
+        </p>
+
+
+        <!-- INFO -->
+        <div class="info-row">
+
+          <div class="info-item">
+            <span class="info-dot"></span>
+            <strong>FREE</strong>
+            &nbsp;Content
+          </div>
+
+          <div class="separator"></div>
+
+          <div class="info-item">
+            <span class="info-dot blue"></span>
+            <strong>100%</strong>
+            &nbsp;Educational
+          </div>
+
+        </div>
+
+
+        <!-- CTA -->
+        <a
+          href="https://t.me/+rcU1nqNlF6tjYTI9"
+          class="join-btn"
+          id="joinChannel"
+          target="_blank"
+          rel="noopener noreferrer"
         >
+
+          <span class="telegram">
+            ➤
+          </span>
+
+          JOIN CHANNEL NOW
+
+        </a>
+
+
+        <!-- SUPPORTING TEXT -->
+        <p class="small-text">
+          Stay informed with market updates, trading insights
+          and educational information.
+        </p>
+
+
+        <!-- DISCLAIMER -->
+        <p class="disclaimer">
+          Disclaimer: This channel provides trading-related
+          information and educational content for general
+          informational purposes only. It does not constitute
+          financial advice. Trading involves risk and no
+          outcomes or profits are guaranteed. Please conduct
+          your own research and make independent decisions.
+        </p>
+
+
+        <!-- FOOTER -->
+        <div class="footer">
+          © 2026 Dragon Hub. All rights reserved.
+        </div>
+
       </div>
 
-      <!-- Brand -->
-      <h1>Dragon Hub</h1>
-
-      <p class="subtitle">
-        Trading updates • Market insights • Educational content
-      </p>
-
-      <div class="line"></div>
-
-      <!-- CTA -->
-      <a
-        href="https://t.me/+rcU1nqNlF6tjYTI9"
-        id="joinChannel"
-        class="join-btn"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <span class="telegram-icon">➤</span>
-        Join Channel
-      </a>
-
-      <p class="under-text">
-        Join the official Dragon Hub Telegram channel
-      </p>
-
-      <!-- Disclaimer -->
-      <p class="disclaimer">
-        Disclaimer: Content is provided for general informational
-        and educational purposes only and does not constitute
-        financial advice. Trading involves risk. Please conduct
-        your own research before making financial decisions.
-      </p>
-
-    </div>
+    </section>
 
   </main>
 
 
   <!-- =========================================
-       META PIXEL SUBSCRIBE TRACKING
+       SUBSCRIBE TRACKING
        ========================================= -->
 
   <script>
@@ -490,11 +780,19 @@
 
         /*
           Subscribe event ONLY.
-          Lead event is not used.
+          Lead event is NOT used.
+
+          Meta Pixel base code can be added
+          separately in the <head>.
         */
 
         if (typeof fbq === "function") {
-          fbq("track", "Subscribe");
+
+          fbq(
+            "track",
+            "Subscribe"
+          );
+
         }
 
         console.log("Subscribe event fired");
@@ -504,4 +802,4 @@
   </script>
 
 </body>
-  </html>
+</html>
