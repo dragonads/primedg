@@ -8,7 +8,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 
@@ -20,11 +20,11 @@
 
 :root{
     --bg:#030405;
-    --white:#f4f7fb;
-    --muted:#7e8794;
-    --blue:#4fc9ff;
-    --blue2:#2777ff;
-    --violet:#7568ff;
+    --white:#f7f9fc;
+    --muted:#747d89;
+    --blue:#56d8ff;
+    --blue2:#397cff;
+    --purple:#786bff;
 }
 
 html{
@@ -32,100 +32,204 @@ html{
 }
 
 body{
-    background:var(--bg);
+    min-height:100vh;
+    background:#030405;
     color:var(--white);
-    font-family:"DM Sans",sans-serif;
+    font-family:"Inter",sans-serif;
     overflow-x:hidden;
 }
 
-/* =================================
-   BACKGROUND
-================================= */
+/* =========================================
+   CINEMATIC BACKGROUND
+========================================= */
 
-body:before{
-    content:"";
+.background{
     position:fixed;
     inset:0;
+    overflow:hidden;
     pointer-events:none;
+    z-index:0;
+}
+
+.light{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(100px);
+}
+
+.light-1{
+    width:360px;
+    height:360px;
+    background:rgba(40,160,255,.13);
+    top:-210px;
+    left:50%;
+    transform:translateX(-50%);
+}
+
+.light-2{
+    width:250px;
+    height:250px;
+    background:rgba(106,83,255,.08);
+    right:-150px;
+    top:42%;
+}
+
+.light-3{
+    width:220px;
+    height:220px;
+    background:rgba(0,211,255,.06);
+    left:-150px;
+    bottom:8%;
+}
+
+.vignette{
+    position:absolute;
+    inset:0;
 
     background:
         radial-gradient(
-            circle at 50% 15%,
-            rgba(39,119,255,.14),
-            transparent 30%
-        ),
-        radial-gradient(
-            circle at 10% 85%,
-            rgba(117,104,255,.08),
-            transparent 25%
+            ellipse at center,
+            transparent 15%,
+            rgba(0,0,0,.72) 100%
         );
-
-    z-index:-3;
 }
 
-.noise{
+.grain{
     position:fixed;
     inset:0;
+    z-index:20;
     pointer-events:none;
     opacity:.025;
-    z-index:10;
 
-    background-image:
-        url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
-/* =================================
-   PAGE
-================================= */
+/* =========================================
+   WRAPPER
+========================================= */
 
-.container{
+.wrapper{
     width:min(100%,620px);
     margin:auto;
-    padding:16px;
+    padding:18px 17px 30px;
+    position:relative;
+    z-index:2;
 }
 
-/* =================================
-   FLOATING NAV
-================================= */
+/* =========================================
+   MINIMAL HEADER
+========================================= */
 
-.nav{
+.header{
     height:54px;
 
     display:flex;
     align-items:center;
     justify-content:space-between;
 
-    padding:0 6px 0 15px;
-
-    background:rgba(12,14,18,.72);
-
-    border:1px solid rgba(255,255,255,.07);
-
-    border-radius:100px;
-
-    backdrop-filter:blur(25px);
-
-    box-shadow:
-        0 15px 50px rgba(0,0,0,.35);
-
     position:relative;
     z-index:5;
 }
 
-.nav-brand{
+.wordmark{
     display:flex;
     align-items:center;
     gap:9px;
 
-    font-size:10px;
+    font-size:9px;
     font-weight:700;
-    letter-spacing:1.5px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:#9da6b2;
+}
+
+.wordmark-dot{
+    width:6px;
+    height:6px;
+    border-radius:50%;
+
+    background:var(--blue);
+
+    box-shadow:
+        0 0 12px var(--blue);
+}
+
+.header-tag{
+    font-size:8px;
+    letter-spacing:1.2px;
+    color:#4d5663;
     text-transform:uppercase;
 }
 
-.nav-mark{
-    width:8px;
-    height:8px;
+/* =========================================
+   HERO
+========================================= */
+
+.hero{
+    min-height:calc(100vh - 72px);
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+
+    position:relative;
+
+    padding:
+        35px 0
+        45px;
+}
+
+/* giant decorative circle */
+
+.hero-circle{
+    position:absolute;
+
+    width:440px;
+    height:440px;
+
+    left:50%;
+    top:50%;
+
+    transform:
+        translate(-50%,-48%);
+
+    border-radius:50%;
+
+    border:
+        1px solid
+        rgba(90,202,255,.055);
+
+    box-shadow:
+        0 0 120px
+        rgba(50,140,255,.035);
+
+    pointer-events:none;
+}
+
+.hero-circle:before{
+    content:"";
+
+    position:absolute;
+
+    inset:35px;
+
+    border-radius:50%;
+
+    border:
+        1px solid
+        rgba(255,255,255,.025);
+}
+
+.hero-circle:after{
+    content:"";
+
+    position:absolute;
+
+    width:4px;
+    height:4px;
+
+    top:18%;
+    right:8%;
 
     border-radius:50%;
 
@@ -135,134 +239,192 @@ body:before{
         0 0 15px var(--blue);
 }
 
-.nav-right{
-    display:flex;
-    align-items:center;
-    gap:8px;
-}
+/* =========================================
+   LOGO
+========================================= */
 
-.nav-live{
-    font-size:9px;
-    color:#737d8b;
-}
-
-.nav-dot{
-    width:5px;
-    height:5px;
-    border-radius:50%;
-    background:#55e7a0;
-    box-shadow:0 0 9px #55e7a0;
-}
-
-/* =================================
-   HERO
-================================= */
-
-.hero{
-    min-height:calc(100vh - 100px);
-
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-
-    padding:
-        55px
-        4px
-        30px;
-
+.logo-stage{
     position:relative;
+
+    width:150px;
+    height:150px;
+
+    margin:
+        0 auto
+        34px;
+
+    display:grid;
+    place-items:center;
+
+    z-index:3;
 }
 
-/* giant background number */
-
-.hero-number{
+.logo-halo{
     position:absolute;
 
-    top:80px;
-    right:-25px;
+    width:150px;
+    height:150px;
 
-    font-family:"Space Grotesk",sans-serif;
-
-    font-size:190px;
-    font-weight:700;
-
-    line-height:1;
-
-    color:rgba(255,255,255,.018);
-
-    user-select:none;
-    pointer-events:none;
-}
-
-/* eyebrow */
-
-.eyebrow{
-    display:flex;
-    align-items:center;
-    gap:10px;
-
-    margin-bottom:24px;
-
-    color:#8793a2;
-
-    font-size:10px;
-    font-weight:600;
-
-    letter-spacing:2px;
-    text-transform:uppercase;
-}
-
-.eyebrow-line{
-    width:30px;
-    height:1px;
+    border-radius:50%;
 
     background:
-        linear-gradient(
-            90deg,
-            var(--blue),
-            transparent
+        radial-gradient(
+            circle,
+            rgba(64,193,255,.14),
+            transparent 65%
         );
+
+    animation:
+        breathe 4s ease-in-out infinite;
 }
 
-/* =================================
-   TITLE
-================================= */
+.logo-orbit{
+    position:absolute;
 
-.title{
-    font-family:"Space Grotesk",sans-serif;
+    inset:-8px;
+
+    border-radius:50%;
+
+    border:
+        1px solid
+        rgba(91,205,255,.16);
+
+    border-left-color:transparent;
+    border-bottom-color:transparent;
+
+    transform:rotate(-25deg);
+
+    animation:
+        orbit 9s linear infinite;
+}
+
+.logo-orbit:after{
+    content:"";
+
+    position:absolute;
+
+    width:5px;
+    height:5px;
+
+    border-radius:50%;
+
+    background:#8be9ff;
+
+    box-shadow:
+        0 0 13px #8be9ff;
+
+    right:16px;
+    top:12px;
+}
+
+.logo{
+    width:116px;
+    height:116px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    position:relative;
+    z-index:2;
+
+    background:#080b10;
+
+    border:
+        4px solid
+        rgba(255,255,255,.07);
+
+    box-shadow:
+        0 25px 80px rgba(0,0,0,.65),
+        0 0 55px rgba(55,180,255,.12);
+}
+
+@keyframes breathe{
+    0%,100%{
+        transform:scale(.94);
+        opacity:.7;
+    }
+
+    50%{
+        transform:scale(1.08);
+        opacity:1;
+    }
+}
+
+@keyframes orbit{
+    to{
+        transform:rotate(335deg);
+    }
+}
+
+/* =========================================
+   EYEBROW
+========================================= */
+
+.eyebrow{
+    text-align:center;
+
+    font-size:8px;
+    font-weight:700;
+
+    letter-spacing:3px;
+
+    text-transform:uppercase;
+
+    color:#66717f;
+
+    margin-bottom:19px;
+}
+
+.eyebrow span{
+    color:#8be8ff;
+}
+
+/* =========================================
+   MASSIVE TYPOGRAPHY
+========================================= */
+
+h1{
+    position:relative;
+    z-index:4;
+
+    font-family:"Manrope",sans-serif;
+
+    text-align:center;
 
     font-size:
         clamp(
-            48px,
+            47px,
             14vw,
-            82px
+            76px
         );
 
     line-height:.91;
 
-    letter-spacing:-4px;
+    letter-spacing:-4.2px;
 
-    font-weight:600;
-
-    position:relative;
-    z-index:2;
+    font-weight:800;
 }
 
-.title-line{
+.line{
     display:block;
 }
 
-.title-muted{
-    color:#6e7784;
+.line-one{
+    color:#f7f9fc;
 }
 
-.title-gradient{
+.line-two{
+    color:#636c78;
+}
+
+.line-three{
     background:
         linear-gradient(
             100deg,
-            #fff 10%,
-            #9eeaff 48%,
-            #628dff 90%
+            #ffffff 5%,
+            #a9edff 45%,
+            #5b8cff 95%
         );
 
     -webkit-background-clip:text;
@@ -271,779 +433,100 @@ body:before{
     color:transparent;
 }
 
-/* =================================
-   INTRO
-================================= */
-
-.intro{
-    max-width:390px;
-
-    margin-top:30px;
-    margin-left:2px;
-
-    color:#858f9d;
-
-    font-size:13px;
-
-    line-height:1.8;
-}
-
-/* =================================
-   LOGO FLOAT
-================================= */
-
-.logo-float{
-    position:absolute;
-
-    right:10px;
-    top:46%;
-
-    transform:translateY(-50%);
-
-    width:112px;
-    height:112px;
-
-    border-radius:50%;
-
-    padding:4px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(92,218,255,.9),
-            rgba(70,113,255,.25),
-            rgba(117,104,255,.7)
-        );
-
-    box-shadow:
-        0 0 50px rgba(48,164,255,.15);
-}
-
-.logo-float:before{
-    content:"";
-
-    position:absolute;
-    inset:-14px;
-
-    border-radius:50%;
-
-    border:1px solid rgba(82,201,255,.12);
-
-    animation:pulse 3s ease-in-out infinite;
-}
-
-.logo{
-    width:100%;
-    height:100%;
-
-    border-radius:50%;
-
-    object-fit:cover;
-
-    background:#090c11;
-
-    border:4px solid #05070a;
-
-    position:relative;
-    z-index:2;
-}
-
-@keyframes pulse{
-
-    0%,100%{
-        transform:scale(.95);
-        opacity:.4;
-    }
-
-    50%{
-        transform:scale(1.05);
-        opacity:1;
-    }
-}
-
-/* =================================
-   SCROLL INDICATOR
-================================= */
-
-.scroll{
-    display:flex;
-    align-items:center;
-    gap:12px;
-
-    margin-top:55px;
-
-    color:#4e5865;
-
-    font-size:8px;
-    letter-spacing:1.5px;
-    text-transform:uppercase;
-}
-
-.scroll-line{
-    width:38px;
-    height:1px;
-
-    background:#313944;
-}
-
-/* =================================
-   SECOND SECTION
-================================= */
-
-.info{
-    padding:
-        15px 2px
-        120px;
-}
-
-.info-label{
-    color:#697483;
-
-    font-size:9px;
-    letter-spacing:2px;
-
-    text-transform:uppercase;
-
-    margin-bottom:18px;
-}
-
-.info-title{
-    font-family:"Space Grotesk",sans-serif;
-
-    font-size:27px;
-
-    line-height:1.15;
-
-    letter-spacing:-1px;
-
-    max-width:390px;
-}
-
-.info-title span{
-    color:#6d7886;
-}
-
-/* =================================
-   MINIMAL ITEMS
-================================= */
-
-.items{
-    margin-top:40px;
-
-    border-top:
-        1px solid
-        rgba(255,255,255,.07);
-}
-
-.item{
-    min-height:76px;
-
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-
-    border-bottom:
-        1px solid
-        rgba(255,255,255,.07);
-
-    transition:.25s ease;
-}
-
-.item:hover{
-    padding-left:8px;
-}
-
-.item-left{
-    display:flex;
-    align-items:center;
-    gap:15px;
-}
-
-.item-number{
-    color:#39414d;
-
-    font-family:"Space Grotesk",sans-serif;
-
-    font-size:10px;
-}
-
-.item-name{
-    font-size:12px;
-    font-weight:600;
-
-    color:#dce3eb;
-}
-
-.item-desc{
-    font-size:9px;
-    color:#626d7c;
-
-    margin-top:3px;
-}
-
-.item-arrow{
-    width:28px;
-    height:28px;
-
-    border-radius:50%;
-
-    display:grid;
-    place-items:center;
-
-    color:#78ddff;
-
-    border:
-        1px solid
-        rgba(85,211,255,.12);
-
-    background:
-        rgba(85,211,255,.035);
-}
-
-/* =================================
-   CTA SECTION
-================================= */
-
-.cta-section{
-    position:relative;
+/* =========================================
+   DESCRIPTION
+========================================= */
+
+.description{
+    max-width:365px;
 
     margin:
-        0 0
-        20px;
+        25px auto
+        0;
 
-    padding:25px;
+    text-align:center;
 
-    min-height:250px;
+    color:#727c89;
 
-    border-radius:30px;
+    font-size:12px;
 
-    overflow:hidden;
-
-    background:
-        radial-gradient(
-            circle at 85% 20%,
-            rgba(67,172,255,.18),
-            transparent 32%
-        ),
-        linear-gradient(
-            145deg,
-            #0d121a,
-            #07090d
-        );
-
-    border:
-        1px solid
-        rgba(255,255,255,.08);
-
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
+    line-height:1.85;
 }
 
-/* glowing circle */
+/* =========================================
+   MICRO INFORMATION
+========================================= */
 
-.cta-section:after{
-    content:"";
+.micro{
+    display:flex;
+    align-items:center;
+    justify-content:center;
 
-    position:absolute;
+    gap:18px;
 
-    width:180px;
-    height:180px;
+    margin-top:28px;
+}
 
-    right:-75px;
-    top:-75px;
+.micro-item{
+    display:flex;
+    align-items:center;
+    gap:6px;
+
+    font-size:8px;
+
+    color:#596371;
+
+    letter-spacing:.6px;
+}
+
+.micro-line{
+    width:1px;
+    height:12px;
+
+    background:
+        rgba(255,255,255,.09);
+}
+
+.green{
+    width:5px;
+    height:5px;
 
     border-radius:50%;
 
-    border:1px solid
-        rgba(87,207,255,.16);
+    background:#5be4a4;
 
     box-shadow:
-        0 0 70px
-        rgba(55,170,255,.08);
+        0 0 9px #5be4a4;
 }
 
-.cta-small{
-    color:#657080;
+/* =========================================
+   FLOATING CTA
+========================================= */
 
-    font-size:9px;
-
-    letter-spacing:1.8px;
-
-    text-transform:uppercase;
-}
-
-.cta-title{
+.cta-zone{
     position:relative;
-    z-index:2;
 
-    font-family:"Space Grotesk",sans-serif;
+    margin-top:28px;
 
-    font-size:32px;
-
-    line-height:1.05;
-
-    letter-spacing:-1.5px;
+    z-index:8;
 }
 
-.cta-title span{
-    color:#6d7887;
-}
-
-.cta-button{
+.cta{
     position:relative;
-    z-index:3;
+
+    width:100%;
+    min-height:66px;
 
     display:flex;
     align-items:center;
     justify-content:space-between;
 
-    width:100%;
-
-    min-height:58px;
-
     padding:
-        0 9px
-        0 20px;
+        0 10px
+        0 22px;
 
-    border-radius:16px;
+    border-radius:18px;
 
     text-decoration:none;
 
-    color:#031018;
-
-    font-size:12px;
-    font-weight:800;
-
-    background:
-        linear-gradient(
-            100deg,
-            #7beaff,
-            #3dbfff 50%,
-            #7288ff
-        );
-
-    box-shadow:
-        0 15px 35px
-        rgba(54,177,255,.17),
-
-        inset 0 1px 0
-        rgba(255,255,255,.6);
-
-    transition:.2s ease;
-}
-
-.cta-button:hover{
-    transform:translateY(-2px);
-
-    box-shadow:
-        0 20px 50px
-        rgba(54,177,255,.28);
-}
-
-.cta-arrow{
-    width:40px;
-    height:40px;
-
-    border-radius:12px;
-
-    display:grid;
-    place-items:center;
-
-    background:
-        rgba(0,0,0,.13);
-
-    font-size:18px;
-}
-
-/* =================================
-   FOOTER
-================================= */
-
-footer{
-    text-align:center;
-
-    padding:5px 0 25px;
-
-    color:#343c47;
-
-    font-size:8px;
-
-    letter-spacing:1.4px;
-
-    text-transform:uppercase;
-}
-
-/* =================================
-   MOBILE
-================================= */
-
-@media(max-width:500px){
-
-    .hero{
-        min-height:
-            calc(100vh - 90px);
-
-        padding-top:65px;
-    }
-
-    .hero-number{
-        font-size:150px;
-        right:-15px;
-        top:110px;
-    }
-
-    .logo-float{
-        width:86px;
-        height:86px;
-
-        right:5px;
-        top:38%;
-    }
-
-    .title{
-        font-size:
-            clamp(
-                45px,
-                14vw,
-                70px
-            );
-
-        letter-spacing:-3.5px;
-
-        max-width:95%;
-    }
-
-    .intro{
-        max-width:300px;
-    }
-
-}
-
-@media(max-width:370px){
-
-    .title{
-        font-size:43px;
-    }
-
-    .logo-float{
-        width:76px;
-        height:76px;
-    }
-
-    .cta-title{
-        font-size:28px;
-    }
-
-}
-
-</style>
-</head>
-
-
-<body>
-
-<div class="noise"></div>
-
-
-<div class="container">
-
-
-    <!-- FLOATING NAV -->
-
-    <nav class="nav">
-
-        <div class="nav-brand">
-
-            <span class="nav-mark"></span>
-
-            Official Channel
-
-        </div>
-
-        <div class="nav-right">
-
-            <span class="nav-dot"></span>
-
-            <span class="nav-live">
-                Online
-            </span>
-
-        </div>
-
-    </nav>
-
-
-
-    <!-- HERO -->
-
-    <section class="hero">
-
-        <div class="hero-number">
-            01
-        </div>
-
-
-        <div class="eyebrow">
-
-            <span class="eyebrow-line"></span>
-
-            Welcome to the community
-
-        </div>
-
-
-        <h1 class="title">
-
-            <span class="title-line">
-                Stay
-            </span>
-
-            <span class="title-line title-muted">
-                Connected.
-            </span>
-
-            <span class="title-line title-gradient">
-                Stay Ahead.
-            </span>
-
-        </h1>
-
-
-        <p class="intro">
-
-            One official place for the latest updates,
-            announcements and community information.
-            Simple. Direct. Always connected.
-
-        </p>
-
-
-        <!-- FLOATING LOGO -->
-
-        <div class="logo-float">
-
-            <!-- Replace logo.png with your logo -->
-
-            <img
-                src="logo.png"
-                class="logo"
-                alt="Official Logo"
-            >
-
-        </div>
-
-
-        <div class="scroll">
-
-            <span class="scroll-line"></span>
-
-            Explore below
-
-        </div>
-
-    </section>
-
-
-
-    <!-- INFO -->
-
-    <section class="info">
-
-        <div class="info-label">
-            Inside the channel
-        </div>
-
-
-        <h2 class="info-title">
-
-            Everything important,
-            <span>
-                in one place.
-            </span>
-
-        </h2>
-
-
-        <div class="items">
-
-
-            <div class="item">
-
-                <div class="item-left">
-
-                    <div class="item-number">
-                        01
-                    </div>
-
-                    <div>
-
-                        <div class="item-name">
-                            Latest Updates
-                        </div>
-
-                        <div class="item-desc">
-                            Stay informed with new announcements
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <div class="item-arrow">
-                    →
-                </div>
-
-            </div>
-
-
-
-            <div class="item">
-
-                <div class="item-left">
-
-                    <div class="item-number">
-                        02
-                    </div>
-
-                    <div>
-
-                        <div class="item-name">
-                            Exclusive Content
-                        </div>
-
-                        <div class="item-desc">
-                            Discover new community content
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <div class="item-arrow">
-                    →
-                </div>
-
-            </div>
-
-
-
-            <div class="item">
-
-                <div class="item-left">
-
-                    <div class="item-number">
-                        03
-                    </div>
-
-                    <div>
-
-                        <div class="item-name">
-                            Direct Connection
-                        </div>
-
-                        <div class="item-desc">
-                            Everything delivered in one place
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <div class="item-arrow">
-                    →
-                </div>
-
-            </div>
-
-
-        </div>
-
-    </section>
-
-
-
-    <!-- CTA -->
-
-    <section class="cta-section">
-
-        <div class="cta-small">
-            Official access
-        </div>
-
-
-        <h2 class="cta-title">
-
-            Ready to
-            <span>join?</span>
-
-        </h2>
-
-
-        <!-- CHANGE LINK HERE -->
-
-        <a
-            href="https://t.me/YOUR_CHANNEL"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="cta-button"
-            id="joinButton"
-        >
-
-            <span>
-                JOIN OFFICIAL CHANNEL
-            </span>
-
-            <span class="cta-arrow">
-                →
-            </span>
-
-        </a>
-
-    </section>
-
-
-
-    <footer>
-
-        Official Community · All Rights Reserved
-
-    </footer>
-
-
-</div>
-
-
-
-<script>
-
-const button =
-    document.getElementById("joinButton");
-
-button.addEventListener(
-    "click",
-    function(){
-
-        console.log(
-            "Official channel CTA clicked"
-        );
-
-        /*
-        Meta Pixel later add cheyyali ante:
-
-        fbq('track','Lead');
-
-        ikkada add cheyyachu.
-        */
-
-    }
-);
-
-</script>
-
-
-</body>
-  </html>
+    color:#041018
