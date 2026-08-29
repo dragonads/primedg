@@ -1,25 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1062203143078104');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1062203143078104&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
+<head>
+
+    <!-- =========================
+         META PIXEL
+         ========================= -->
+
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+
+    fbq('init', '1062203143078104');
+    fbq('track', 'PageView');
+    </script>
+
+    <noscript>
+        <img
+            height="1"
+            width="1"
+            style="display:none"
+            src="https://www.facebook.com/tr?id=1062203143078104&ev=PageView&noscript=1"
+        />
+    </noscript>
+
+    <!-- End Meta Pixel Code -->
+
 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Dragon Hub | Official Trading Channel</title>
 
@@ -28,9 +46,18 @@ src="https://www.facebook.com/tr?id=1062203143078104&ev=PageView&noscript=1"
         content="Dragon Hub - Trading updates, market insights and educational information."
     >
 
+
+    <!-- Tailwind -->
+
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <!-- Google Font -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
 
     <link
         rel="preconnect"
@@ -43,13 +70,25 @@ src="https://www.facebook.com/tr?id=1062203143078104&ev=PageView&noscript=1"
         rel="stylesheet"
     >
 
+
     <style>
 
         * {
             box-sizing: border-box;
         }
 
+
+        html,
         body {
+            width: 100%;
+            min-height: 100%;
+        }
+
+
+        body {
+
+            margin: 0;
+
             background-color: #0b0f19;
 
             background-image:
@@ -66,13 +105,25 @@ src="https://www.facebook.com/tr?id=1062203143078104&ev=PageView&noscript=1"
             overflow-x: hidden;
         }
 
+
+        /* =========================
+           CARD GLOW
+           ========================= */
+
         .neon-glow {
+
             box-shadow:
                 0 0 25px rgba(59, 130, 246, 0.6),
                 0 0 50px rgba(147, 51, 234, 0.4);
         }
 
+
+        /* =========================
+           BUTTON
+           ========================= */
+
         .neon-button {
+
             background:
                 linear-gradient(
                     135deg,
@@ -84,22 +135,35 @@ src="https://www.facebook.com/tr?id=1062203143078104&ev=PageView&noscript=1"
                 0 0 20px rgba(0, 198, 255, 0.7),
                 inset 0 0 10px rgba(255, 255, 255, 0.4);
 
-            transition: all 0.3s ease;
+            transition:
+                all 0.3s ease;
         }
 
+
         .neon-button:hover {
+
             box-shadow:
                 0 0 35px rgba(0, 198, 255, 0.9),
                 0 0 60px rgba(0, 114, 255, 0.7);
 
-            transform: translateY(-2px);
+            transform:
+                translateY(-2px);
         }
+
 
         .neon-button:active {
-            transform: scale(0.98);
+
+            transform:
+                scale(0.98);
         }
 
+
+        /* =========================
+           AVATAR RING
+           ========================= */
+
         .avatar-ring {
+
             background:
                 conic-gradient(
                     from 0deg,
@@ -113,7 +177,9 @@ src="https://www.facebook.com/tr?id=1062203143078104&ev=PageView&noscript=1"
                 spin 4s linear infinite;
         }
 
+
         @keyframes spin {
+
             0% {
                 transform: rotate(0deg);
             }
@@ -123,7 +189,13 @@ src="https://www.facebook.com/tr?id=1062203143078104&ev=PageView&noscript=1"
             }
         }
 
+
+        /* =========================
+           PROFILE IMAGE
+           ========================= */
+
         .profile-image {
+
             width: 100%;
             height: 100%;
 
@@ -131,6 +203,36 @@ src="https://www.facebook.com/tr?id=1062203143078104&ev=PageView&noscript=1"
             object-position: center;
 
             border-radius: 9999px;
+
+            display: block;
+        }
+
+
+        /* =========================
+           TITLE
+           ========================= */
+
+        .dragon-title {
+
+            text-shadow:
+                0 0 18px rgba(79, 130, 255, 0.15);
+        }
+
+
+        /* =========================
+           MOBILE
+           ========================= */
+
+        @media (max-width: 400px) {
+
+            .main-card {
+                padding: 22px !important;
+            }
+
+            .title-text {
+                font-size: 30px !important;
+            }
+
         }
 
     </style>
@@ -141,10 +243,13 @@ src="https://www.facebook.com/tr?id=1062203143078104&ev=PageView&noscript=1"
 <body class="flex items-center justify-center p-4">
 
 
-    <!-- MAIN CARD -->
+    <!-- =====================================
+         MAIN CARD
+         ===================================== -->
 
     <div
         class="
+        main-card
         w-full
         max-w-md
         bg-[#13182b]/95
@@ -163,7 +268,7 @@ src="https://www.facebook.com/tr?id=1062203143078104&ev=PageView&noscript=1"
     >
 
 
-        <!-- AMBIENT GLOW -->
+        <!-- Ambient Blue Glow -->
 
         <div
             class="
@@ -180,6 +285,8 @@ src="https://www.facebook.com/tr?id=1062203143078104&ev=PageView&noscript=1"
         ></div>
 
 
+        <!-- Ambient Purple Glow -->
+
         <div
             class="
             absolute
@@ -195,10 +302,14 @@ src="https://www.facebook.com/tr?id=1062203143078104&ev=PageView&noscript=1"
         ></div>
 
 
+        <!-- Content -->
+
         <div class="relative z-10">
 
 
-            <!-- PROFILE IMAGE -->
+            <!-- =====================================
+                 PROFILE IMAGE
+                 ===================================== -->
 
             <div
                 class="
@@ -210,7 +321,8 @@ src="https://www.facebook.com/tr?id=1062203143078104&ev=PageView&noscript=1"
                 "
             >
 
-                <!-- Animated Ring -->
+
+                <!-- Animated Neon Ring -->
 
                 <div
                     class="
@@ -234,7 +346,7 @@ src="https://www.facebook.com/tr?id=1062203143078104&ev=PageView&noscript=1"
                 </div>
 
 
-                <!-- ACTUAL IMAGE -->
+                <!-- Actual Uploaded Image -->
 
                 <div
                     class="
@@ -260,7 +372,7 @@ src="https://www.facebook.com/tr?id=1062203143078104&ev=PageView&noscript=1"
                 </div>
 
 
-                <!-- VERIFIED BADGE -->
+                <!-- Verified Badge -->
 
                 <div
                     class="
@@ -297,7 +409,9 @@ src="https://www.facebook.com/tr?id=1062203143078104&ev=PageView&noscript=1"
             </div>
 
 
-            <!-- BADGE -->
+            <!-- =====================================
+                 TOP BADGE
+                 ===================================== -->
 
             <div
                 class="
@@ -345,10 +459,14 @@ src="https://www.facebook.com/tr?id=1062203143078104&ev=PageView&noscript=1"
             </div>
 
 
-            <!-- TITLE -->
+            <!-- =====================================
+                 TITLE
+                 ===================================== -->
 
             <h1
                 class="
+                title-text
+                dragon-title
                 text-3xl
                 md:text-4xl
                 font-black
@@ -369,7 +487,7 @@ src="https://www.facebook.com/tr?id=1062203143078104&ev=PageView&noscript=1"
             </h1>
 
 
-            <!-- BRAND LINE -->
+            <!-- Brand Line -->
 
             <div
                 class="
@@ -386,7 +504,9 @@ src="https://www.facebook.com/tr?id=1062203143078104&ev=PageView&noscript=1"
             </div>
 
 
-            <!-- SUBTITLE -->
+            <!-- =====================================
+                 DESCRIPTION
+                 ===================================== -->
 
             <p
                 class="
@@ -419,7 +539,9 @@ src="https://www.facebook.com/tr?id=1062203143078104&ev=PageView&noscript=1"
             </p>
 
 
-            <!-- INFO ROW -->
+            <!-- =====================================
+                 INFO / STATS
+                 ===================================== -->
 
             <div
                 class="
@@ -439,6 +561,9 @@ src="https://www.facebook.com/tr?id=1062203143078104&ev=PageView&noscript=1"
                 border-slate-800
                 "
             >
+
+
+                <!-- First -->
 
                 <div
                     class="
@@ -466,6 +591,8 @@ src="https://www.facebook.com/tr?id=1062203143078104&ev=PageView&noscript=1"
                 </div>
 
 
+                <!-- Divider -->
+
                 <div
                     class="
                     w-px
@@ -474,6 +601,8 @@ src="https://www.facebook.com/tr?id=1062203143078104&ev=PageView&noscript=1"
                     "
                 ></div>
 
+
+                <!-- Second -->
 
                 <div
                     class="
@@ -503,7 +632,9 @@ src="https://www.facebook.com/tr?id=1062203143078104&ev=PageView&noscript=1"
             </div>
 
 
-            <!-- JOIN CHANNEL -->
+            <!-- =====================================
+                 TELEGRAM CTA
+                 ===================================== -->
 
             <a
                 href="https://t.me/+rcU1nqNlF6tjYTI9"
@@ -529,7 +660,8 @@ src="https://www.facebook.com/tr?id=1062203143078104&ev=PageView&noscript=1"
                 "
             >
 
-                <!-- TELEGRAM ICON -->
+
+                <!-- Telegram Icon -->
 
                 <svg
                     class="
@@ -544,7 +676,7 @@ src="https://www.facebook.com/tr?id=1062203143078104&ev=PageView&noscript=1"
 
                     <path
                         d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-1.99 1.27-5.62 3.73-.53.36-1.01.54-1.44.53-.47-.01-1.38-.26-2.06-.48-.83-.27-1.49-.42-1.43-.88.03-.24.37-.49 1.02-.75 3.98-1.73 6.64-2.87 7.98-3.44 3.8-1.59 4.59-1.87 5.1-1.88.11 0 .37.03.54.17.14.12.18.28.2.45-.02.07-.02.13-.04.23z"
-                    />
+                    ></path>
 
                 </svg>
 
@@ -556,7 +688,9 @@ src="https://www.facebook.com/tr?id=1062203143078104&ev=PageView&noscript=1"
             </a>
 
 
-            <!-- SMALL TEXT -->
+            <!-- =====================================
+                 SUPPORTING TEXT
+                 ===================================== -->
 
             <p
                 class="
@@ -573,7 +707,9 @@ src="https://www.facebook.com/tr?id=1062203143078104&ev=PageView&noscript=1"
             </p>
 
 
-            <!-- DISCLAIMER -->
+            <!-- =====================================
+                 DISCLAIMER
+                 ===================================== -->
 
             <p
                 class="
@@ -593,7 +729,9 @@ src="https://www.facebook.com/tr?id=1062203143078104&ev=PageView&noscript=1"
             </p>
 
 
-            <!-- FOOTER -->
+            <!-- =====================================
+                 FOOTER
+                 ===================================== -->
 
             <p
                 class="
@@ -612,28 +750,26 @@ src="https://www.facebook.com/tr?id=1062203143078104&ev=PageView&noscript=1"
     </div>
 
 
-    <!-- =========================
-         SUBSCRIBE FUNCTION
-         =========================
-         
-         Pixel code is NOT included.
-         Add your Pixel later if required.
-    -->
+    <!-- =====================================
+         SUBSCRIBE TRACKING
+         ===================================== -->
 
     <script>
 
         function trackSubscribe() {
 
-            /*
-             * Meta Pixel intentionally not included.
-             * This function is kept ready for later tracking.
-             */
+            if (typeof fbq === "function") {
 
-            console.log("Subscribe clicked");
+                fbq(
+                    "track",
+                    "Subscribe"
+                );
+
+            }
 
         }
 
     </script>
 
 </body>
-              </html>
+</html>
