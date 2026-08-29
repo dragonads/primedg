@@ -1,966 +1,593 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>DRAGON HUB — Official Trading Community</title>
+  <title>Dragon Hub | Official Channel</title>
 
-<meta name="description"
-content="DRAGON HUB — Trading updates, market insights and educational content.">
+  <meta
+    name="description"
+    content="Join the official Dragon Hub channel for updates, information and community content."
+  >
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
 
-<style>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-/* =====================================================
-   RESET
-===================================================== */
+    html {
+      scroll-behavior: smooth;
+    }
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    min-height:100vh;
-    overflow-x:hidden;
-
-    font-family:"Inter",Arial,sans-serif;
-
-    color:#f1f7f8;
-
-    background:
+    body {
+      font-family: "Inter", sans-serif;
+      min-height: 100vh;
+      background:
         radial-gradient(
-            circle at 50% 5%,
-            rgba(22,148,130,.30),
-            transparent 34%
+          circle at 50% 0%,
+          rgba(0, 190, 255, 0.16),
+          transparent 35%
         ),
         radial-gradient(
-            circle at 100% 65%,
-            rgba(45,94,180,.16),
-            transparent 30%
+          circle at 0% 100%,
+          rgba(0, 255, 200, 0.08),
+          transparent 30%
         ),
-        radial-gradient(
-            circle at 0% 85%,
-            rgba(15,160,190,.12),
-            transparent 30%
+        #05070c;
+
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Background grid */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+
+      background:
+        linear-gradient(
+          rgba(255,255,255,0.015) 1px,
+          transparent 1px
         ),
         linear-gradient(
-            145deg,
-            #061a23 0%,
-            #07131c 48%,
-            #02070d 100%
+          90deg,
+          rgba(255,255,255,0.015) 1px,
+          transparent 1px
         );
 
-    display:flex;
-    justify-content:center;
+      background-size: 45px 45px;
 
-    padding:26px 13px 30px;
-}
+      mask-image: linear-gradient(
+        to bottom,
+        black,
+        transparent
+      );
 
+      -webkit-mask-image: linear-gradient(
+        to bottom,
+        black,
+        transparent
+      );
+    }
 
-/* =====================================================
-   PAGE
-===================================================== */
+    /* Glow */
+    .glow {
+      position: fixed;
+      pointer-events: none;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.15;
+      z-index: 0;
+    }
 
-.page{
-    width:100%;
-    max-width:590px;
-}
+    .glow-one {
+      width: 240px;
+      height: 240px;
+      background: #00d9ff;
+      top: -100px;
+      left: -100px;
+    }
 
+    .glow-two {
+      width: 220px;
+      height: 220px;
+      background: #0066ff;
+      right: -100px;
+      bottom: -80px;
+    }
 
-/* =====================================================
-   BACKGROUND EFFECT
-===================================================== */
+    .container {
+      width: min(100% - 32px, 520px);
+      margin: auto;
+      position: relative;
+      z-index: 2;
+    }
 
-body::before{
-    content:"";
+    .hero {
+      min-height: 100vh;
 
-    position:fixed;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-    width:360px;
-    height:360px;
+      padding: 40px 0;
+    }
 
-    left:50%;
-    top:-170px;
+    /* Main Card */
+    .card {
+      width: 100%;
 
-    transform:translateX(-50%);
+      padding: 34px 24px 28px;
 
-    border-radius:50%;
+      border-radius: 28px;
 
-    background:
-        radial-gradient(
-            circle,
-            rgba(50,226,191,.13),
-            transparent 68%
-        );
-
-    filter:blur(20px);
-
-    pointer-events:none;
-}
-
-
-/* =====================================================
-   MAIN CARD
-===================================================== */
-
-.card{
-    position:relative;
-
-    width:100%;
-
-    padding:
-        46px 30px
-        35px;
-
-    border-radius:30px;
-
-    overflow:hidden;
-
-    background:
+      background:
         linear-gradient(
-            145deg,
-            rgba(30,66,73,.58),
-            rgba(7,22,31,.78)
+          145deg,
+          rgba(255,255,255,0.075),
+          rgba(255,255,255,0.025)
         );
 
-    border:
-        1px solid
-        rgba(154,226,218,.15);
+      border: 1px solid rgba(255,255,255,0.10);
 
-    box-shadow:
-        0 35px 100px
-        rgba(0,0,0,.48),
+      box-shadow:
+        0 30px 80px rgba(0,0,0,0.55),
+        0 0 60px rgba(0,180,255,0.07);
 
-        inset 0 1px 0
-        rgba(255,255,255,.045);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
 
-    backdrop-filter:blur(25px);
-    -webkit-backdrop-filter:blur(25px);
-}
+      text-align: center;
+    }
 
+    /* Official badge */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
 
-/* Card glow */
+      padding: 8px 15px;
 
-.card::before{
-    content:"";
+      border-radius: 999px;
 
-    position:absolute;
+      background: rgba(0,200,255,0.08);
 
-    width:280px;
-    height:280px;
+      border: 1px solid rgba(0,200,255,0.22);
 
-    top:-180px;
-    left:50%;
+      color: #bdefff;
 
-    transform:translateX(-50%);
+      font-size: 12px;
+      font-weight: 700;
 
-    border-radius:50%;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
 
-    background:
-        radial-gradient(
-            circle,
-            rgba(39,222,183,.14),
-            transparent 68%
-        );
+      box-shadow:
+        0 0 22px rgba(0,200,255,0.08);
+    }
 
-    pointer-events:none;
-}
+    .badge-dot {
+      width: 7px;
+      height: 7px;
 
+      border-radius: 50%;
 
-/* =====================================================
-   CATEGORY
-===================================================== */
+      background: #00e5ff;
 
-.category{
-    position:relative;
-    z-index:2;
+      box-shadow:
+        0 0 12px #00e5ff;
+    }
 
-    width:max-content;
-    max-width:100%;
+    /* Logo */
+    .logo-wrap {
+      width: 142px;
+      height: 142px;
 
-    margin:
-        0 auto
-        29px;
+      margin: 26px auto 22px;
 
-    padding:
-        9px 15px;
+      padding: 5px;
 
-    border-radius:100px;
+      border-radius: 50%;
 
-    color:#8de1d0;
-
-    background:
-        rgba(31,182,148,.11);
-
-    border:
-        1px solid
-        rgba(62,221,185,.14);
-
-    font-size:11px;
-
-    font-weight:600;
-
-    letter-spacing:.25px;
-}
-
-
-/* =====================================================
-   LOGO
-===================================================== */
-
-.logo-wrap{
-    position:relative;
-
-    width:136px;
-    height:136px;
-
-    margin:
-        0 auto
-        27px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-}
-
-
-.logo-wrap::before{
-    content:"";
-
-    position:absolute;
-
-    inset:-9px;
-
-    border-radius:50%;
-
-    border:
-        1px solid
-        rgba(64,224,190,.22);
-
-    box-shadow:
-        0 0 40px
-        rgba(36,210,171,.11);
-}
-
-
-.logo-wrap::after{
-    content:"";
-
-    position:absolute;
-
-    inset:-22px;
-
-    border-radius:50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(38,214,177,.10),
-            transparent 66%
-        );
-
-    z-index:-1;
-}
-
-
-.logo{
-    width:124px;
-    height:124px;
-
-    object-fit:cover;
-
-    border-radius:50%;
-
-    background:#06131a;
-
-    border:
-        3px solid
-        rgba(255,255,255,.08);
-
-    box-shadow:
-        0 18px 55px
-        rgba(0,0,0,.45),
-
-        0 0 45px
-        rgba(42,202,171,.10);
-}
-
-
-/* =====================================================
-   CHANNEL NAME
-===================================================== */
-
-h1{
-    position:relative;
-    z-index:2;
-
-    text-align:center;
-
-    font-size:
-        clamp(
-            30px,
-            8vw,
-            40px
-        );
-
-    line-height:1.1;
-
-    letter-spacing:-1.3px;
-
-    font-weight:800;
-
-    color:#f2f7f8;
-}
-
-
-/* =====================================================
-   DESCRIPTION
-===================================================== */
-
-.description{
-    position:relative;
-    z-index:2;
-
-    max-width:430px;
-
-    margin:
-        15px auto
-        0;
-
-    text-align:center;
-
-    color:#a3b4b9;
-
-    font-size:13px;
-
-    line-height:1.7;
-}
-
-
-/* =====================================================
-   MINI FEATURES
-===================================================== */
-
-.mini-features{
-    display:flex;
-
-    justify-content:center;
-    align-items:center;
-
-    gap:13px;
-
-    margin-top:22px;
-
-    color:#75878e;
-
-    font-size:9px;
-}
-
-.mini-item{
-    display:flex;
-    align-items:center;
-    gap:5px;
-}
-
-.mini-dot{
-    width:5px;
-    height:5px;
-
-    border-radius:50%;
-
-    background:#45d9b2;
-
-    box-shadow:
-        0 0 9px
-        rgba(69,217,178,.8);
-}
-
-.mini-divider{
-    width:1px;
-    height:12px;
-
-    background:
-        rgba(255,255,255,.10);
-}
-
-
-/* =====================================================
-   COUNTDOWN
-===================================================== */
-
-.countdown{
-    margin-top:37px;
-
-    text-align:center;
-
-    color:#c7d4d7;
-
-    font-size:12px;
-
-    font-weight:600;
-
-    letter-spacing:.2px;
-}
-
-.countdown span{
-    display:inline-block;
-
-    min-width:45px;
-
-    margin-left:5px;
-
-    color:#42dfb5;
-
-    font-size:21px;
-
-    font-weight:800;
-}
-
-
-/* =====================================================
-   CTA
-===================================================== */
-
-.cta{
-    position:relative;
-
-    width:100%;
-
-    min-height:65px;
-
-    margin-top:21px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    gap:10px;
-
-    border-radius:17px;
-
-    text-decoration:none;
-
-    color:#031510;
-
-    background:
+      background:
         linear-gradient(
-            105deg,
-            #27cfa4 0%,
-            #3fe0b2 55%,
-            #51d9ca 100%
+          135deg,
+          #00d9ff,
+          #087eff,
+          #00f0c8
         );
 
-    font-size:15px;
+      box-shadow:
+        0 0 25px rgba(0,210,255,0.35),
+        0 0 65px rgba(0,150,255,0.15);
+    }
 
-    font-weight:800;
+    .logo-wrap img {
+      width: 100%;
+      height: 100%;
 
-    box-shadow:
-        0 17px 50px
-        rgba(32,211,166,.22),
+      display: block;
 
-        inset 0 1px 0
-        rgba(255,255,255,.32);
+      object-fit: cover;
 
-    transition:
-        transform .2s ease,
-        box-shadow .2s ease;
-}
+      border-radius: 50%;
 
-.cta:hover{
-    transform:translateY(-3px);
+      background: #090c12;
+    }
 
-    box-shadow:
-        0 23px 60px
-        rgba(32,211,166,.31);
-}
+    /* Title */
+    h1 {
+      font-size: clamp(30px, 8vw, 46px);
 
-.cta:active{
-    transform:scale(.985);
-}
+      line-height: 1.05;
 
+      font-weight: 800;
 
-/* Telegram icon */
+      letter-spacing: -1.5px;
 
-.telegram-icon{
-    width:27px;
-    height:27px;
+      margin-bottom: 13px;
 
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    border-radius:50%;
-
-    background:
-        rgba(0,0,0,.13);
-
-    font-size:14px;
-}
-
-
-/* =====================================================
-   SUPPORT TEXT
-===================================================== */
-
-.support{
-    max-width:390px;
-
-    margin:
-        23px auto
-        0;
-
-    text-align:center;
-
-    color:#81939a;
-
-    font-size:11px;
-
-    line-height:1.65;
-}
-
-
-/* =====================================================
-   DIVIDER
-===================================================== */
-
-.divider{
-    width:100%;
-    height:1px;
-
-    margin:
-        29px 0
-        24px;
-
-    background:
+      background:
         linear-gradient(
-            90deg,
-            transparent,
-            rgba(157,222,216,.12),
-            transparent
+          90deg,
+          #ffffff,
+          #a9efff,
+          #ffffff
         );
-}
 
+      -webkit-background-clip: text;
+      background-clip: text;
 
-/* =====================================================
-   INFO ROWS
-===================================================== */
+      color: transparent;
 
-.info{
-    display:grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
-    gap:8px;
-
-    margin-bottom:25px;
-}
-
-.info-box{
-    min-height:72px;
-
-    display:flex;
-    flex-direction:column;
-
-    align-items:center;
-    justify-content:center;
-
-    text-align:center;
-
-    border-radius:15px;
-
-    background:
-        rgba(255,255,255,.025);
-
-    border:
-        1px solid
-        rgba(255,255,255,.055);
-}
-
-.info-value{
-    color:#dce8ea;
-
-    font-size:13px;
-
-    font-weight:700;
-}
-
-.info-label{
-    margin-top:5px;
-
-    color:#63757c;
-
-    font-size:8px;
-
-    letter-spacing:.3px;
-}
-
-
-/* =====================================================
-   DISCLAIMER
-===================================================== */
-
-.disclaimer{
-    text-align:center;
-
-    color:#71848a;
-
-    font-size:10px;
-
-    line-height:1.75;
-}
-
-.disclaimer strong{
-    color:#94a8ad;
-
-    font-weight:600;
-}
-
-
-/* =====================================================
-   FOOTER
-===================================================== */
-
-.footer{
-    text-align:center;
-
-    margin-top:18px;
-
-    color:#50626a;
-
-    font-size:8px;
-
-    letter-spacing:1.4px;
-
-    text-transform:uppercase;
-}
-
-
-/* =====================================================
-   MOBILE
-===================================================== */
-
-@media(max-width:430px){
-
-    body{
-        padding:
-            17px 9px
-            24px;
+      text-shadow:
+        0 0 30px rgba(0,220,255,0.12);
     }
 
-    .card{
-        padding:
-            38px 20px
-            29px;
+    .subtitle {
+      max-width: 410px;
 
-        border-radius:26px;
+      margin: 0 auto;
+
+      color: #aeb8c7;
+
+      font-size: 15px;
+
+      line-height: 1.7;
     }
 
-    .category{
-        font-size:10px;
-        margin-bottom:26px;
+    /* Divider */
+    .divider {
+      width: 70px;
+      height: 2px;
+
+      margin: 25px auto;
+
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          #00d9ff,
+          transparent
+        );
+
+      box-shadow:
+        0 0 15px rgba(0,217,255,0.7);
     }
 
-    .logo-wrap{
-        width:121px;
-        height:121px;
+    /* Feature boxes */
+    .features {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 9px;
+
+      margin: 24px 0;
     }
 
-    .logo{
-        width:110px;
-        height:110px;
+    .feature {
+      padding: 14px 7px;
+
+      border-radius: 15px;
+
+      background:
+        rgba(255,255,255,0.035);
+
+      border:
+        1px solid rgba(255,255,255,0.07);
     }
 
-    h1{
-        font-size:30px;
+    .feature strong {
+      display: block;
+
+      font-size: 13px;
+
+      color: #fff;
+
+      margin-bottom: 5px;
     }
 
-    .description{
-        font-size:12px;
+    .feature span {
+      font-size: 10px;
+
+      color: #8e99aa;
     }
 
-    .cta{
-        min-height:62px;
-        font-size:14px;
+    /* CTA */
+    .cta {
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      gap: 10px;
+
+      width: 100%;
+
+      min-height: 64px;
+
+      padding: 16px 22px;
+
+      border-radius: 17px;
+
+      border:
+        1px solid rgba(0,224,255,0.45);
+
+      background:
+        linear-gradient(
+          135deg,
+          #00cfff,
+          #087eff
+        );
+
+      color: #fff;
+
+      text-decoration: none;
+
+      font-size: 16px;
+
+      font-weight: 800;
+
+      letter-spacing: 0.2px;
+
+      box-shadow:
+        0 12px 35px rgba(0,160,255,0.22),
+        inset 0 1px 0 rgba(255,255,255,0.25);
+
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        filter 0.2s ease;
     }
 
-    .info-value{
-        font-size:12px;
+    .cta:hover {
+      transform: translateY(-2px);
+
+      filter: brightness(1.08);
+
+      box-shadow:
+        0 16px 45px rgba(0,180,255,0.35),
+        0 0 30px rgba(0,200,255,0.18);
     }
 
-}
-
-@media(max-width:350px){
-
-    .card{
-        padding-left:16px;
-        padding-right:16px;
+    .cta:active {
+      transform: scale(0.98);
     }
 
-    h1{
-        font-size:27px;
+    .telegram-icon {
+      width: 24px;
+      height: 24px;
+
+      display: inline-flex;
+
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 50%;
+
+      background:
+        rgba(255,255,255,0.18);
+
+      font-size: 13px;
     }
 
-    .mini-features{
-        gap:8px;
-        font-size:8px;
+    .note {
+      margin-top: 17px;
+
+      color: #778294;
+
+      font-size: 11px;
+
+      line-height: 1.6;
     }
 
-    .info-box{
-        min-height:66px;
+    /* Footer */
+    .footer {
+      margin-top: 25px;
+
+      padding-top: 18px;
+
+      border-top:
+        1px solid rgba(255,255,255,0.06);
+
+      color: #697384;
+
+      font-size: 10px;
+
+      line-height: 1.6;
     }
 
-}
+    /* Mobile */
+    @media (max-width: 420px) {
 
-</style>
+      .hero {
+        padding: 25px 0;
+      }
+
+      .card {
+        padding: 28px 18px 23px;
+
+        border-radius: 24px;
+      }
+
+      .logo-wrap {
+        width: 125px;
+        height: 125px;
+      }
+
+      .features {
+        gap: 6px;
+      }
+
+      .feature {
+        padding: 12px 5px;
+      }
+    }
+
+    /* Logo floating animation */
+    @media (prefers-reduced-motion: no-preference) {
+
+      .logo-wrap {
+        animation:
+          floating 4s ease-in-out infinite;
+      }
+
+      @keyframes floating {
+
+        0%, 100% {
+          transform: translateY(0);
+        }
+
+        50% {
+          transform: translateY(-5px);
+        }
+
+      }
+
+    }
+  </style>
 </head>
-
 
 <body>
 
+  <div class="glow glow-one"></div>
+  <div class="glow glow-two"></div>
 
-<div class="page">
+  <main class="hero">
 
+    <div class="container">
 
-    <main class="card">
+      <section class="card">
 
-
-        <!-- CATEGORY -->
-
-        <div class="category">
-            📈 Trading Updates &amp; Insights
+        <!-- Official Badge -->
+        <div class="badge">
+          <span class="badge-dot"></span>
+          Official Channel
         </div>
 
-
-        <!-- LOGO -->
-
-        <!-- Put your logo file as logo.png -->
-
+        <!-- Logo -->
         <div class="logo-wrap">
-
-            <img
-                src="IMG_20260829_213831_937.jpg"
-                alt="DRAGON HUB"
-                class="logo"
-            >
-
+          <img
+            src="IMG_20260829_214824_735.jpg"
+            alt="Dragon Hub"
+          >
         </div>
 
+        <!-- Channel Name -->
+        <h1>Dragon Hub</h1>
 
-        <!-- CHANNEL NAME -->
-
-        <h1>
-            DRAGON HUB
-        </h1>
-
-
-        <!-- DESCRIPTION -->
-
-        <p class="description">
-            Market Insights • Trading Education •
-            Community Driven
+        <p class="subtitle">
+          Stay connected with the official Dragon Hub channel
+          for updates, information and community content.
         </p>
-
-
-        <!-- MINI INFO -->
-
-        <div class="mini-features">
-
-            <div class="mini-item">
-                <span class="mini-dot"></span>
-                Active Community
-            </div>
-
-            <span class="mini-divider"></span>
-
-            <div class="mini-item">
-                5K+ Members
-            </div>
-
-        </div>
-
-
-        <!-- COUNTDOWN -->
-
-        <div class="countdown">
-
-            FREE JOINING ENDS IN
-
-            <span id="timer">46s</span>
-
-        </div>
-
-
-        <!-- DIRECT TELEGRAM BUTTON -->
-
-        <a
-            class="cta"
-            href="https://t.me/+rcU1nqNlF6tjYTI9"
-            target="_blank"
-            rel="noopener noreferrer"
-            id="joinButton"
-        >
-
-            Subscribe Free
-
-            <span class="telegram-icon">
-                ➤
-            </span>
-
-        </a>
-
-
-        <!-- SUPPORT -->
-
-        <p class="support">
-            Stay informed with trading insights,
-            market commentary and educational content
-            shared with our community.
-        </p>
-
 
         <div class="divider"></div>
 
+        <!-- Features -->
+        <div class="features">
 
-        <!-- INFO -->
+          <div class="feature">
+            <strong>Official</strong>
+            <span>Official Channel</span>
+          </div>
 
-        <div class="info">
+          <div class="feature">
+            <strong>Updates</strong>
+            <span>Latest Information</span>
+          </div>
 
-            <div class="info-box">
-
-                <div class="info-value">
-                    FREE
-                </div>
-
-                <div class="info-label">
-                    ACCESS
-                </div>
-
-            </div>
-
-
-            <div class="info-box">
-
-                <div class="info-value">
-                    5K+
-                </div>
-
-                <div class="info-label">
-                    MEMBERS
-                </div>
-
-            </div>
-
-
-            <div class="info-box">
-
-                <div class="info-value">
-                    LIVE
-                </div>
-
-                <div class="info-label">
-                    COMMUNITY
-                </div>
-
-            </div>
+          <div class="feature">
+            <strong>Community</strong>
+            <span>Stay Connected</span>
+          </div>
 
         </div>
 
+        <!-- CTA -->
+        <a
+          class="cta"
+          href="https://t.me/+rcU1nqNlF6tjYTI9"
+          target="_blank"
+          rel="noopener noreferrer"
+          onclick="trackSubscribe()"
+        >
+          <span class="telegram-icon">➤</span>
+          Join Dragon Hub
+        </a>
 
-        <!-- DISCLAIMER -->
-
-        <p class="disclaimer">
-
-            <strong>Disclaimer:</strong>
-            DRAGON HUB provides trading-related
-            educational content, market commentary
-            and general information. No profits or
-            financial outcomes are guaranteed.
-            Trading involves risk. Please conduct
-            your own research before making financial
-            decisions.
-
+        <p class="note">
+          Click the button above to access the official Telegram channel.
         </p>
 
+        <div class="footer">
+          © 2026 Dragon Hub. All rights reserved.
+        </div>
 
-    </main>
+      </section>
 
-
-    <div class="footer">
-        DRAGON HUB · OFFICIAL COMMUNITY
     </div>
 
-
-</div>
-
+  </main>
 
 
-<script>
+  <!-- Subscribe Tracking -->
+  <script>
 
-/* =====================================================
-   COUNTDOWN
-===================================================== */
+    function trackSubscribe() {
 
-let seconds = 46;
+      /*
+       * Only Subscribe event is tracked.
+       * Lead event is NOT used.
+       *
+       * Add your Meta Pixel base code separately.
+       */
 
-const timer =
-    document.getElementById("timer");
+      if (typeof fbq === "function") {
 
-const countdown =
-    setInterval(function(){
+        fbq("track", "Subscribe");
 
-        seconds--;
+      }
 
-        if(seconds <= 0){
+      console.log("Subscribe event fired");
 
-            seconds = 0;
+    }
 
-            clearInterval(countdown);
-
-        }
-
-        timer.textContent =
-            seconds + "s";
-
-    },1000);
-
-
-/* =====================================================
-   CTA TRACKING
-===================================================== */
-
-const joinButton =
-    document.getElementById("joinButton");
-
-joinButton.addEventListener("click",function(){
-
-    console.log(
-        "DRAGON HUB Telegram button clicked"
-    );
-
-    /*
-      Meta Pixel later add cheyyali ante:
-
-      fbq('track','Lead');
-
-      ikkada add cheyyachu.
-    */
-
-});
-
-</script>
-
+  </script>
 
 </body>
 </html>
