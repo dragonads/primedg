@@ -8,7 +8,7 @@
 
   <meta
     name="description"
-    content="Join the official Dragon Hub channel for updates, information and community content."
+    content="Dragon Hub - Updates, insights and community information."
   >
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,31 +26,36 @@
       box-sizing: border-box;
     }
 
-    html {
-      scroll-behavior: smooth;
+    html,
+    body {
+      width: 100%;
+      min-height: 100%;
     }
 
     body {
-      font-family: "Inter", sans-serif;
-      min-height: 100vh;
+      font-family: "Inter", Arial, sans-serif;
+      color: #f2f5f5;
+      overflow-x: hidden;
+
       background:
         radial-gradient(
-          circle at 50% 0%,
-          rgba(0, 190, 255, 0.16),
-          transparent 35%
+          circle at 50% 25%,
+          rgba(16, 101, 87, 0.35),
+          transparent 38%
         ),
         radial-gradient(
-          circle at 0% 100%,
-          rgba(0, 255, 200, 0.08),
-          transparent 30%
+          circle at 15% 70%,
+          rgba(8, 52, 67, 0.32),
+          transparent 40%
         ),
-        #05070c;
-
-      color: #fff;
-      overflow-x: hidden;
+        linear-gradient(
+          145deg,
+          #061923 0%,
+          #062c2d 48%,
+          #061323 100%
+        );
     }
 
-    /* Background grid */
     body::before {
       content: "";
       position: fixed;
@@ -58,166 +63,85 @@
       pointer-events: none;
 
       background:
-        linear-gradient(
-          rgba(255,255,255,0.015) 1px,
-          transparent 1px
-        ),
-        linear-gradient(
-          90deg,
-          rgba(255,255,255,0.015) 1px,
-          transparent 1px
+        radial-gradient(
+          circle at 50% 45%,
+          rgba(31, 196, 109, 0.08),
+          transparent 34%
         );
-
-      background-size: 45px 45px;
-
-      mask-image: linear-gradient(
-        to bottom,
-        black,
-        transparent
-      );
-
-      -webkit-mask-image: linear-gradient(
-        to bottom,
-        black,
-        transparent
-      );
     }
 
-    /* Glow */
-    .glow {
-      position: fixed;
-      pointer-events: none;
-      border-radius: 50%;
-      filter: blur(80px);
-      opacity: 0.15;
-      z-index: 0;
-    }
-
-    .glow-one {
-      width: 240px;
-      height: 240px;
-      background: #00d9ff;
-      top: -100px;
-      left: -100px;
-    }
-
-    .glow-two {
-      width: 220px;
-      height: 220px;
-      background: #0066ff;
-      right: -100px;
-      bottom: -80px;
-    }
-
-    .container {
-      width: min(100% - 32px, 520px);
-      margin: auto;
-      position: relative;
-      z-index: 2;
-    }
-
-    .hero {
+    .page {
       min-height: 100vh;
 
       display: flex;
       align-items: center;
       justify-content: center;
 
-      padding: 40px 0;
+      padding: 42px 16px;
     }
 
-    /* Main Card */
     .card {
       width: 100%;
+      max-width: 610px;
 
-      padding: 34px 24px 28px;
+      padding: 48px 34px 42px;
 
-      border-radius: 28px;
+      border-radius: 42px;
 
       background:
         linear-gradient(
           145deg,
-          rgba(255,255,255,0.075),
-          rgba(255,255,255,0.025)
+          rgba(41, 76, 77, 0.48),
+          rgba(12, 42, 49, 0.43)
         );
 
-      border: 1px solid rgba(255,255,255,0.10);
+      border: 1px solid rgba(170, 211, 207, 0.18);
 
       box-shadow:
-        0 30px 80px rgba(0,0,0,0.55),
-        0 0 60px rgba(0,180,255,0.07);
+        0 35px 100px rgba(0, 0, 0, 0.42),
+        inset 0 1px 0 rgba(255,255,255,0.035);
 
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
 
       text-align: center;
     }
 
-    /* Official badge */
+    /* TOP BADGE */
+
     .badge {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      justify-content: center;
 
-      padding: 8px 15px;
+      min-height: 50px;
 
-      border-radius: 999px;
+      padding: 0 24px;
 
-      background: rgba(0,200,255,0.08);
-
-      border: 1px solid rgba(0,200,255,0.22);
-
-      color: #bdefff;
-
-      font-size: 12px;
-      font-weight: 700;
-
-      letter-spacing: 0.8px;
-      text-transform: uppercase;
-
-      box-shadow:
-        0 0 22px rgba(0,200,255,0.08);
-    }
-
-    .badge-dot {
-      width: 7px;
-      height: 7px;
-
-      border-radius: 50%;
-
-      background: #00e5ff;
-
-      box-shadow:
-        0 0 12px #00e5ff;
-    }
-
-    /* Logo */
-    .logo-wrap {
-      width: 142px;
-      height: 142px;
-
-      margin: 26px auto 22px;
-
-      padding: 5px;
-
-      border-radius: 50%;
+      border-radius: 30px;
 
       background:
-        linear-gradient(
-          135deg,
-          #00d9ff,
-          #087eff,
-          #00f0c8
-        );
+        rgba(26, 158, 92, 0.22);
+
+      border:
+        1px solid rgba(44, 190, 113, 0.10);
+
+      color: #8ee2b0;
+
+      font-size: 17px;
+      font-weight: 500;
 
       box-shadow:
-        0 0 25px rgba(0,210,255,0.35),
-        0 0 65px rgba(0,150,255,0.15);
+        0 0 30px rgba(29, 193, 104, 0.06);
     }
 
-    .logo-wrap img {
-      width: 100%;
-      height: 100%;
+    /* LOGO */
+
+    .logo {
+      width: 158px;
+      height: 158px;
+
+      margin: 27px auto 25px;
 
       display: block;
 
@@ -225,367 +149,394 @@
 
       border-radius: 50%;
 
-      background: #090c12;
+      border: 3px solid rgba(255,255,255,0.09);
+
+      box-shadow:
+        0 10px 35px rgba(0,0,0,0.35),
+        0 0 30px rgba(30,188,105,0.10);
     }
 
-    /* Title */
-    h1 {
-      font-size: clamp(30px, 8vw, 46px);
+    /* TITLE */
 
-      line-height: 1.05;
+    h1 {
+      font-size: 38px;
+
+      line-height: 1.15;
 
       font-weight: 800;
 
-      letter-spacing: -1.5px;
+      letter-spacing: -1px;
 
-      margin-bottom: 13px;
+      margin-bottom: 17px;
 
-      background:
-        linear-gradient(
-          90deg,
-          #ffffff,
-          #a9efff,
-          #ffffff
-        );
-
-      -webkit-background-clip: text;
-      background-clip: text;
-
-      color: transparent;
-
-      text-shadow:
-        0 0 30px rgba(0,220,255,0.12);
+      color: #f5f7f7;
     }
 
-    .subtitle {
-      max-width: 410px;
+    /* DESCRIPTION */
+
+    .description {
+      max-width: 500px;
 
       margin: 0 auto;
 
-      color: #aeb8c7;
+      color: rgba(231,237,237,0.72);
 
-      font-size: 15px;
+      font-size: 19px;
 
-      line-height: 1.7;
+      line-height: 1.45;
+
+      font-weight: 400;
     }
 
-    /* Divider */
-    .divider {
-      width: 70px;
-      height: 2px;
+    /* COUNTDOWN */
 
-      margin: 25px auto;
+    .countdown {
+      margin-top: 46px;
 
-      background:
-        linear-gradient(
-          90deg,
-          transparent,
-          #00d9ff,
-          transparent
-        );
+      font-size: 20px;
 
-      box-shadow:
-        0 0 15px rgba(0,217,255,0.7);
+      color: #e5e9e9;
+
+      font-weight: 500;
     }
 
-    /* Feature boxes */
-    .features {
-      display: grid;
+    .countdown span {
+      color: #54dc8d;
 
-      grid-template-columns:
-        repeat(3, 1fr);
+      font-size: 23px;
 
-      gap: 9px;
+      font-weight: 700;
 
-      margin: 24px 0;
+      text-shadow:
+        0 0 15px rgba(55,222,132,0.25);
     }
 
-    .feature {
-      padding: 14px 7px;
+    /* JOIN BUTTON */
 
-      border-radius: 15px;
+    .subscribe-btn {
+      width: 100%;
+      max-width: 335px;
 
-      background:
-        rgba(255,255,255,0.035);
+      min-height: 78px;
 
-      border:
-        1px solid rgba(255,255,255,0.07);
-    }
+      margin: 31px auto 0;
 
-    .feature strong {
-      display: block;
-
-      font-size: 13px;
-
-      color: #fff;
-
-      margin-bottom: 5px;
-    }
-
-    .feature span {
-      font-size: 10px;
-
-      color: #8e99aa;
-    }
-
-    /* CTA */
-    .cta {
       display: flex;
 
       align-items: center;
       justify-content: center;
 
-      gap: 10px;
+      gap: 13px;
 
-      width: 100%;
+      border: 0;
 
-      min-height: 64px;
-
-      padding: 16px 22px;
-
-      border-radius: 17px;
-
-      border:
-        1px solid rgba(0,224,255,0.45);
+      border-radius: 25px;
 
       background:
         linear-gradient(
           135deg,
-          #00cfff,
-          #087eff
+          #19c95f,
+          #28d76d
         );
 
-      color: #fff;
+      color: #06351b;
 
       text-decoration: none;
 
-      font-size: 16px;
+      font-size: 23px;
 
       font-weight: 800;
 
-      letter-spacing: 0.2px;
-
       box-shadow:
-        0 12px 35px rgba(0,160,255,0.22),
-        inset 0 1px 0 rgba(255,255,255,0.25);
+        0 15px 40px rgba(25,204,94,0.22),
+        0 0 28px rgba(30,211,104,0.12);
 
       transition:
         transform 0.2s ease,
-        box-shadow 0.2s ease,
-        filter 0.2s ease;
+        filter 0.2s ease,
+        box-shadow 0.2s ease;
+
+      cursor: pointer;
     }
 
-    .cta:hover {
+    .subscribe-btn:hover {
       transform: translateY(-2px);
 
-      filter: brightness(1.08);
+      filter: brightness(1.06);
 
       box-shadow:
-        0 16px 45px rgba(0,180,255,0.35),
-        0 0 30px rgba(0,200,255,0.18);
+        0 18px 45px rgba(25,204,94,0.30),
+        0 0 35px rgba(30,211,104,0.18);
     }
 
-    .cta:active {
+    .subscribe-btn:active {
       transform: scale(0.98);
     }
 
-    .telegram-icon {
-      width: 24px;
-      height: 24px;
+    .telegram {
+      width: 30px;
+      height: 30px;
+
+      border-radius: 50%;
 
       display: inline-flex;
 
       align-items: center;
       justify-content: center;
 
-      border-radius: 50%;
+      background: rgba(0,0,0,0.12);
 
-      background:
-        rgba(255,255,255,0.18);
+      color: #073b1d;
 
-      font-size: 13px;
+      font-size: 17px;
+
+      font-weight: 900;
     }
 
-    .note {
-      margin-top: 17px;
+    /* SUPPORTING TEXT */
 
-      color: #778294;
+    .small-text {
+      margin-top: 31px;
 
-      font-size: 11px;
+      color: rgba(222,231,231,0.65);
 
-      line-height: 1.6;
+      font-size: 17px;
+
+      line-height: 1.5;
     }
 
-    /* Footer */
-    .footer {
-      margin-top: 25px;
+    /* DIVIDER */
 
-      padding-top: 18px;
+    .divider {
+      margin: 32px 0 27px;
 
       border-top:
-        1px solid rgba(255,255,255,0.06);
-
-      color: #697384;
-
-      font-size: 10px;
-
-      line-height: 1.6;
+        1px dashed rgba(189,211,211,0.18);
     }
 
-    /* Mobile */
-    @media (max-width: 420px) {
+    /* DISCLAIMER */
 
-      .hero {
-        padding: 25px 0;
+    .disclaimer {
+      color: rgba(224,232,232,0.67);
+
+      font-size: 16px;
+
+      line-height: 1.7;
+
+      font-weight: 400;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 600px) {
+
+      .page {
+        padding: 35px 16px;
       }
 
       .card {
-        padding: 28px 18px 23px;
+        padding: 48px 26px 40px;
 
-        border-radius: 24px;
+        border-radius: 38px;
       }
 
-      .logo-wrap {
-        width: 125px;
-        height: 125px;
+      .badge {
+        min-height: 48px;
+
+        padding: 0 18px;
+
+        font-size: 16px;
       }
 
-      .features {
-        gap: 6px;
+      .logo {
+        width: 145px;
+        height: 145px;
+
+        margin-top: 27px;
       }
 
-      .feature {
-        padding: 12px 5px;
+      h1 {
+        font-size: 34px;
+      }
+
+      .description {
+        font-size: 17px;
+      }
+
+      .countdown {
+        font-size: 18px;
+
+        margin-top: 40px;
+      }
+
+      .countdown span {
+        font-size: 22px;
+      }
+
+      .subscribe-btn {
+        max-width: 320px;
+
+        min-height: 76px;
+
+        font-size: 21px;
+      }
+
+      .small-text {
+        font-size: 15px;
+      }
+
+      .disclaimer {
+        font-size: 14px;
+
+        line-height: 1.65;
       }
     }
 
-    /* Logo floating animation */
-    @media (prefers-reduced-motion: no-preference) {
+    @media (max-width: 390px) {
 
-      .logo-wrap {
-        animation:
-          floating 4s ease-in-out infinite;
+      .card {
+        padding-left: 20px;
+        padding-right: 20px;
       }
 
-      @keyframes floating {
-
-        0%, 100% {
-          transform: translateY(0);
-        }
-
-        50% {
-          transform: translateY(-5px);
-        }
-
+      .logo {
+        width: 130px;
+        height: 130px;
       }
 
+      h1 {
+        font-size: 31px;
+      }
+
+      .description {
+        font-size: 16px;
+      }
+
+      .subscribe-btn {
+        min-height: 70px;
+
+        font-size: 19px;
+      }
     }
   </style>
 </head>
 
 <body>
 
-  <div class="glow glow-one"></div>
-  <div class="glow glow-two"></div>
+  <main class="page">
 
-  <main class="hero">
+    <section class="card">
 
-    <div class="container">
+      <!-- TOP BADGE -->
+      <div class="badge">
+        🏏 Dragon Hub Updates &amp; Insights
+      </div>
 
-      <section class="card">
+      <!-- LOGO -->
+      <img
+        class="logo"
+        src="IMG_20260829_214824_735.jpg"
+        alt="Dragon Hub"
+      >
 
-        <!-- Official Badge -->
-        <div class="badge">
-          <span class="badge-dot"></span>
-          Official Channel
-        </div>
+      <!-- TITLE -->
+      <h1>Dragon Hub</h1>
 
-        <!-- Logo -->
-        <div class="logo-wrap">
-          <img
-            src="IMG_20260829_214824_735.jpg"
-            alt="Dragon Hub"
-          >
-        </div>
+      <!-- DESCRIPTION -->
+      <p class="description">
+        Honest updates • Useful insights • Community driven
+      </p>
 
-        <!-- Channel Name -->
-        <h1>Dragon Hub</h1>
+      <!-- COUNTDOWN -->
+      <div class="countdown">
+        FREE JOINING ENDS IN
+        <span id="timer">46s</span>
+      </div>
 
-        <p class="subtitle">
-          Stay connected with the official Dragon Hub channel
-          for updates, information and community content.
-        </p>
+      <!-- JOIN CHANNEL -->
+      <a
+        href="https://t.me/+rcU1nqNlF6tjYTI9"
+        class="subscribe-btn"
+        id="subscribeButton"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Join Channel
 
-        <div class="divider"></div>
+        <span class="telegram">
+          ➤
+        </span>
+      </a>
 
-        <!-- Features -->
-        <div class="features">
+      <!-- SUPPORTING TEXT -->
+      <p class="small-text">
+        Stay informed with transparent updates and insights
+      </p>
 
-          <div class="feature">
-            <strong>Official</strong>
-            <span>Official Channel</span>
-          </div>
+      <div class="divider"></div>
 
-          <div class="feature">
-            <strong>Updates</strong>
-            <span>Latest Information</span>
-          </div>
+      <!-- DISCLAIMER -->
+      <p class="disclaimer">
+        Disclaimer: This channel shares updates, analysis,
+        and general information for community members.
+        No outcomes are guaranteed. Please verify information
+        independently and act responsibly.
+      </p>
 
-          <div class="feature">
-            <strong>Community</strong>
-            <span>Stay Connected</span>
-          </div>
-
-        </div>
-
-        <!-- CTA -->
-        <a
-          class="cta"
-          href="https://t.me/+rcU1nqNlF6tjYTI9"
-          target="_blank"
-          rel="noopener noreferrer"
-          onclick="trackSubscribe()"
-        >
-          <span class="telegram-icon">➤</span>
-          Join Dragon Hub
-        </a>
-
-        <p class="note">
-          Click the button above to access the official Telegram channel.
-        </p>
-
-        <div class="footer">
-          © 2026 Dragon Hub. All rights reserved.
-        </div>
-
-      </section>
-
-    </div>
+    </section>
 
   </main>
 
 
-  <!-- Subscribe Tracking -->
+  <!-- ==========================================
+       META SUBSCRIBE TRACKING
+       ========================================== -->
+
   <script>
 
-    function trackSubscribe() {
+    /* COUNTDOWN */
 
-      /*
-       * Only Subscribe event is tracked.
-       * Lead event is NOT used.
-       *
-       * Add your Meta Pixel base code separately.
-       */
+    let seconds = 46;
 
-      if (typeof fbq === "function") {
+    const timer = document.getElementById("timer");
 
-        fbq("track", "Subscribe");
+    const countdown = setInterval(function () {
 
+      seconds--;
+
+      if (seconds <= 0) {
+        seconds = 0;
+        clearInterval(countdown);
       }
 
-      console.log("Subscribe event fired");
+      timer.textContent = seconds + "s";
 
-    }
+    }, 1000);
+
+
+    /* SUBSCRIBE EVENT */
+
+    document
+      .getElementById("subscribeButton")
+      .addEventListener("click", function () {
+
+        /*
+          Only Subscribe event.
+          Lead event is NOT used.
+        */
+
+        if (typeof fbq === "function") {
+
+          fbq(
+            "track",
+            "Subscribe"
+          );
+
+        }
+
+        console.log("Subscribe event fired");
+
+      });
 
   </script>
 
