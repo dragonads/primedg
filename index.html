@@ -4,15 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Official Community</title>
+<title>DRAGON HUB — Official Trading Community</title>
 
 <meta name="description"
-content="Join the official community for the latest updates and exclusive content.">
+content="DRAGON HUB — Trading updates, market insights and educational content.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 
@@ -31,197 +31,146 @@ html{
 }
 
 body{
-    background:#030405;
-    color:#f5f8fc;
-    font-family:"Inter",sans-serif;
+    min-height:100vh;
     overflow-x:hidden;
-}
 
-:root{
-    --bg:#030405;
-    --bg2:#070a0f;
+    font-family:"Inter",Arial,sans-serif;
 
-    --white:#f5f8fc;
-    --muted:#7d8795;
-    --dim:#4f5967;
+    color:#f1f7f8;
 
-    --cyan:#59ddff;
-    --blue:#378cff;
-    --violet:#786cff;
+    background:
+        radial-gradient(
+            circle at 50% 5%,
+            rgba(22,148,130,.30),
+            transparent 34%
+        ),
+        radial-gradient(
+            circle at 100% 65%,
+            rgba(45,94,180,.16),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 0% 85%,
+            rgba(15,160,190,.12),
+            transparent 30%
+        ),
+        linear-gradient(
+            145deg,
+            #061a23 0%,
+            #07131c 48%,
+            #02070d 100%
+        );
 
-    --line:rgba(255,255,255,.075);
+    display:flex;
+    justify-content:center;
+
+    padding:26px 13px 30px;
 }
 
 
 /* =====================================================
-   BACKGROUND
+   PAGE
+===================================================== */
+
+.page{
+    width:100%;
+    max-width:590px;
+}
+
+
+/* =====================================================
+   BACKGROUND EFFECT
 ===================================================== */
 
 body::before{
     content:"";
+
     position:fixed;
-    inset:0;
-    z-index:-5;
 
-    background:
-        radial-gradient(
-            circle at 50% 0%,
-            rgba(44,157,255,.16),
-            transparent 30%
-        ),
-        radial-gradient(
-            circle at 100% 45%,
-            rgba(100,82,255,.08),
-            transparent 28%
-        ),
-        radial-gradient(
-            circle at 0% 80%,
-            rgba(0,208,255,.06),
-            transparent 25%
-        );
-}
-
-body::after{
-    content:"";
-    position:fixed;
-    inset:0;
-    z-index:-4;
-    pointer-events:none;
-
-    background:
-        linear-gradient(
-            rgba(255,255,255,.012) 1px,
-            transparent 1px
-        ),
-        linear-gradient(
-            90deg,
-            rgba(255,255,255,.012) 1px,
-            transparent 1px
-        );
-
-    background-size:50px 50px;
-
-    mask-image:
-        linear-gradient(
-            to bottom,
-            black,
-            transparent 90%
-        );
-}
-
-
-/* =====================================================
-   CONTAINER
-===================================================== */
-
-.container{
-    width:min(100%,620px);
-    margin:auto;
-    padding:0 16px;
-}
-
-
-/* =====================================================
-   HEADER
-===================================================== */
-
-header{
-    height:76px;
-
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-
-    position:relative;
-    z-index:20;
-}
-
-.logo-name{
-    display:flex;
-    align-items:center;
-    gap:9px;
-
-    font-size:10px;
-    font-weight:700;
-
-    letter-spacing:1.8px;
-    text-transform:uppercase;
-
-    color:#c0c8d3;
-}
-
-.logo-dot{
-    width:7px;
-    height:7px;
-
-    border-radius:50%;
-
-    background:var(--cyan);
-
-    box-shadow:
-        0 0 14px var(--cyan);
-}
-
-.header-button{
-    padding:8px 13px;
-
-    border:1px solid var(--line);
-
-    border-radius:100px;
-
-    color:#768291;
-
-    font-size:8px;
-
-    text-decoration:none;
-
-    text-transform:uppercase;
-
-    letter-spacing:1px;
-
-    background:
-        rgba(255,255,255,.025);
-
-    backdrop-filter:blur(15px);
-}
-
-
-/* =====================================================
-   HERO
-===================================================== */
-
-.hero{
-    position:relative;
-
-    min-height:760px;
-
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-
-    text-align:center;
-
-    padding:60px 0 70px;
-}
-
-.hero-glow{
-    position:absolute;
-
-    width:380px;
-    height:380px;
+    width:360px;
+    height:360px;
 
     left:50%;
-    top:45%;
+    top:-170px;
 
-    transform:translate(-50%,-50%);
+    transform:translateX(-50%);
 
     border-radius:50%;
 
     background:
         radial-gradient(
             circle,
-            rgba(47,177,255,.12),
+            rgba(50,226,191,.13),
+            transparent 68%
+        );
+
+    filter:blur(20px);
+
+    pointer-events:none;
+}
+
+
+/* =====================================================
+   MAIN CARD
+===================================================== */
+
+.card{
+    position:relative;
+
+    width:100%;
+
+    padding:
+        46px 30px
+        35px;
+
+    border-radius:30px;
+
+    overflow:hidden;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(30,66,73,.58),
+            rgba(7,22,31,.78)
+        );
+
+    border:
+        1px solid
+        rgba(154,226,218,.15);
+
+    box-shadow:
+        0 35px 100px
+        rgba(0,0,0,.48),
+
+        inset 0 1px 0
+        rgba(255,255,255,.045);
+
+    backdrop-filter:blur(25px);
+    -webkit-backdrop-filter:blur(25px);
+}
+
+
+/* Card glow */
+
+.card::before{
+    content:"";
+
+    position:absolute;
+
+    width:280px;
+    height:280px;
+
+    top:-180px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(39,222,183,.14),
             transparent 68%
         );
 
@@ -230,880 +179,452 @@ header{
 
 
 /* =====================================================
-   LOGO
+   CATEGORY
 ===================================================== */
 
-.logo-box{
-    position:relative;
-
-    width:142px;
-    height:142px;
-
-    display:grid;
-    place-items:center;
-
-    margin-bottom:32px;
-}
-
-.logo-ring{
-    position:absolute;
-    inset:0;
-
-    border-radius:50%;
-
-    background:
-        conic-gradient(
-            from 20deg,
-            transparent 0deg,
-            rgba(87,218,255,.9) 70deg,
-            transparent 125deg,
-            rgba(113,105,255,.75) 220deg,
-            transparent 290deg
-        );
-
-    animation:spin 9s linear infinite;
-
-    filter:
-        drop-shadow(
-            0 0 18px
-            rgba(76,202,255,.18)
-        );
-}
-
-.logo-ring::after{
-    content:"";
-
-    position:absolute;
-
-    inset:2px;
-
-    border-radius:50%;
-
-    background:#030507;
-}
-
-.logo{
-    position:relative;
-
-    z-index:3;
-
-    width:112px;
-    height:112px;
-
-    border-radius:50%;
-
-    object-fit:cover;
-
-    background:#080b10;
-
-    border:
-        4px solid
-        #06080c;
-
-    box-shadow:
-        0 25px 80px rgba(0,0,0,.65),
-        0 0 50px rgba(65,190,255,.14);
-}
-
-@keyframes spin{
-    to{
-        transform:rotate(360deg);
-    }
-}
-
-
-/* =====================================================
-   BADGE
-===================================================== */
-
-.badge{
-    display:inline-flex;
-    align-items:center;
-    gap:7px;
-
-    padding:8px 13px;
-
-    border-radius:100px;
-
-    border:
-        1px solid
-        rgba(87,218,255,.14);
-
-    background:
-        rgba(87,218,255,.035);
-
-    color:#8de7ff;
-
-    font-size:8px;
-    font-weight:700;
-
-    letter-spacing:1.7px;
-
-    text-transform:uppercase;
-
-    margin-bottom:20px;
-}
-
-.badge i{
-    width:5px;
-    height:5px;
-
-    border-radius:50%;
-
-    background:var(--cyan);
-
-    box-shadow:
-        0 0 10px var(--cyan);
-}
-
-
-/* =====================================================
-   HERO TITLE
-===================================================== */
-
-.hero h1{
+.category{
     position:relative;
     z-index:2;
 
-    font-family:"Space Grotesk",sans-serif;
-
-    font-size:
-        clamp(
-            45px,
-            13vw,
-            72px
-        );
-
-    line-height:.94;
-
-    letter-spacing:-3.7px;
-
-    font-weight:700;
-
-    max-width:570px;
-}
-
-.hero h1 .line{
-    display:block;
-}
-
-.hero h1 .muted{
-    color:#626c79;
-}
-
-.hero h1 .gradient{
-    background:
-        linear-gradient(
-            100deg,
-            #ffffff 10%,
-            #9eeaff 45%,
-            #678eff 90%
-        );
-
-    -webkit-background-clip:text;
-    background-clip:text;
-
-    color:transparent;
-}
-
-
-/* =====================================================
-   HERO TEXT
-===================================================== */
-
-.hero-text{
-    max-width:410px;
-
-    margin-top:24px;
-
-    color:var(--muted);
-
-    font-size:12px;
-
-    line-height:1.85;
-}
-
-
-/* =====================================================
-   HERO CTA
-===================================================== */
-
-.hero-cta{
-    width:min(100%,390px);
-
-    margin-top:31px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    min-height:62px;
-
-    border-radius:17px;
-
-    text-decoration:none;
-
-    color:#031018;
-
-    font-size:12px;
-    font-weight:800;
-
-    background:
-        linear-gradient(
-            105deg,
-            #7deaff,
-            #3fc1ff 48%,
-            #7184ff
-        );
-
-    box-shadow:
-        0 18px 55px
-        rgba(45,174,255,.22),
-
-        inset 0 1px 0
-        rgba(255,255,255,.6);
-
-    transition:.25s ease;
-}
-
-.hero-cta:hover{
-    transform:translateY(-3px);
-
-    box-shadow:
-        0 24px 70px
-        rgba(45,174,255,.32);
-}
-
-
-/* =====================================================
-   HERO META
-===================================================== */
-
-.hero-meta{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    gap:15px;
-
-    margin-top:17px;
-
-    color:#4e5866;
-
-    font-size:8px;
-
-    letter-spacing:.5px;
-}
-
-.meta-divider{
-    width:1px;
-    height:12px;
-
-    background:#252c35;
-}
-
-.live{
-    display:flex;
-    align-items:center;
-    gap:5px;
-}
-
-.live-dot{
-    width:5px;
-    height:5px;
-
-    border-radius:50%;
-
-    background:#5de6a8;
-
-    box-shadow:
-        0 0 9px #5de6a8;
-}
-
-
-/* =====================================================
-   SECTION COMMON
-===================================================== */
-
-section{
-    position:relative;
-}
-
-.section{
-    padding:100px 0;
-}
-
-.section-label{
-    font-size:8px;
-
-    color:#667180;
-
-    letter-spacing:2.4px;
-
-    text-transform:uppercase;
-
-    margin-bottom:17px;
-}
-
-.section-title{
-    font-family:"Space Grotesk",sans-serif;
-
-    font-size:
-        clamp(
-            29px,
-            8vw,
-            42px
-        );
-
-    line-height:1.05;
-
-    letter-spacing:-1.8px;
-
-    font-weight:600;
-}
-
-.section-title span{
-    color:#626c79;
-}
-
-
-/* =====================================================
-   COMMUNITY INTRO
-===================================================== */
-
-.community-intro{
-    padding-top:50px;
-}
-
-.community-copy{
-    color:#737d8a;
-
-    font-size:12px;
-
-    line-height:1.85;
-
-    max-width:450px;
-
-    margin-top:22px;
-}
-
-
-/* =====================================================
-   BIG VISUAL
-===================================================== */
-
-.visual{
-    margin-top:42px;
-
-    height:360px;
-
-    border-radius:30px;
-
-    position:relative;
-
-    overflow:hidden;
-
-    background:
-        radial-gradient(
-            circle at 50% 45%,
-            rgba(56,190,255,.15),
-            transparent 30%
-        ),
-        linear-gradient(
-            145deg,
-            #0a1018,
-            #040609
-        );
-
-    border:
-        1px solid
-        rgba(255,255,255,.07);
-
-    box-shadow:
-        0 35px 90px
-        rgba(0,0,0,.38);
-}
-
-.visual-grid{
-    position:absolute;
-    inset:0;
-
-    background-image:
-        linear-gradient(
-            rgba(255,255,255,.025) 1px,
-            transparent 1px
-        ),
-        linear-gradient(
-            90deg,
-            rgba(255,255,255,.025) 1px,
-            transparent 1px
-        );
-
-    background-size:38px 38px;
-
-    transform:
-        perspective(400px)
-        rotateX(55deg)
-        scale(1.6);
-
-    transform-origin:center bottom;
-
-    opacity:.45;
-}
-
-.visual-orb{
-    position:absolute;
-
-    width:180px;
-    height:180px;
-
-    left:50%;
-    top:43%;
-
-    transform:translate(-50%,-50%);
-
-    border-radius:50%;
-
-    background:
-        radial-gradient(
-            circle at 35% 30%,
-            rgba(175,245,255,.9),
-            rgba(46,160,255,.22) 28%,
-            rgba(55,90,255,.05) 55%,
-            transparent 70%
-        );
-
-    box-shadow:
-        0 0 100px
-        rgba(55,190,255,.17);
-}
-
-.visual-orbit{
-    position:absolute;
-
-    width:270px;
-    height:90px;
-
-    left:50%;
-    top:43%;
-
-    transform:
-        translate(-50%,-50%)
-        rotate(-20deg);
-
-    border-radius:50%;
-
-    border:
-        1px solid
-        rgba(91,215,255,.22);
-}
-
-.visual-orbit.two{
-    transform:
-        translate(-50%,-50%)
-        rotate(35deg);
-
-    border-color:
-        rgba(116,102,255,.16);
-}
-
-.visual-text{
-    position:absolute;
-
-    bottom:22px;
-    left:23px;
-
-    font-family:"Space Grotesk",sans-serif;
-
-    font-size:9px;
-
-    color:#687585;
-
-    letter-spacing:2px;
-
-    text-transform:uppercase;
-}
-
-
-/* =====================================================
-   FEATURE LIST
-===================================================== */
-
-.features{
-    margin-top:45px;
-}
-
-.feature{
-    display:grid;
-
-    grid-template-columns:
-        42px
-        1fr;
-
-    gap:14px;
+    width:max-content;
+    max-width:100%;
+
+    margin:
+        0 auto
+        29px;
 
     padding:
-        22px 0;
+        9px 15px;
 
-    border-top:
+    border-radius:100px;
+
+    color:#8de1d0;
+
+    background:
+        rgba(31,182,148,.11);
+
+    border:
         1px solid
-        rgba(255,255,255,.07);
-}
+        rgba(62,221,185,.14);
 
-.feature:last-child{
-    border-bottom:
-        1px solid
-        rgba(255,255,255,.07);
-}
+    font-size:11px;
 
-.feature-number{
-    font-family:"Space Grotesk",sans-serif;
+    font-weight:600;
 
-    font-size:9px;
-
-    color:#3e4753;
-
-    padding-top:2px;
-}
-
-.feature h3{
-    font-size:13px;
-
-    color:#e2e8ef;
-
-    font-weight:700;
-
-    margin-bottom:6px;
-}
-
-.feature p{
-    font-size:10px;
-
-    color:#687382;
-
-    line-height:1.65;
-
-    max-width:390px;
+    letter-spacing:.25px;
 }
 
 
 /* =====================================================
-   HOW IT WORKS
+   LOGO
 ===================================================== */
 
-.steps-section{
-    padding-top:75px;
-}
-
-.steps{
-    margin-top:40px;
-
-    display:grid;
-
-    gap:12px;
-}
-
-.step{
+.logo-wrap{
     position:relative;
 
-    min-height:135px;
+    width:136px;
+    height:136px;
 
-    padding:20px;
+    margin:
+        0 auto
+        27px;
 
-    border-radius:22px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(16,22,31,.82),
-            rgba(7,10,15,.72)
-        );
-
-    border:
-        1px solid
-        rgba(255,255,255,.065);
-
-    overflow:hidden;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 }
 
-.step::after{
+
+.logo-wrap::before{
     content:"";
 
     position:absolute;
 
-    width:110px;
-    height:110px;
+    inset:-9px;
 
-    right:-55px;
-    top:-55px;
+    border-radius:50%;
+
+    border:
+        1px solid
+        rgba(64,224,190,.22);
+
+    box-shadow:
+        0 0 40px
+        rgba(36,210,171,.11);
+}
+
+
+.logo-wrap::after{
+    content:"";
+
+    position:absolute;
+
+    inset:-22px;
 
     border-radius:50%;
 
     background:
         radial-gradient(
             circle,
-            rgba(70,194,255,.10),
-            transparent 65%
-        );
-}
-
-.step-num{
-    color:#63dfff;
-
-    font-family:"Space Grotesk",sans-serif;
-
-    font-size:9px;
-
-    letter-spacing:1.5px;
-
-    margin-bottom:25px;
-}
-
-.step h3{
-    font-size:14px;
-
-    color:#e4ebf3;
-
-    margin-bottom:6px;
-}
-
-.step p{
-    color:#687483;
-
-    font-size:9px;
-
-    line-height:1.65;
-
-    max-width:410px;
-}
-
-
-/* =====================================================
-   SOCIAL PROOF
-===================================================== */
-
-.proof{
-    padding:100px 0 85px;
-
-    text-align:center;
-}
-
-.proof-number{
-    font-family:"Space Grotesk",sans-serif;
-
-    font-size:
-        clamp(
-            55px,
-            18vw,
-            90px
+            rgba(38,214,177,.10),
+            transparent 66%
         );
 
-    line-height:1;
-
-    letter-spacing:-5px;
-
-    background:
-        linear-gradient(
-            100deg,
-            #ffffff,
-            #65dfff,
-            #7287ff
-        );
-
-    -webkit-background-clip:text;
-    background-clip:text;
-
-    color:transparent;
-}
-
-.proof-label{
-    color:#66717e;
-
-    font-size:9px;
-
-    letter-spacing:2px;
-
-    text-transform:uppercase;
-
-    margin-top:10px;
-}
-
-.proof-copy{
-    max-width:380px;
-
-    margin:18px auto 0;
-
-    color:#707b89;
-
-    font-size:11px;
-
-    line-height:1.75;
+    z-index:-1;
 }
 
 
-/* =====================================================
-   FINAL CTA
-===================================================== */
+.logo{
+    width:124px;
+    height:124px;
 
-.final{
-    margin-bottom:22px;
-
-    min-height:390px;
-
-    padding:27px;
-
-    border-radius:30px;
-
-    position:relative;
-
-    overflow:hidden;
-
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
-
-    background:
-        radial-gradient(
-            circle at 90% 10%,
-            rgba(60,180,255,.16),
-            transparent 30%
-        ),
-        radial-gradient(
-            circle at 20% 100%,
-            rgba(104,87,255,.08),
-            transparent 30%
-        ),
-        linear-gradient(
-            145deg,
-            #0d131b,
-            #05070a
-        );
-
-    border:
-        1px solid
-        rgba(255,255,255,.08);
-
-    box-shadow:
-        0 30px 90px
-        rgba(0,0,0,.42);
-}
-
-.final::before{
-    content:"";
-
-    position:absolute;
-
-    width:300px;
-    height:300px;
-
-    right:-180px;
-    bottom:-190px;
+    object-fit:cover;
 
     border-radius:50%;
 
+    background:#06131a;
+
     border:
-        1px solid
-        rgba(80,205,255,.12);
+        3px solid
+        rgba(255,255,255,.08);
+
+    box-shadow:
+        0 18px 55px
+        rgba(0,0,0,.45),
+
+        0 0 45px
+        rgba(42,202,171,.10);
 }
 
-.final-label{
-    color:#65717f;
 
-    font-size:8px;
+/* =====================================================
+   CHANNEL NAME
+===================================================== */
 
-    letter-spacing:2px;
-
-    text-transform:uppercase;
-}
-
-.final h2{
+h1{
     position:relative;
     z-index:2;
 
-    font-family:"Space Grotesk",sans-serif;
+    text-align:center;
 
     font-size:
         clamp(
-            35px,
-            11vw,
-            52px
+            30px,
+            8vw,
+            40px
         );
 
-    line-height:.98;
+    line-height:1.1;
 
-    letter-spacing:-2.5px;
+    letter-spacing:-1.3px;
+
+    font-weight:800;
+
+    color:#f2f7f8;
 }
 
-.final h2 span{
-    color:#687382;
-}
 
-.final-button{
+/* =====================================================
+   DESCRIPTION
+===================================================== */
+
+.description{
     position:relative;
-    z-index:5;
+    z-index:2;
+
+    max-width:430px;
+
+    margin:
+        15px auto
+        0;
+
+    text-align:center;
+
+    color:#a3b4b9;
+
+    font-size:13px;
+
+    line-height:1.7;
+}
+
+
+/* =====================================================
+   MINI FEATURES
+===================================================== */
+
+.mini-features{
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    gap:13px;
+
+    margin-top:22px;
+
+    color:#75878e;
+
+    font-size:9px;
+}
+
+.mini-item{
+    display:flex;
+    align-items:center;
+    gap:5px;
+}
+
+.mini-dot{
+    width:5px;
+    height:5px;
+
+    border-radius:50%;
+
+    background:#45d9b2;
+
+    box-shadow:
+        0 0 9px
+        rgba(69,217,178,.8);
+}
+
+.mini-divider{
+    width:1px;
+    height:12px;
+
+    background:
+        rgba(255,255,255,.10);
+}
+
+
+/* =====================================================
+   COUNTDOWN
+===================================================== */
+
+.countdown{
+    margin-top:37px;
+
+    text-align:center;
+
+    color:#c7d4d7;
+
+    font-size:12px;
+
+    font-weight:600;
+
+    letter-spacing:.2px;
+}
+
+.countdown span{
+    display:inline-block;
+
+    min-width:45px;
+
+    margin-left:5px;
+
+    color:#42dfb5;
+
+    font-size:21px;
+
+    font-weight:800;
+}
+
+
+/* =====================================================
+   CTA
+===================================================== */
+
+.cta{
+    position:relative;
 
     width:100%;
 
-    min-height:61px;
+    min-height:65px;
+
+    margin-top:21px;
 
     display:flex;
-
     align-items:center;
-    justify-content:space-between;
+    justify-content:center;
 
-    padding:
-        0 10px
-        0 19px;
+    gap:10px;
 
-    border-radius:16px;
+    border-radius:17px;
 
     text-decoration:none;
 
-    color:#031018;
+    color:#031510;
 
     background:
         linear-gradient(
             105deg,
-            #7deaff,
-            #42c1ff 48%,
-            #7184ff
+            #27cfa4 0%,
+            #3fe0b2 55%,
+            #51d9ca 100%
         );
 
-    font-size:11px;
+    font-size:15px;
 
     font-weight:800;
 
     box-shadow:
-        0 15px 45px
-        rgba(44,173,255,.20),
+        0 17px 50px
+        rgba(32,211,166,.22),
 
         inset 0 1px 0
-        rgba(255,255,255,.6);
+        rgba(255,255,255,.32);
 
-    transition:.25s ease;
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease;
 }
 
-.final-button:hover{
+.cta:hover{
     transform:translateY(-3px);
 
     box-shadow:
-        0 22px 60px
-        rgba(44,173,255,.30);
+        0 23px 60px
+        rgba(32,211,166,.31);
 }
 
-.final-arrow{
-    width:41px;
-    height:41px;
+.cta:active{
+    transform:scale(.985);
+}
 
-    display:grid;
-    place-items:center;
 
-    border-radius:13px;
+/* Telegram icon */
+
+.telegram-icon{
+    width:27px;
+    height:27px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
 
     background:
-        rgba(0,0,0,.12);
+        rgba(0,0,0,.13);
 
-    font-size:17px;
+    font-size:14px;
+}
+
+
+/* =====================================================
+   SUPPORT TEXT
+===================================================== */
+
+.support{
+    max-width:390px;
+
+    margin:
+        23px auto
+        0;
+
+    text-align:center;
+
+    color:#81939a;
+
+    font-size:11px;
+
+    line-height:1.65;
+}
+
+
+/* =====================================================
+   DIVIDER
+===================================================== */
+
+.divider{
+    width:100%;
+    height:1px;
+
+    margin:
+        29px 0
+        24px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(157,222,216,.12),
+            transparent
+        );
+}
+
+
+/* =====================================================
+   INFO ROWS
+===================================================== */
+
+.info{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:8px;
+
+    margin-bottom:25px;
+}
+
+.info-box{
+    min-height:72px;
+
+    display:flex;
+    flex-direction:column;
+
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+
+    border-radius:15px;
+
+    background:
+        rgba(255,255,255,.025);
+
+    border:
+        1px solid
+        rgba(255,255,255,.055);
+}
+
+.info-value{
+    color:#dce8ea;
+
+    font-size:13px;
+
+    font-weight:700;
+}
+
+.info-label{
+    margin-top:5px;
+
+    color:#63757c;
+
+    font-size:8px;
+
+    letter-spacing:.3px;
+}
+
+
+/* =====================================================
+   DISCLAIMER
+===================================================== */
+
+.disclaimer{
+    text-align:center;
+
+    color:#71848a;
+
+    font-size:10px;
+
+    line-height:1.75;
+}
+
+.disclaimer strong{
+    color:#94a8ad;
+
+    font-weight:600;
 }
 
 
@@ -1111,18 +632,16 @@ section{
    FOOTER
 ===================================================== */
 
-footer{
-    padding:
-        12px 0
-        30px;
-
+.footer{
     text-align:center;
 
-    color:#343d49;
+    margin-top:18px;
 
-    font-size:7px;
+    color:#50626a;
 
-    letter-spacing:1.7px;
+    font-size:8px;
+
+    letter-spacing:1.4px;
 
     text-transform:uppercase;
 }
@@ -1134,71 +653,72 @@ footer{
 
 @media(max-width:430px){
 
-    .container{
-        padding-left:14px;
-        padding-right:14px;
+    body{
+        padding:
+            17px 9px
+            24px;
     }
 
-    header{
-        height:68px;
+    .card{
+        padding:
+            38px 20px
+            29px;
+
+        border-radius:26px;
     }
 
-    .hero{
-        min-height:720px;
-        padding-top:40px;
+    .category{
+        font-size:10px;
+        margin-bottom:26px;
     }
 
-    .hero h1{
-        font-size:46px;
-        letter-spacing:-3.4px;
-    }
-
-    .hero-text{
-        max-width:315px;
-    }
-
-    .logo-box{
-        width:125px;
-        height:125px;
-    }
-
-    .logo-ring{
-        width:125px;
-        height:125px;
+    .logo-wrap{
+        width:121px;
+        height:121px;
     }
 
     .logo{
-        width:99px;
-        height:99px;
+        width:110px;
+        height:110px;
     }
 
-    .visual{
-        height:300px;
+    h1{
+        font-size:30px;
     }
 
-    .section{
-        padding:80px 0;
+    .description{
+        font-size:12px;
+    }
+
+    .cta{
+        min-height:62px;
+        font-size:14px;
+    }
+
+    .info-value{
+        font-size:12px;
     }
 
 }
 
-@media(max-width:360px){
+@media(max-width:350px){
 
-    .hero h1{
-        font-size:42px;
-        letter-spacing:-3px;
+    .card{
+        padding-left:16px;
+        padding-right:16px;
     }
 
-    .hero{
-        min-height:690px;
+    h1{
+        font-size:27px;
     }
 
-    .final{
-        padding:23px;
+    .mini-features{
+        gap:8px;
+        font-size:8px;
     }
 
-    .final h2{
-        font-size:34px;
+    .info-box{
+        min-height:66px;
     }
 
 }
@@ -1210,135 +730,237 @@ footer{
 <body>
 
 
-<div class="container">
+<div class="page">
 
 
-    <!-- ================= HEADER ================= -->
+    <main class="card">
 
-    <header>
 
-        <div class="logo-name">
+        <!-- CATEGORY -->
 
-            <span class="logo-dot"></span>
-
-            Official Channel
-
+        <div class="category">
+            📈 Trading Updates &amp; Insights
         </div>
-
-        <a
-            href="#join"
-            class="header-button"
-        >
-            Join
-        </a>
-
-    </header>
-
-
-
-    <!-- ================= HERO ================= -->
-
-    <section class="hero">
-
-        <div class="hero-glow"></div>
 
 
         <!-- LOGO -->
 
-        <div class="logo-box">
+        <!-- Put your logo file as logo.png -->
 
-            <div class="logo-ring"></div>
-
-            <!-- CHANGE TO YOUR LOGO -->
+        <div class="logo-wrap">
 
             <img
                 src="logo.png"
-                alt="Official Logo"
+                alt="DRAGON HUB"
                 class="logo"
             >
 
         </div>
 
 
-        <div class="badge">
+        <!-- CHANNEL NAME -->
 
-            <i></i>
+        <h1>
+            DRAGON HUB
+        </h1>
 
-            Official Community
+
+        <!-- DESCRIPTION -->
+
+        <p class="description">
+            Market Insights • Trading Education •
+            Community Driven
+        </p>
+
+
+        <!-- MINI INFO -->
+
+        <div class="mini-features">
+
+            <div class="mini-item">
+                <span class="mini-dot"></span>
+                Active Community
+            </div>
+
+            <span class="mini-divider"></span>
+
+            <div class="mini-item">
+                5K+ Members
+            </div>
 
         </div>
 
 
-        <h1>
+        <!-- COUNTDOWN -->
 
-            <span class="line">
-                CONNECT.
-            </span>
+        <div class="countdown">
 
-            <span class="line muted">
-                DISCOVER.
-            </span>
+            FREE JOINING ENDS IN
 
-            <span class="line gradient">
-                MOVE FORWARD.
-            </span>
+            <span id="timer">46s</span>
 
-        </h1>
+        </div>
 
 
-        <p class="hero-text">
-
-            Welcome to the official community.
-            Stay connected with the latest updates,
-            announcements and content — all in one place.
-
-        </p>
-
-
-        <!-- CHANGE TELEGRAM LINK -->
+        <!-- DIRECT TELEGRAM BUTTON -->
 
         <a
-            href="https://t.me/YOUR_CHANNEL"
+            class="cta"
+            href="https://t.me/+rcU1nqNlF6tjYTI9"
             target="_blank"
             rel="noopener noreferrer"
-            class="hero-cta"
-            id="heroJoin"
+            id="joinButton"
         >
 
-            ENTER OFFICIAL CHANNEL
+            Subscribe Free
+
+            <span class="telegram-icon">
+                ➤
+            </span>
 
         </a>
 
 
-        <div class="hero-meta">
+        <!-- SUPPORT -->
 
-            <span class="live">
+        <p class="support">
+            Stay informed with trading insights,
+            market commentary and educational content
+            shared with our community.
+        </p>
 
-                <i class="live-dot"></i>
 
-                Active now
+        <div class="divider"></div>
 
-            </span>
 
-            <span class="meta-divider"></span>
+        <!-- INFO -->
 
-            <span>
-                5K+ community
-            </span>
+        <div class="info">
+
+            <div class="info-box">
+
+                <div class="info-value">
+                    FREE
+                </div>
+
+                <div class="info-label">
+                    ACCESS
+                </div>
+
+            </div>
+
+
+            <div class="info-box">
+
+                <div class="info-value">
+                    5K+
+                </div>
+
+                <div class="info-label">
+                    MEMBERS
+                </div>
+
+            </div>
+
+
+            <div class="info-box">
+
+                <div class="info-value">
+                    LIVE
+                </div>
+
+                <div class="info-label">
+                    COMMUNITY
+                </div>
+
+            </div>
 
         </div>
 
-    </section>
+
+        <!-- DISCLAIMER -->
+
+        <p class="disclaimer">
+
+            <strong>Disclaimer:</strong>
+            DRAGON HUB provides trading-related
+            educational content, market commentary
+            and general information. No profits or
+            financial outcomes are guaranteed.
+            Trading involves risk. Please conduct
+            your own research before making financial
+            decisions.
+
+        </p>
+
+
+    </main>
+
+
+    <div class="footer">
+        DRAGON HUB · OFFICIAL COMMUNITY
+    </div>
+
+
+</div>
 
 
 
-    <!-- ================= INTRO ================= -->
+<script>
 
-    <section class="section community-intro">
+/* =====================================================
+   COUNTDOWN
+===================================================== */
 
-        <div class="section-label">
-            The community
-        </div>
+let seconds = 46;
+
+const timer =
+    document.getElementById("timer");
+
+const countdown =
+    setInterval(function(){
+
+        seconds--;
+
+        if(seconds <= 0){
+
+            seconds = 0;
+
+            clearInterval(countdown);
+
+        }
+
+        timer.textContent =
+            seconds + "s";
+
+    },1000);
 
 
-        <
+/* =====================================================
+   CTA TRACKING
+===================================================== */
+
+const joinButton =
+    document.getElementById("joinButton");
+
+joinButton.addEventListener("click",function(){
+
+    console.log(
+        "DRAGON HUB Telegram button clicked"
+    );
+
+    /*
+      Meta Pixel later add cheyyali ante:
+
+      fbq('track','Lead');
+
+      ikkada add cheyyachu.
+    */
+
+});
+
+</script>
+
+
+</body>
+</html>
