@@ -724,28 +724,41 @@
 
 
     <!-- =================================
-         META SUBSCRIBE EVENT
+         SUBSCRIBE TRACKING
          ================================= -->
 
     <script>
 
-        document
-            .getElementById("joinChannel")
-            .addEventListener("click", function () {
+    document.addEventListener("DOMContentLoaded", function () {
 
-                if (typeof fbq === "function") {
+        const joinButton = document.getElementById("joinChannel");
 
-                    fbq(
-                        "track",
-                        "Subscribe"
-                    );
+        if (!joinButton) {
+            return;
+        }
 
-                }
+        joinButton.addEventListener("click", function () {
 
-            });
+            console.log("JOIN CHANNEL CLICKED");
+
+            if (typeof fbq === "function") {
+
+                fbq("track", "Subscribe");
+
+                console.log("SUBSCRIBE EVENT SENT");
+
+            } else {
+
+                console.log("META PIXEL NOT FOUND");
+
+            }
+
+        });
+
+    });
 
     </script>
 
 
 </body>
-                </html>
+                        </html>
